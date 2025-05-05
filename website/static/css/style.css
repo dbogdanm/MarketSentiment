@@ -1,0 +1,209 @@
+/* --- static/css/style.css --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables (Customize Colors Here) --- */
+:root {
+    --bg-color: #111827;               /* Dark Blue/Grey Background */
+    --card-bg-color: #1f2937;          /* Slightly Lighter Card Background */
+    --border-color: #374151;           /* Muted Border/Divider */
+    --primary-text-color: #f9fafb;     /* Very Light Grey (almost white) for main text */
+    --secondary-text-color: #9ca3af;   /* Medium Grey for less important text/labels */
+    --accent-color-vix: #38bdf8;       /* Light Blue (for VIX value) */
+    --accent-color-hover: #374151;     /* Slightly darker grey for table hover */
+    --gauge-neutral: #6b7280;          /* Grey for gauge neutral zone */
+    --gauge-fear: #f59e0b;             /* Orange for gauge fear */
+    --gauge-extreme-fear: #ef4444;     /* Red for gauge extreme fear */
+    --gauge-greed: #84cc16;            /* Light Green for gauge greed */
+    --gauge-extreme-greed: #22c55e;    /* Green for gauge extreme greed */
+
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Subtle Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.08);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.12), 0 2px 4px -2px rgb(0 0 0 / 0.08);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* --- Global Styles & Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    padding: 50px 20px; /* Increased top/bottom padding */
+    display: flex;
+    flex-direction: column; /* Allow footer to naturally fall below */
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Layout Container --- */
+.dashboard-container {
+    background-color: transparent; /* Container itself doesn't need a background */
+    max-width: 850px; /* Wider container */
+    width: 100%;
+    text-align: center; /* Center H1 and Footer */
+}
+
+/* --- Headings --- */
+h1 {
+    font-size: 2.5em; /* Larger H1 */
+    font-weight: 700; /* Bolder H1 */
+    color: #ffffff;
+    margin-bottom: 45px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Shared H2 style for card titles */
+h2 {
+    font-size: 1.3em;
+    font-weight: 600; /* Slightly bolder H2 */
+    color: var(--primary-text-color);
+    margin-bottom: 25px;
+    text-align: left; /* Default left alignment */
+    padding-bottom: 8px; /* Small underline effect */
+    border-bottom: 1px solid var(--border-color); /* Underline card titles */
+}
+
+/* --- Card Styling (Base) --- */
+.card {
+    background-color: var(--card-bg-color);
+    padding: 25px 30px; /* Adjust padding */
+    border-radius: 10px; /* Slightly less rounded */
+    margin-bottom: 35px; /* Increased space between cards */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow */
+    border: 1px solid #2d3748; /* Darker border for subtle definition */
+    text-align: left;
+    overflow: hidden; /* Ensure content stays within rounded corners */
+}
+
+/* --- Specific Card Overrides & Layouts --- */
+
+/* Row for side-by-side Gauge & VIX */
+.metrics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px; /* Increased gap */
+    margin-bottom: 35px; /* Align with card margin */
+}
+
+.metrics-row .card { /* Target cards within the row */
+    flex: 1;
+    min-width: 300px; /* Adjust minimum width */
+    margin-bottom: 0; /* No bottom margin when in flex row */
+    text-align: center; /* Center content in these specific cards */
+}
+
+.metrics-row .card h2 {
+    text-align: center; /* Center titles within these cards */
+    border-bottom: none; /* Remove underline for gauge/vix titles */
+    margin-bottom: 15px; /* Adjust space below title */
+}
+
+/* Keep titles left-aligned for charts and history */
+.charts-card h2, .history-card h2 {
+    text-align: left;
+    border-bottom: 1px solid var(--border-color); /* Keep underline */
+}
+
+/* --- Gauge Specific Styling --- */
+.gauge-container {
+    position: relative;
+    width: clamp(250px, 80%, 300px); /* Responsive width */
+    /* height will be determined by canvas aspect ratio */
+    margin: 15px auto 25px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#fearGreedGauge { display: block; width: 100%; height: auto; } /* Make canvas responsive */
+
+.gauge-value-display {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(2.2em, 6vw, 2.75em); /* Responsive font size */
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+}
+.gauge-labels {
+    display: flex; justify-content: space-between; padding: 0 5px;
+    font-size: 0.7em; color: var(--secondary-text-color); margin-top: -10px;
+}
+.gauge-labels span { flex: 1; text-align: center; padding: 0 2px; }
+.gauge-labels span:first-child { text-align: left; }
+.gauge-labels span:last-child { text-align: right; }
+
+/* --- VIX Specific Styling --- */
+.vix-value {
+    font-size: clamp(2.8em, 8vw, 3.5em); /* Responsive font size */
+    font-weight: 700; color: var(--accent-color-vix); margin: 10px 0 2px 0; line-height: 1.1;
+}
+.vix-description {
+    font-size: 0.85em; color: var(--secondary-text-color); margin-top: 5px; font-weight: 300;
+}
+
+/* --- Charts Specific Styling --- */
+.charts-card { padding-bottom: 15px; }
+.chart-container { position: relative; height: 280px; width: 100%; }
+#fgHistoryChart { margin-bottom: 40px; /* More space between charts */ }
+.chart-container canvas { max-width: 100%; max-height: 100%; }
+
+/* --- History Table Specific Styling --- */
+.history-card { /* Potentially add overflow for wide tables if needed */ }
+.history-table {
+    width: 100%; border-collapse: collapse; margin-top: 10px;
+    color: var(--primary-text-color); font-size: 0.9em;
+}
+.history-table thead { border-bottom: 2px solid var(--border-color); }
+.history-table th {
+    padding: 14px 10px; text-align: center; font-weight: 600;
+    color: var(--secondary-text-color); text-transform: uppercase;
+    letter-spacing: 0.7px; font-size: 0.75em;
+}
+.history-table td {
+    padding: 12px 10px; text-align: center; border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.15s ease-in-out; font-weight: 400;
+}
+.history-table tbody tr:last-child td { border-bottom: none; }
+.history-table tbody tr:hover td { background-color: var(--accent-color-hover); }
+
+/* --- Footer --- */
+.footer {
+    margin-top: 50px; font-size: 0.85em; color: var(--secondary-text-color);
+    border-top: 1px solid var(--border-color); padding-top: 25px; text-align: center; width: 100%;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    body { padding: 30px 15px; }
+    .dashboard-container { max-width: 100%; }
+    .metrics-row { flex-direction: column; gap: 30px; }
+    .metrics-row .card { margin-bottom: 30px; }
+    h1 { font-size: 2em; margin-bottom: 30px; padding-bottom: 15px;}
+    h2 { font-size: 1.2em; margin-bottom: 20px; }
+    .card { padding: 20px; border-radius: 8px; }
+    .chart-container { height: 240px; }
+    .history-table th, .history-table td { padding: 10px 6px; }
+    .footer { margin-top: 30px; padding-top: 20px; }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.7em; }
+    .gauge-labels { font-size: 0.65em; }
+    .history-table { font-size: 0.85em; }
+}
