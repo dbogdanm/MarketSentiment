@@ -304,3 +304,4 @@ if __name__ == "__main__":
 
     end_time = time.time()
     print(f"\nWeb scraping process finished in {end_time - start_time:.2f} seconds.")
+    #abc
