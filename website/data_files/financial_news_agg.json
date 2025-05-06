@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "vix_data": {
     "vix": 24.770000457763672,
@@ -614,4 +615,622 @@
       "source_name": "RSS (Yahoo Finance Market News)"
     }
   ]
+=======
+{
+  "vix_data": {
+    "vix": 24.770000457763672,
+    "timestamp_utc": "2025-05-06T09:34:48+00:00Z"
+  },
+  "articles": [
+    {
+      "title": "Chesapeake Granite Wash Trust declares $0.0294 dividend",
+      "url": "https://seekingalpha.com/news/4441633-chesapeake-granite-wash-trust-declares-0_0294-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:30:26Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "CT Real Estate Investment Trust raises dividend by 2.5% to $0.079",
+      "url": "https://seekingalpha.com/news/4441632-ct-real-estate-investment-trust-raises-dividend-by-25-to-0079?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:28:04Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: AbbVie Inc. (ABBV) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-abbvie-inc-092646464.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:26:46Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "OpenAI to acquire Windsurf for $3bn",
+      "url": "https://finance.yahoo.com/news/openai-acquire-windsurf-3bn-092613432.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:26:13Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Pony AI, Uber ink robotaxi partnership",
+      "url": "https://seekingalpha.com/news/4441624-pony-ai-uber-ink-robotaxi-partnership?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:24:21Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Beyond Risk merges three employee healthcare benefits insurance businesses",
+      "url": "https://finance.yahoo.com/news/beyond-risk-merges-three-employee-092212456.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:22:12Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Sabra Health Care declares $0.30 dividend",
+      "url": "https://seekingalpha.com/news/4441629-sabra-health-care-declares-0_30-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:22:05Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Barbie maker to hike prices on US toys amid Trump tariffs",
+      "url": "https://finance.yahoo.com/news/barbie-maker-hike-prices-us-092201596.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:22:01Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Plant-based coatings for plastics: a sustainable step forward",
+      "url": "https://finance.yahoo.com/news/plant-based-coatings-plastics-sustainable-092151880.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:21:51Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Sun Communities raises dividend by 11% to $1.04, special one-time $4 dividend",
+      "url": "https://seekingalpha.com/news/4441628-sun-communities-raises-dividend-by-11-to-104-special-one-time-4-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:19:34Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Tesla, Inc. (TSLA) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-tesla-inc-091644559.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:16:44Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "DoorDash to buy British food delivery firm Deliveroo for $3.9 billion in overseas push",
+      "url": "https://www.cnbc.com/2025/05/06/doordash-to-buy-uk-food-delivery-firm-deliveroo-in-3point9-billion-deal.html",
+      "summary": "British food delivery firm Deliveroo on Tuesday said it has agreed to a takeover offer from American rival DoorDash that values the company at £2.9 billion.",
+      "timestamp": "2025-05-06T09:16:15Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Why China is in no rush to seek U.S. trade deal",
+      "url": "https://www.marketwatch.com/story/why-china-is-in-no-rush-to-seek-u-s-trade-deal-0fab0eb2?mod=mw_rss_topstories",
+      "summary": "Chinese customs data, highlighted Monday by Robin Brooks of the Brookings Institution, revealed a significant acceleration of Chinese exports to Vietnam and Thailand that most analysts would posit are transshipments to America",
+      "timestamp": "2025-05-06T09:16:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: The Procter & Gamble Company (PG) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-procter-gamble-091517222.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:15:17Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Orexo Q1 2025 slides: stable revenue growth amid pipeline advancements",
+      "url": "https://www.investing.com/news/company-news/orexo-q1-2025-slides-stable-revenue-growth-amid-pipeline-advancements-93CH-4023671",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:14:58Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "ADEIA declares $0.05 dividend",
+      "url": "https://seekingalpha.com/news/4441627-adeia-declares-0_05-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:14:22Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Berkshire Hathaway Inc. (BRK-B) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-berkshire-hathaway-091404621.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:14:04Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Maven Capital retains stake in Xeros Technology after VCT name change",
+      "url": "https://www.investing.com/news/company-news/maven-capital-retains-stake-in-xeros-technology-after-vct-name-change-93CH-4023669",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:13:53Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Mosman advances drilling at Vecta Helium Project in Colorado",
+      "url": "https://www.investing.com/news/company-news/mosman-advances-drilling-at-vecta-helium-project-in-colorado-93CH-4023664",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:12:32Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Johnson & Johnson (JNJ) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-johnson-johnson-091214426.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:12:14Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "CAE launches a new era in airline operations with Flightscape - Powered by CAE",
+      "url": "https://www.investing.com/news/press-releases/cae-launches-a-new-era-in-airline-operations-with-flightscape--powered-by-cae-93CH-4023663",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:12:03Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "PONY AI Inc. and Uber Announce Strategic Partnership to Advance Autonomous Mobility",
+      "url": "https://www.investing.com/news/press-releases/pony-ai-inc-and-uber-announce-strategic-partnership-to-advance-autonomous-mobility-93CH-4023662",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:12:03Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "So-Young to Report First Quarter 2025 Financial Results on May 16, 2025",
+      "url": "https://www.investing.com/news/press-releases/soyoung-to-report-first-quarter-2025-financial-results-on-may-16-2025-93CH-4023661",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:12:03Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Primoris Services declares $0.08 dividend",
+      "url": "https://seekingalpha.com/news/4441626-primoris-services-declares-0_08-dividend?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:11:49Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Instant View: Merz fails to be elected chancellor by German parliament",
+      "url": "https://www.investing.com/news/economy-news/instant-view-merz-fails-to-be-elected-chancellor-by-german-parliament-4023660",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:11:29Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "DoorDash, UK's Deliveroo serve up $3.9 billion deal to take on rivals",
+      "url": "https://www.investing.com/news/stock-market-news/doordash-to-acquire-uks-deliveroo-in-39-billion-deal-4023447",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:10:57Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Proact IT Group Q1 2025 slides: Revenue grows 2% while EBITA declines 16.4%",
+      "url": "https://www.investing.com/news/company-news/proact-it-group-q1-2025-slides-revenue-grows-2-while-ebita-declines-164-93CH-4023659",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:10:53Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Visa Inc. (V) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-visa-inc-091012426.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:10:12Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Tesla U.K. car sales plunge amid rising EV competition",
+      "url": "https://www.investing.com/news/stock-market-news/tesla-uk-car-sales-plunge-amid-rising-ev-competition-4023658",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:10:06Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Germany’s Merz fails to be elected chancellor in shock first-round parliamentary vote",
+      "url": "https://www.cnbc.com/2025/05/06/friedrich-merz-fails-to-be-elected-german-chancellor-in-first-parliamentary-vote.html",
+      "summary": "Friedrich Merz failed to get the majority needed to become German chancellor in a parliamentary vote Tuesday.",
+      "timestamp": "2025-05-06T09:08:53Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: NVIDIA Corporation (NVDA) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-nvidia-corporation-090803784.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:08:03Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "DoorDash, UK's Deliveroo serve up $3.9 billion deal to take on rivals",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcURXaHpJQ0J5eHRJMWJXTzRnaXZuR1NaSlBFWmhhS1lKaDEweTRtZzBMMDhqSm5GbU8yaUEzenVlZUE2eDZ4NXA0djNMb1R2ZXBCU0dNRmxPRE5sb28xWFdZZGdQSTVqS043WnNMbklPUTRBaVNYY2xTRkhfYkZrWGlQXzhUQUFVdkF1QVptdllMbHY4dlhJQlJRVDA?oc=5",
+      "summary": "DoorDash, UK's Deliveroo serve up $3.9 billion deal to take on rivals Reuters",
+      "timestamp": "2025-05-06T09:07:04Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Amazon.com, Inc. (AMZN) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-amazon-com-090550022.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:05:50Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Stocks to Watch Tuesday: Palantir, Ford, UBS, Deliveroo",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-tariffs-trade-war-05-06-2025/card/stocks-to-watch-tuesday-palantir-ford-ubs-deliveroo-EeA3Q8ZLqgg90oGy6FhU?siteid=yhoof2&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:04:33Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Fashion retailer Hugo Boss shares pop 5% on better-than-feared first-quarter sales",
+      "url": "https://www.cnbc.com/2025/05/06/hugo-boss-q1-2025-earnings-tariff-impact.html",
+      "summary": "Shares of Hugo Boss climbed after posting a lower-than-feared decline in first-quarter sales and reiterated its full-year guidance.",
+      "timestamp": "2025-05-06T09:03:29Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Chinese holiday spending inches up but trade war weighs on services",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQRmFETkZER1l3VWhqc3Z2RENvLUFTblhlQmlEX2xCMm9VaEpFUXFZRURybUpVcFhtY3lIeW03U0FiOUVVR0J3aG5mZE8zOF9YaGI2OWQ2WkpJRXN0V3JPeW1hUW1OUkJKMDJXSEpiV2JiaVRua2hIdm9oTHZLbXZzc3d6aEp1Xzd2dFJyWTNrSzg3OFRBNnZhREs0MkdpeTdSOHpSeEM5cnYzZF9UQzh0Tmlsc2J5bm5JSVE?oc=5",
+      "summary": "Chinese holiday spending inches up but trade war weighs on services Reuters",
+      "timestamp": "2025-05-06T09:02:05Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Alphabet Inc. (GOOGL) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-alphabet-inc-090004168.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T09:00:04Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Here’s where Demi Moore gets a good night’s sleep: Her $3.6 million lakeside home in Idaho",
+      "url": "https://www.marketwatch.com/story/heres-where-demi-moore-gets-a-good-nights-sleep-her-3-6-million-lakeside-home-in-idaho-6d338e8a?mod=mw_rss_topstories",
+      "summary": "Moore has a much quieter retreat away from the  hustle and bustle of Los Angeles: a stunning lakehouse in Aspen Lakes, Idaho.",
+      "timestamp": "2025-05-06T09:00:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Warren Buffett offered this timely investment advice after a tumultuous April for equities",
+      "url": "https://www.marketwatch.com/story/warren-buffett-gave-this-timely-investment-advice-at-berkshires-annual-meeting-43ce2f6f?mod=mw_rss_topstories",
+      "summary": "The Berkshire Hathaway CEO had some wise words for investors before announcing that he intends to step down.",
+      "timestamp": "2025-05-06T08:59:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Apple Inc. (AAPL) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-apple-inc-085851600.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T08:58:51Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "ChatGPT Stock Advice: Microsoft Corporation (MSFT) Among Top Stock Recommendations",
+      "url": "https://finance.yahoo.com/news/chatgpt-stock-advice-microsoft-corporation-085745558.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T08:57:45Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Temu and Shein face massive tariffs. But don't count them out of the U.S. e-tail scene, experts say",
+      "url": "https://www.cnbc.com/2025/05/06/temu-shein-face-big-us-tariffs-dont-count-them-out-experts-say.html",
+      "summary": "Despite Temu and Shein facing Trump's high China tariffs, e-commerce experts say they are still capable of competing with rivals in the U.S.",
+      "timestamp": "2025-05-06T08:55:18Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Safe-haven demand lifts gold to 2-week peak, focus on Fed meet",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQSkVLQlpFT3dQVlRtS3RUWDlOM3JYaUgxd1FzWnU2eEFPdXhYR3Vva2hsZFF2U3ZKeEIyU0NDQV9Ncm02a1d1ZC1mODFJSWFJQUdvckVwVEJzd1RnSVFyQ2dqR3JUS1dFVFRsTFRLQjZjOVFTelRVSDZGQXN6UVlHNEZJUjhKUXNsSndrMEtHWDlOX1p1ZEF2aFpwS2xwUkhCaVFNUldmM3V5YmdZclgxVGhUeEVKR3M?oc=5",
+      "summary": "Safe-haven demand lifts gold to 2-week peak, focus on Fed meet Reuters",
+      "timestamp": "2025-05-06T08:53:22Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Why IAMGOLD Corporation (IAG) Soared on Monday",
+      "url": "https://finance.yahoo.com/news/why-iamgold-corporation-iag-soared-085136519.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T08:51:36Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Merz fails to be elected chancellor by German parliament",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdHFMaWtIMU02T0Z4X2MyTlE4a3F3RjF2NFhSYmFEYVNHR0JwbnJreGp5aUNWMHRyaUZhNjJKSDZETE9rSWVXeS1fT1BYU0stNzZ5X1ZGajFTQzhfSHBEaFdNdEI4a19OTi1ZREZCaUExNGhrR1VZV0JmS2pfNFZUclRWbUlDYW5rMVBaeFV0RU54OG84VnVvTVAyZkZLSWVXTGd1WQ?oc=5",
+      "summary": "Merz fails to be elected chancellor by German parliament Reuters",
+      "timestamp": "2025-05-06T08:25:25Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "'Asian crisis in reverse' as currencies soar on the dollar",
+      "url": "https://finance.yahoo.com/news/analysis-asian-crisis-reverse-currencies-081918735.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-06T08:19:18Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Oil climbs over 2% as price drop triggers buying; oversupply worries weigh",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQV2JrcTlsUjFod1VocVFYb0RuOGptUktHSmZ5dlMtMTRBUWFHbHJBLXpzeW44R0hhUzRKbnFlSnItY2hfdVd2eV9nY0NxZ2kySUVMMG9fcW1MaHlmSEEyN253VjZ4MVp2QS1Tc2sxeVBxZ0pZY2pOR3RPNFVpZmV6NnI3YWFJa3BwNEk1TVBLUFRxOGhWVkFwYnRWUEg5OTJKV0dRaTFER2V2ZlJYM3ByVlMzekY?oc=5",
+      "summary": "Oil climbs over 2% as price drop triggers buying; oversupply worries weigh Reuters",
+      "timestamp": "2025-05-06T08:10:47Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "U.S. seeks breakup of Google's ad-tech products after judge finds illegal monopoly",
+      "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxPcUpZYU5kY1ZwakY4LUJhVXZEVG1oSGpZTlhnY1VycG15QlRVdXdTVGZQY3MzWXlITDVEbHBJWUpFZ0NIbjNlR2s0WGl3UlkybnMxQndmLTRtd0RkVkNrQUR4Ry1DVjcydUxVTjQxeUxWaWpxdTJTU3dsUWlUeWFJX094dEtBMHZ5VFdoMVhpMkI3c2hlam5vb2tnUjgyZS10OHBLck5XeXM4MTBENzRhckpnWUk3VjlyaDBsdWcyTl93TUtadTlIMEU5Qk53c1dzUXNDZTdOWWRTdHA3UGtmbUszRllncnM?oc=5",
+      "summary": "U.S. seeks breakup of Google's ad-tech products after judge finds illegal monopoly Reuters",
+      "timestamp": "2025-05-06T08:05:47Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "UN Security Council urges India-Pakistan talks on Kashmir, Islamabad says",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNYzFQWkgtbTRVR0pIWk9wTTlNVmdHRC0xWGsycU5YNnYtVkpEa1RwLVN6S1VvTHZpOVMwNnlwcWxMcDhYVERnVmdCM242TnZNOEZOXy1OV0hyMlhOWmt6MnEweE1EZUtZcEhsdE5hZERtelY2eEp1WGVlTVl5MmJxWWxhSjUxVDBqVjE5TmdqenN2RUd5WE9oQW1kaVlmQ0syQkItN1hHcUdiUzM5WEwwYWhLRnh6TGFSOWdySE51Yk53dw?oc=5",
+      "summary": "UN Security Council urges India-Pakistan talks on Kashmir, Islamabad says Reuters",
+      "timestamp": "2025-05-06T07:48:41Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Conservative leader Merz set to become Germany's chancellor",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPblRTNFctSklPdHU1RWhXVXZZVUZXUGlHdHhGV0ZzZ3ZJQUpyMFJaOFNwSXV3dkEzcjFTTDlWTjU1cXVfTkdMajBFQ1B4b2lDX0UycGQ0d3NsZGxITkdEd2c4S1ZIbFZ6NU1yNmRLN2Z6c1FTZGV0RkJfOEszdTYzQjZwT2xTam9Ic2swalZmM0pialVRczNfQm0wY1pMejJmWHVITDJJMA?oc=5",
+      "summary": "Conservative leader Merz set to become Germany's chancellor Reuters",
+      "timestamp": "2025-05-06T07:10:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "EU to set out plans to halt Russian gas imports by end-2027",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPNnMtV1djUEdwZ185RGJIcGtYc1hva2hCS3d4bFRlcTl5S0RJQmFOdmlrVVJsTFdlY01mMkRwbHRwSzNTWGE4cHJ5TmE0NDNXcVk2NmlmT01NbGYyRk1pcjV0Z0dUMWluc0NZT3ZCMF9SM21KYlE5QXVfNUg4dDRTV2E0bFFHVURaXzVodDJ3SHFpUWRZaUxfS2FOUGJsYnQyV2JtQ2FJZ2syMGhtSFI3RklsWTRqYlhsS0xLag?oc=5",
+      "summary": "EU to set out plans to halt Russian gas imports by end-2027 Reuters",
+      "timestamp": "2025-05-06T07:09:01Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "OpenAI agrees to buy Windsurf for about $3 billion, Bloomberg News reports",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQcnNpVUNnRWxrRFJGakpCYjhCR1hWbWNTMUx3TkF2OGVxTktVSHVCWWxrR1NrXzZZeDJDVTRZOXFWT0ZYSTE2djQtSEkwdGlJQUxjaVJwaE5ZdHdXV21CZkh4bl9DWHF4RlMwUDY1ZmFoOGU3aFU3VEFyajdlNC1qcnN1TldmRGJaT0RvdlhfVzJUdjhzNW00Qmxoc0ZsbmtrLV9pVDhuTXRZU1N4NUZB?oc=5",
+      "summary": "OpenAI agrees to buy Windsurf for about $3 billion, Bloomberg News reports Reuters",
+      "timestamp": "2025-05-06T06:47:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "EU to propose ban on Russian gas imports by end-2027, sources say",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQLXNMRl9QclpsRkNrTlEtUXZ6N2NKNUg5ektqVzFOTGRZemNZZTIwUy1yU2FVbjhMcUxKUlEyc1pYZFNUYmoxdEc2RWNTVGpKNFdOU3IxQTdTSk5JVmtGRjUtRkpEbmlIS1BDSVBTaGdhVTdDbV9LYldFeUFHY21YMGtEZU5sNS1keVhsT0Jpdm83b2JrMFNQZWlQNWVvX21PNkxIQ2Nfa1k2REw2b3c?oc=5",
+      "summary": "EU to propose ban on Russian gas imports by end-2027, sources say Reuters",
+      "timestamp": "2025-05-06T06:11:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "French President Macron to meet Syrian president on Wednesday",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOekxCZVZCVjVJYmhndHpFV3RkOXBzUzU2bkNQTkhUVUxsOUdtc25BUWM0UklXVk9DTUVyb2VIenFzYTRXWFRlTllIZTB1QW1FQ1Y3VElrRUQ2bjQxYTlxeDVnQWVBb0F2SW1CQ3ZNM2pXTUFiMTZFMmxMU2JPQ3A3dXgyRHJlMlBTcUVITEstX1d1YVlVYjZQUi14Zm1sUQ?oc=5",
+      "summary": "French President Macron to meet Syrian president on Wednesday Reuters",
+      "timestamp": "2025-05-06T05:50:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Trump says with lower oil prices, Putin is more eager to settle the Ukraine war",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUW80SFlJLUozcHVjazVlUkNLdy1oTmNNaldLUkliQ3hwMzM3RURYcjdGTGxNUjI2bV81aGdGaXNXel9oZVMxbUNUNW9jSkd2akdsazB1RzU1ZVdLakRLeEkta3pVUGJqUkR0RTZ2YkwwNmoxMlNxcDh3d3FoTWJwelE0ZEJzOW1UeWRocWg0OWFfVEVLZGlWOE9Bd1BZTmwyMHJmVEY3V1Q1cU41VnhsbVRLaDN2dFpJN0xqQUNYeWs?oc=5",
+      "summary": "Trump says with lower oil prices, Putin is more eager to settle the Ukraine war Reuters",
+      "timestamp": "2025-05-06T05:49:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Morning Bid: Dollar selling takes a breather",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOElEa3VTVjhqd0RxSjJtSnNIaVQ3VjFWd091blN1LVotZ3Fha1Z3TUFSbHljajl3VURhNDNva1Z3TnVBOGRaSDNzdW9OVjZ6NmNUZlgzOXlObWhzMFNTVjF4R0NVVzJjakotSkNyb09IWG9IdHhuT2dvY1VZN05KbUgwYw?oc=5",
+      "summary": "Morning Bid: Dollar selling takes a breather Reuters",
+      "timestamp": "2025-05-06T04:51:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "IBM CEO makes play for AI market and more US investment",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOS0JaMnNMZkU0MnptcjBlUDRSOVBxbXBKSEpUekxNSjFqR0U2MzdZT0lEX3htU3RFdHlJTGNQNTR6N1FKUTloRllhTWpsT3l0b1c2ZzlibDVNMFh2WGlXcDNyVEdjdmpLV21lRXhlMlNaLTR0TXpNYVY5REdYS3c3YUliM2V4ZVRRaFNkV3h4TzlUbklTdmtz?oc=5",
+      "summary": "IBM CEO makes play for AI market and more US investment Reuters",
+      "timestamp": "2025-05-06T04:03:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Ukraine targets Moscow with drones for second straight night, officials say",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNjk3SzU5RWJqM0ttOTVFcHRNanlCTFpxVzdnejZXaVFhdXpfamdDcnVPT2dLYU1RbUdXSGNidi1MZEtjeVF0c0RBdG8yaS04S0RWRjFJQ2tjaFBsdUxrUVVjRUd2Q0lhajRFbU5pSnEwaDZlbWFqTjg5eXdCbnJjRHRORFBXdFhGQTBtY2thQnFqYlM2SEVtb0ZFcjBWaWFvTU1kcXlzeHYwYXViS2NBNGJKaGdYSTlOaE9V?oc=5",
+      "summary": "Ukraine targets Moscow with drones for second straight night, officials say Reuters",
+      "timestamp": "2025-05-06T03:21:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Explosions heard in Sudanese city of Port Sudan, witness says",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbnVmSy1VR25qRzBySmVCXzdjSUJXS3VXTXFJbVZfQ1cxdjdSZjlpTzdrbkNrWTUwcjNFSnotMWk1SE9BdHYxV2VwV2hld2tCM0tUbDZtdlhnWlJ1XzFWU3BQelNXTFM2S1FhYzVaZ2NiN3N1SGt2N2xYRzVYcTVqVG0wSjlnMUVNLVg1SmE4N0hZaWc3RjY5WF8wbXpGVUhfMXVmeVY0aXQzUG4wOE5JaC1sWXc?oc=5",
+      "summary": "Explosions heard in Sudanese city of Port Sudan, witness says Reuters",
+      "timestamp": "2025-05-06T03:11:15Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "US Defense Secretary Hegseth to slash senior-most ranks of military",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNcGdhSjdGSjJfSjhKWVFQYVZtdFhHY0drZk9sa0RWbTZrcHRESVBwV3ZrYnpRWG9DVXhzSG1DbGtEYi1vV1BhaDNKY2k0SUxlWWhwVGhOUGxYZndBeFdHVGM5RFduWkZNanBDRjAyT0hqWGJwYV9QNUpxYnZ3NnJlZGYwVW5ZWnNQakEtVFVpVjFwOFlvT18zTFhIeHJEdw?oc=5",
+      "summary": "US Defense Secretary Hegseth to slash senior-most ranks of military Reuters",
+      "timestamp": "2025-05-06T01:31:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Can Trump really put tariffs on films produced abroad? The law says no.",
+      "url": "https://www.marketwatch.com/story/can-president-trump-really-put-tariffs-on-films-produced-abroad-the-law-says-no-2c3ceaf1?mod=mw_rss_topstories",
+      "summary": "A law passed by Congress in 1988 explicitly bars the president from being able to regulate the import and export of films, books and music — something TikTok recently brought up.",
+      "timestamp": "2025-05-06T01:02:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Trump to continue Biden's court defense of abortion drug mifepristone",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNMzE3MnJnUmdvbjdTM3pFblp5bm5KLUo0VHRNUTBzWDY0N2wzN24yV1pZQm4ydTJtRkhzZzd3UncxWFhkTm1LZjJiLUlwYzJNQ3VUdERNY2hSMHhSOWd6UVhPbTlGVjhOZ1dhUnY0ZXEya0ZHX2lCeXppazB4N3h6Nm1rZm9ZN2NhbXNWSXRveUZ4YWRMM0tBOWlHS2x3MmRfdWZRckJVNU4ydGtZY1VaUU5XM2tHQS1yQ1Fsa2d2by1nZkR2blNUTjltSi0td3c?oc=5",
+      "summary": "Trump to continue Biden's court defense of abortion drug mifepristone Reuters",
+      "timestamp": "2025-05-06T00:57:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Why Palantir’s stock is falling even though its earnings were ‘on fire’",
+      "url": "https://www.marketwatch.com/story/why-palantirs-stock-is-falling-even-though-its-earnings-were-on-fire-0352541c?mod=mw_rss_topstories",
+      "summary": "The software company’s upbeat results were already priced into the stock, and growth could slow from here.",
+      "timestamp": "2025-05-06T00:18:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Palantir earnings show ‘ferocious growth’ fueled by AI",
+      "url": "https://www.marketwatch.com/story/palantir-earnings-show-ferocious-growth-but-the-stock-is-dipping-a0958c32?mod=mw_rss_topstories",
+      "summary": "Palantir raises its forecast for the year after posting a revenue beat in the latest quarter.",
+      "timestamp": "2025-05-06T00:15:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Ford puts a number on its profit hit from Trump’s tariffs and halts guidance",
+      "url": "https://www.marketwatch.com/story/ford-puts-a-number-on-its-tariff-hit-and-halts-guidance-a171d656?mod=mw_rss_topstories",
+      "summary": "‘Substantial’ risks lead Ford to pull outlook for the year amid a $1.5 billion hit from tariffs.",
+      "timestamp": "2025-05-06T00:12:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Mattel says zero tariffs on toys are better for a child’s development, as it plans price increases and halts forecast",
+      "url": "https://www.marketwatch.com/story/mattel-halts-outlook-amid-evolving-u-s-tariff-landscape-keeps-buyback-plans-084a07a1?mod=mw_rss_topstories",
+      "summary": "Toy-maker Mattel Inc. on Monday said it plans to raise prices in the U.S. “where necessary” on some toys and take steps to rely less on China for production, while pausing its full-year outlook as it tries to get a handle on the impact of the global trade war.",
+      "timestamp": "2025-05-06T00:11:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Newark air traffic controllers couldn't see or talk to planes, leading to last week's airport meltdown",
+      "url": "https://www.cnbc.com/2025/05/05/air-traffic-controllers-newark-airport-delays.html",
+      "summary": "The FAA said air traffic controllers took time off to recover from the stress of the event.",
+      "timestamp": "2025-05-06T00:03:23Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Stock market today: Dow, S&P 500, Nasdaq futures slide as Wall Street braces for Fed kick-off",
+      "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-slide-as-wall-street-braces-for-fed-kick-off-232527598.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-05T23:25:27Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "My husband and I have $3M and are blessed with 3 children. Are we obliged to give them each $50K for their education?",
+      "url": "https://www.marketwatch.com/story/my-husband-and-i-have-3m-and-are-blessed-with-3-children-are-we-obliged-to-give-them-each-50k-for-their-education-20278fbd?mod=mw_rss_topstories",
+      "summary": "“Do we have an inherent responsibility to support our children with college and perhaps skimp on early retirement?”",
+      "timestamp": "2025-05-05T23:23:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "My friend’s partner is pregnant, but she’s married to another man. Is he financially responsible?",
+      "url": "https://www.marketwatch.com/story/my-friends-partner-is-pregnant-but-shes-married-to-another-man-is-he-financially-responsible-23c73716?mod=mw_rss_topstories",
+      "summary": "“She claimed her husband was cheating on her and stopped paying their mortgage.”",
+      "timestamp": "2025-05-05T23:16:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Ford suspends 2025 guidance amid $2.5 billion tariff impact",
+      "url": "https://www.cnbc.com/2025/05/05/ford-motor-f-earnings-q1-2025.html",
+      "summary": "Ford Motor beat Wall Street's first-quarter expectations, but suspended its 2025 financial guidance amid an expected $2.5 billion impact this year from tariffs.",
+      "timestamp": "2025-05-05T23:01:59Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Here are the SpaceX employees who were elected  to run Musk's new company town of Starbase, Texas",
+      "url": "https://www.cnbc.com/2025/05/05/spacex-employees-were-elected-to-run-new-company-town-starbase-texas.html",
+      "summary": "Elon Musk's SpaceX prevailed in an election over the weekend to turn Starbase into a city that's now led by employees.",
+      "timestamp": "2025-05-05T22:52:44Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Big Four accounting firm PwC to slash about 1,500 jobs in the US",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPVWpuVEVQSkJPeDhndzB0OGxfMFVENGp4aE8xQ040bkV1Sms3ZzZBSHZGMkJtYXdPMVZRR2NVSHFhWkFxd296Q0pvVzBvaWgwSWtuZmt3a1BrOVVuWTd0V1c0Z3NyS0FyYVMwdjJ3MTJFRFRpM2tPR2s2NS1mODhBVk82U3dPN1h2S3dmOVBWcTNkbXdIVUlhTHUwaTh4Q1U?oc=5",
+      "summary": "Big Four accounting firm PwC to slash about 1,500 jobs in the US Reuters",
+      "timestamp": "2025-05-05T22:42:39Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Hinge Health says revenue increased 50% in first quarter — still no price range for IPO",
+      "url": "https://www.cnbc.com/2025/05/05/hinge-health-says-it-had-50percent-revenue-growth-over-last-year-in-first-quarter.html",
+      "summary": "Hinge Health said in its updated IPO prospectus on Monday that revenue in the first quarter climbed 50% to $123.8 million.",
+      "timestamp": "2025-05-05T22:41:16Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Where Trump is likely getting his $1.98 gas price figure",
+      "url": "https://www.cnbc.com/2025/05/05/where-trump-is-likely-getting-his-1point98-gas-price-figure.html",
+      "summary": "U.S. drivers were paying $3.165 per gallon on average Monday, according to the motorist association AAA.",
+      "timestamp": "2025-05-05T22:28:06Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Palantir shares fall as company reports in-line earnings, lifts full-year guidance",
+      "url": "https://www.cnbc.com/2025/05/05/palantir-pltr-q1-earnings-report-2025.html",
+      "summary": "Palantir boosted its guidance for the year on Monday, as net income in the latest quarter more than doubled.",
+      "timestamp": "2025-05-05T22:27:55Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Trump, Jon Voight meeting led to Hollywood tariff proposal, his manager says",
+      "url": "https://www.cnbc.com/2025/05/05/trump-tariff-hollywood-movies.html",
+      "summary": "A White House spokesman said \"no final decision on foreign film tariffs have been made,\" a day after President Trump's announcement of a tariff plan.",
+      "timestamp": "2025-05-05T22:19:02Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Your Social Security card will soon be available digitally. What to know",
+      "url": "https://www.cnbc.com/2025/05/05/social-security-cards-to-go-digital.html",
+      "summary": "The traditional paper Social Security card could give way to a new form of digital identification starting this summer, according to the agency.",
+      "timestamp": "2025-05-05T21:57:05Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Trump signs order to boost domestic drug manufacturing as pharma tariffs loom",
+      "url": "https://www.cnbc.com/2025/05/05/trump-order-us-drug-manufacturing.html",
+      "summary": "The order comes ahead of Trump's planned tariffs on pharmaceuticals imported into the U.S.",
+      "timestamp": "2025-05-05T21:49:19Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Hims & Hers gives weak outlook but says more collaborations are coming",
+      "url": "https://www.cnbc.com/2025/05/05/hims-hers-hims-q1-earnings-2025.html",
+      "summary": "Hims & Hers shares fell in extended trading on Monday after the company reported first-quarter earnings that offered soft guidance.",
+      "timestamp": "2025-05-05T21:47:38Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "From the New Testament to Nixon: Takeaways from Palantir CEO Alex Karp's shareholder letter",
+      "url": "https://www.cnbc.com/2025/05/05/takeaways-from-palantir-ceo-alex-karps-shareholder-letter.html",
+      "summary": "Palantir CEO Alex Karp offered up another batch of colorful commentary to investors as the company posted another strong quarter.",
+      "timestamp": "2025-05-05T21:18:52Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "FanDuel Sports Network touts streaming subscriber growth for regional games",
+      "url": "https://www.cnbc.com/2025/05/05/fanduel-sports-network-touts-streaming-subscriber-growth.html",
+      "summary": "FanDuel Sports Network, the company behind regional channels for 30 NBA, NHL and MLB teams, now counts 650,000 paid streaming subscribers.",
+      "timestamp": "2025-05-05T21:10:39Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "OpenAI says nonprofit will retain control of company, bowing to outside pressure",
+      "url": "https://www.cnbc.com/2025/05/05/openai-says-nonprofit-retain-control-of-company-bowing-to-pressure.html",
+      "summary": "OpenAI will continue to be controlled by a nonprofit as it restructures into a commercial entity, the AI startup said on Monday.",
+      "timestamp": "2025-05-05T20:29:32Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Our 2 best and 2 worst stocks since Trump's 'liberation day' tariff announcement",
+      "url": "https://www.cnbc.com/2025/05/05/our-2-best-and-2-worst-stocks-since-trumps-liberation-day-tariff-announcement.html",
+      "summary": "We're only a few trading days into May — and, thankfully, it's been a lot less volatile than April.",
+      "timestamp": "2025-05-05T20:20:53Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Trump set to raise millions from crypto and meme coin this month",
+      "url": "https://www.cnbc.com/2025/05/05/trump-crypto-memecoin.html",
+      "summary": "About 80% of the $TRUMP token supply is controlled by the Trump Organization and affiliates, according to the project's website.",
+      "timestamp": "2025-05-05T16:58:03Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "How Tesla lost some of its biggest fans",
+      "url": "https://www.cnbc.com/2025/05/05/how-some-of-teslas-biggest-fans-turned-against-it.html",
+      "summary": "Tesla owners and investors once believed the company and CEO Elon Musk were changing the world. Now many are selling their cars and dumping stock.",
+      "timestamp": "2025-05-05T15:08:34Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "These Are The 5 Best Stocks To Buy Now Or Watch",
+      "url": "https://www.investors.com/research/best-stocks-to-buy-now/?src=A00220&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-05T10:49:04Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    }
+  ]
+>>>>>>> origin/main
 }
