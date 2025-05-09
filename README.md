@@ -80,7 +80,7 @@ This project aims to provide a quick overview of the current financial market se
     # OR if you don't have requirements.txt yet:
     # pip install --upgrade psycopg2-binary azure-ai-inference azure-core feedparser newsapi-python yfinance beautifulsoup4 requests flask python-dotenv Chart.js gauge.js # Note: Chart.js/Gauge.js are typically included via CDN in HTML
     ```
-    *(Recommendation: Create a `requirements.txt` file using `pip freeze > requirements.txt` after installing)*
+
 
 4.  **Set Up PostgreSQL Database:**
     *   Install PostgreSQL if you haven't already.
