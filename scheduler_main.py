@@ -1,4 +1,3 @@
-# scheduler_main.py
 import schedule
 import time
 import subprocess

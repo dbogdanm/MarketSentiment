@@ -1,209 +1,265 @@
 /* --- static/css/style.css --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 
-/* --- CSS Variables (Customize Colors Here) --- */
 :root {
-    --bg-color: #111827;               /* Dark Blue/Grey Background */
-    --card-bg-color: #1f2937;          /* Slightly Lighter Card Background */
-    --border-color: #374151;           /* Muted Border/Divider */
-    --primary-text-color: #f9fafb;     /* Very Light Grey (almost white) for main text */
-    --secondary-text-color: #9ca3af;   /* Medium Grey for less important text/labels */
-    --accent-color-vix: #38bdf8;       /* Light Blue (for VIX value) */
-    --accent-color-hover: #374151;     /* Slightly darker grey for table hover */
-    --gauge-neutral: #6b7280;          /* Grey for gauge neutral zone */
-    --gauge-fear: #f59e0b;             /* Orange for gauge fear */
-    --gauge-extreme-fear: #ef4444;     /* Red for gauge extreme fear */
-    --gauge-greed: #84cc16;            /* Light Green for gauge greed */
-    --gauge-extreme-greed: #22c55e;    /* Green for gauge extreme greed */
+    --bg-color-darkest: #0a0a0c;
+    --bg-color-dark: #101014;
+    --card-bg-color: #16181d;
+    --border-color: #2a2d35;
+    --primary-text-color: #e8e8eb;
+    --secondary-text-color: #a0aec0; /* Ajustat pentru lizibilitate */
 
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --accent-blue: #38bdf8;
+    --accent-blue-darker: #0ea5e9;
+    --accent-blue-rgb: 56, 189, 248;
+    --accent-blue-transparent: rgba(56, 189, 248, 0.1);
+    --accent-blue-transparent-stronger: rgba(56, 189, 248, 0.15);
 
-    /* Subtle Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.08);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.12), 0 2px 4px -2px rgb(0 0 0 / 0.08);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.15), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    --accent-gold: #facc15;
+    --accent-green: #22c55e; /* Pentru F&G Chart */
+    --accent-red: #ef4444;
+    --accent-orange: #f59e0b; /* Pentru butonul Refresh All Data */
+    --accent-orange-darker: #d97706;
+
+
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-monospace: 'Roboto Mono', monospace;
+
+    --shadow-card: 0 12px 28px rgba(0, 0, 0, 0.4), 0 4px 10px rgba(0,0,0,0.2);
+    --shadow-interactive-hover: 0 8px 20px rgba(var(--accent-blue-rgb), 0.35);
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius-medium: 12px;
+    --border-radius-small: 8px;
+
+    /* Pentru transparența fundalului textului AI */
+    --bg-color-darkest-rgb: 10, 10, 12;
 }
 
-/* --- Global Styles & Reset --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
 body {
-    font-family: var(--font-sans);
-    background-color: var(--bg-color);
+    font-family: var(--font-primary);
+    background-color: var(--bg-color-darkest);
     color: var(--primary-text-color);
-    line-height: 1.6;
-    padding: 50px 20px; /* Increased top/bottom padding */
+    line-height: 1.7;
+    padding: 50px 20px;
     display: flex;
-    flex-direction: column; /* Allow footer to naturally fall below */
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* --- Layout Container --- */
-.dashboard-container {
-    background-color: transparent; /* Container itself doesn't need a background */
-    max-width: 850px; /* Wider container */
-    width: 100%;
-    text-align: center; /* Center H1 and Footer */
-}
+.dashboard-container { max-width: 950px; width: 100%; text-align: center; }
 
-/* --- Headings --- */
 h1 {
-    font-size: 2.5em; /* Larger H1 */
-    font-weight: 700; /* Bolder H1 */
-    color: #ffffff;
-    margin-bottom: 45px;
-    padding-bottom: 20px;
+    font-size: 2.5em; font-weight: 800; color: #ffffff;
+    margin-bottom: 35px; padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color); letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.35em; font-weight: 600; color: var(--primary-text-color);
+    margin-bottom: 20px; text-align: left; padding-bottom: 10px;
     border-bottom: 1px solid var(--border-color);
 }
 
-/* Shared H2 style for card titles */
-h2 {
-    font-size: 1.3em;
-    font-weight: 600; /* Slightly bolder H2 */
-    color: var(--primary-text-color);
-    margin-bottom: 25px;
-    text-align: left; /* Default left alignment */
-    padding-bottom: 8px; /* Small underline effect */
-    border-bottom: 1px solid var(--border-color); /* Underline card titles */
-}
-
-/* --- Card Styling (Base) --- */
 .card {
-    background-color: var(--card-bg-color);
-    padding: 25px 30px; /* Adjust padding */
-    border-radius: 10px; /* Slightly less rounded */
-    margin-bottom: 35px; /* Increased space between cards */
-    box-shadow: var(--shadow-lg); /* More pronounced shadow */
-    border: 1px solid #2d3748; /* Darker border for subtle definition */
-    text-align: left;
-    overflow: hidden; /* Ensure content stays within rounded corners */
+    background-color: var(--card-bg-color); padding: 25px 30px;
+    border-radius: var(--border-radius-medium); margin-bottom: 30px;
+    box-shadow: var(--shadow-card); border: 1px solid var(--border-color);
+    text-align: left; overflow: hidden;
 }
 
-/* --- Specific Card Overrides & Layouts --- */
+.metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 30px; }
+.metrics-row .card { margin-bottom: 0; text-align: center; }
+.metrics-row .card h2 { text-align: center; border-bottom: none; margin-bottom: 15px; }
 
-/* Row for side-by-side Gauge & VIX */
-.metrics-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 35px; /* Increased gap */
-    margin-bottom: 35px; /* Align with card margin */
-}
-
-.metrics-row .card { /* Target cards within the row */
-    flex: 1;
-    min-width: 300px; /* Adjust minimum width */
-    margin-bottom: 0; /* No bottom margin when in flex row */
-    text-align: center; /* Center content in these specific cards */
+.charts-card h2, .history-card h2, .ai-summary-card h2 {
+    text-align: left; border-bottom: 1px solid var(--border-color);
+    display: flex; align-items: center; /* Pentru aliniere iconițe */
 }
 
-.metrics-row .card h2 {
-    text-align: center; /* Center titles within these cards */
-    border-bottom: none; /* Remove underline for gauge/vix titles */
-    margin-bottom: 15px; /* Adjust space below title */
+/* --- Styling pentru Controale (Filtre și Butoane Acțiune) --- */
+.controls-row {
+    background-color: var(--card-bg-color); padding: 20px 25px;
+    border-radius: var(--border-radius-medium); margin-bottom: 30px;
+    box-shadow: var(--shadow-card); border: 1px solid var(--border-color);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
 }
 
-/* Keep titles left-aligned for charts and history */
-.charts-card h2, .history-card h2 {
-    text-align: left;
-    border-bottom: 1px solid var(--border-color); /* Keep underline */
+#dateFilterForm {
+    display: flex; gap: 15px; align-items: center;
+    flex-grow: 1; min-width: 320px;
+}
+#dateFilterForm label { font-size: 0.85em; margin-bottom: 4px; color: var(--secondary-text-color); display: block; }
+#dateFilterForm input[type="date"] {
+    background-color: var(--bg-color-dark); color: var(--primary-text-color);
+    border: 1px solid var(--border-color); padding: 9px 12px;
+    border-radius: var(--border-radius-small); font-family: var(--font-primary);
+    font-size: 0.9em; outline: none; transition: border-color var(--transition-smooth);
+}
+#dateFilterForm input[type="date"]:focus { border-color: var(--accent-blue); }
+#dateFilterForm input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) brightness(0.9); cursor: pointer; }
+
+/* Stil Comun pentru Butoanele de Acțiune */
+.control-button, .pipeline-button, .export-pdf-button, .export-csv-button {
+    padding: 9px 18px; font-size: 0.9em; font-weight: 500;
+    border: 1px solid var(--border-color); /* Bordură default */
+    border-radius: var(--border-radius-small); cursor: pointer;
+    transition: background-color var(--transition-smooth), color var(--transition-smooth), transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    text-decoration: none; display: inline-block; white-space: nowrap;
+    background-color: var(--bg-color-dark); /* Fundal comun */
+    color: var(--secondary-text-color); /* Culoare text comună */
+}
+.control-button:hover, .pipeline-button:hover, .export-pdf-button:hover, .export-csv-button:hover {
+    background-color: var(--border-color); /* Hover comun */
+    color: var(--primary-text-color);
+    transform: translateY(-1px);
 }
 
-/* --- Gauge Specific Styling --- */
-.gauge-container {
-    position: relative;
-    width: clamp(250px, 80%, 300px); /* Responsive width */
-    /* height will be determined by canvas aspect ratio */
-    margin: 15px auto 25px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#fearGreedGauge { display: block; width: 100%; height: auto; } /* Make canvas responsive */
+.filter-button { background-color: var(--accent-blue); color: #ffffff; border-color: var(--accent-blue); box-shadow: 0 2px 5px rgba(var(--accent-blue-rgb), 0.2); }
+.filter-button:hover { background-color: var(--accent-blue-darker); border-color: var(--accent-blue-darker); box-shadow: 0 4px 10px rgba(var(--accent-blue-rgb), 0.3); }
 
-.gauge-value-display {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: clamp(2.2em, 6vw, 2.75em); /* Responsive font size */
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1;
-}
-.gauge-labels {
-    display: flex; justify-content: space-between; padding: 0 5px;
-    font-size: 0.7em; color: var(--secondary-text-color); margin-top: -10px;
-}
-.gauge-labels span { flex: 1; text-align: center; padding: 0 2px; }
-.gauge-labels span:first-child { text-align: left; }
-.gauge-labels span:last-child { text-align: right; }
+.clear-button { background-color: var(--card-bg-color); color: var(--secondary-text-color); border: 1px solid var(--border-color); }
+.clear-button:hover { background-color: var(--border-color); color: var(--primary-text-color); }
 
-/* --- VIX Specific Styling --- */
-.vix-value {
-    font-size: clamp(2.8em, 8vw, 3.5em); /* Responsive font size */
-    font-weight: 700; color: var(--accent-color-vix); margin: 10px 0 2px 0; line-height: 1.1;
+.pipeline-controls { display: flex; gap: 10px; margin-left: auto; } /* Împinge la dreapta dacă e spațiu */
+.export-buttons { display: flex; gap: 10px; }
+
+/* Stil specific pentru butoanele de export și pipeline pentru a le face similare */
+.export-csv-button, .export-pdf-button, .pipeline-button {
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
 }
-.vix-description {
-    font-size: 0.85em; color: var(--secondary-text-color); margin-top: 5px; font-weight: 300;
+.export-csv-button:hover, .export-pdf-button:hover, .pipeline-button:hover {
+    background-color: var(--accent-blue-transparent-stronger); /* Fundal mai vizibil la hover */
+    color: var(--accent-blue);
 }
 
-/* --- Charts Specific Styling --- */
+.pipeline-button-main { /* Butonul "Refresh All Data" */
+    background-color: var(--accent-orange); color: #ffffff; border-color: var(--accent-orange);
+}
+.pipeline-button-main:hover { background-color: var(--accent-orange-darker); border-color: var(--accent-orange-darker); }
+
+/* Stil pentru butoane dezactivate */
+.control-button:disabled, .pipeline-button:disabled, .export-pdf-button:disabled {
+    background-color: var(--border-color) !important; /* Forțează fundalul */
+    color: var(--secondary-text-color) !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+    border-color: var(--border-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* --- AI Market Perspective Card --- */
+.ai-summary-card { background: linear-gradient(145deg, #181a1f, #14151a); border: 1px solid var(--border-color); padding: 28px 32px; position: relative; margin-top: 10px; }
+.ai-summary-card h2 { font-size: 1.3em; font-weight: 700; color: var(--primary-text-color); margin-bottom: 18px; display: flex; align-items: center; border-bottom-color: var(--border-color); padding-bottom: 12px; }
+.ai-star-img { width: 30px; height: 30px; margin-right: 12px; transition: transform 0.3s ease; }
+.ai-summary-card h2:hover .ai-star-img { transform: rotate(15deg) scale(1.1); }
+.ai-summary-text {
+    font-family: var(--font-serif-display); font-size: 1em; color: var(--secondary-text-color);
+    line-height: 1.75; white-space: pre-wrap; max-height: 250px; overflow-y: auto;
+    padding: 18px 22px; background-color: rgba(var(--bg-color-darkest-rgb), 0.6);
+    border-radius: var(--border-radius-small); border-left: 4px solid var(--accent-blue);
+    margin-top: 12px; text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: thin; scrollbar-color: var(--border-color) transparent;
+}
+.ai-summary-text::-webkit-scrollbar { width: 6px; height: 6px; }
+.ai-summary-text::-webkit-scrollbar-track { background: transparent; border-radius: var(--border-radius-small); margin: 4px 0; }
+.ai-summary-text::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: var(--border-radius-small); border: 1px solid rgba(var(--bg-color-darkest-rgb), 0.6); }
+.ai-summary-text::-webkit-scrollbar-thumb:hover { background-color: var(--secondary-text-color); }
+
+/* --- Gauge, VIX, Charts, History Table, Footer (Păstrează stilurile tale "premium" anterioare, asigurând compatibilitatea culorilor) --- */
+.gauge-container { margin: 15px auto 25px auto; }
+.gauge-value-display { font-family: var(--font-monospace); font-size: clamp(2.4em, 6.5vw, 2.8em); font-weight: 500; }
+.gauge-labels { font-size: 0.7em; margin-top: -12px;}
+
+.vix-value { font-family: var(--font-monospace); font-size: clamp(2.8em, 8vw, 3.5em); font-weight: 500; color: var(--accent-blue); }
+.vix-description { font-size: 0.85em; font-weight: 300; }
+
 .charts-card { padding-bottom: 15px; }
 .chart-container { position: relative; height: 280px; width: 100%; }
-#fgHistoryChart { margin-bottom: 40px; /* More space between charts */ }
+#fgHistoryChart { margin-bottom: 40px; }
 .chart-container canvas { max-width: 100%; max-height: 100%; }
 
-/* --- History Table Specific Styling --- */
-.history-card { /* Potentially add overflow for wide tables if needed */ }
-.history-table {
-    width: 100%; border-collapse: collapse; margin-top: 10px;
-    color: var(--primary-text-color); font-size: 0.9em;
+/* Stil pentru iconițele din titlurile cardurilor (ex: Historical Trends, Recent History) */
+.card-title-icon {
+    width: 22px; /* Ajustat */
+    height: 22px; /* Ajustat */
+    margin-right: 10px;
+    filter: invert(75%) sepia(50%) saturate(500%) hue-rotate(180deg) brightness(100%) contrast(90%); /* Efect albăstrui subtil */
+    opacity: 0.8;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.history-table thead { border-bottom: 2px solid var(--border-color); }
-.history-table th {
-    padding: 14px 10px; text-align: center; font-weight: 600;
-    color: var(--secondary-text-color); text-transform: uppercase;
-    letter-spacing: 0.7px; font-size: 0.75em;
+.charts-card h2:hover .card-title-icon,
+.history-card h2:hover .card-title-icon {
+    transform: scale(1.1);
+    opacity: 1;
 }
-.history-table td {
-    padding: 12px 10px; text-align: center; border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.15s ease-in-out; font-weight: 400;
-}
-.history-table tbody tr:last-child td { border-bottom: none; }
-.history-table tbody tr:hover td { background-color: var(--accent-color-hover); }
 
-/* --- Footer --- */
-.footer {
-    margin-top: 50px; font-size: 0.85em; color: var(--secondary-text-color);
-    border-top: 1px solid var(--border-color); padding-top: 25px; text-align: center; width: 100%;
-}
+.history-table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 15px; font-size: 0.9em; }
+.history-table thead { border-bottom: 2px solid var(--accent-blue); } /* Păstrăm accentul albastru */
+.history-table thead th { background-color: #202229; color: var(--primary-text-color); padding: 14px 10px; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75em; }
+.history-table th:first-child { border-top-left-radius: var(--border-radius-small); }
+.history-table th:last-child { border-top-right-radius: var(--border-radius-small); }
+.history-table tbody tr { transition: background-color var(--transition-smooth); }
+.history-table tbody tr:nth-child(even) { background-color: rgba(var(--bg-color-darkest-rgb), 0.2); } /* Dungi foarte subtile */
+.history-table tbody tr:hover { background-color: #2a2c34; }
+.history-table td { padding: 12px 10px; text-align: center; border-bottom: 1px solid var(--border-color); color: var(--secondary-text-color); font-weight: 400; }
+.history-table tbody tr td:first-child { color: var(--primary-text-color); font-weight: 500; }
+.history-table tbody tr:last-child td { border-bottom: none; }
+.history-table tbody tr:last-child td:first-child { border-bottom-left-radius: var(--border-radius-small); }
+.history-table tbody tr:last-child td:last-child { border-bottom-right-radius: var(--border-radius-small); }
+
+.footer { margin-top: 50px; font-size: 0.85em; color: var(--secondary-text-color); border-top: 1px solid var(--border-color); padding-top: 25px; text-align: center; width: 100%; opacity: 0.6; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-color-dark); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: #3a3d4a; border-radius: 10px; border: 2px solid var(--bg-color-dark); }
+::-webkit-scrollbar-thumb:hover { background: var(--secondary-text-color); }
 
 /* --- Responsiveness --- */
+@media (max-width: 960px) {
+    .controls-row { flex-direction: column; align-items: stretch; }
+    #dateFilterForm { flex-direction: column; align-items: stretch; gap: 10px; }
+    #dateFilterForm > div { width: 100%; }
+    #dateFilterForm input[type="date"] { width: 100%; }
+    #dateFilterForm .control-button { width: 100%; margin-top: 5px; }
+    .pipeline-controls { width: 100%; justify-content: space-around; margin-top: 15px; margin-left: 0; } /* Ajustat */
+    .export-buttons { justify-content: space-around; width: 100%; margin-top: 15px; } /* Ajustat */
+}
 @media (max-width: 768px) {
     body { padding: 30px 15px; }
-    .dashboard-container { max-width: 100%; }
-    .metrics-row { flex-direction: column; gap: 30px; }
-    .metrics-row .card { margin-bottom: 30px; }
-    h1 { font-size: 2em; margin-bottom: 30px; padding-bottom: 15px;}
-    h2 { font-size: 1.2em; margin-bottom: 20px; }
-    .card { padding: 20px; border-radius: 8px; }
-    .chart-container { height: 240px; }
-    .history-table th, .history-table td { padding: 10px 6px; }
-    .footer { margin-top: 30px; padding-top: 20px; }
+    h1 { font-size: 2.0em; margin-bottom: 25px; padding-bottom: 15px;}
+    h2 { font-size: 1.2em; margin-bottom: 18px; }
+    .card { padding: 20px 22px; border-radius: var(--border-radius-small); margin-bottom: 25px; }
+    .metrics-row { grid-template-columns: 1fr; gap: 25px; margin-bottom: 25px; }
+    .metrics-row .card { margin-bottom: 0; }
+    .chart-container { height: 220px; }
+    .history-table th, .history-table td { padding: 9px 5px; font-size: 0.75em; }
+    .ai-summary-text { padding: 8px 10px 8px 12px; font-size: 0.9em; max-height: 150px; }
+    .ai-summary-card h2 { font-size: 1.1em; }
+    .ai-star-img { width: 26px; height: 26px; }
+    .card-title-icon { width: 20px; height: 20px; }
+    .footer { margin-top: 40px; }
 }
-
 @media (max-width: 480px) {
     h1 { font-size: 1.7em; }
-    .gauge-labels { font-size: 0.65em; }
-    .history-table { font-size: 0.85em; }
+    .card { padding: 15px; }
+    .gauge-labels { font-size: 0.6em; }
+    .history-table { font-size: 0.7em; }
+    .control-button, #dateFilterForm input[type="date"], .pipeline-button, .export-pdf-button, .export-csv-button { font-size: 0.85em; padding: 10px 12px; } /* Consolidat */
+    .pipeline-controls, .export-buttons { flex-direction: column; gap: 8px; } /* Butoane pe coloană */
+    .pipeline-controls .control-button, .export-buttons .control-button { width: 100%; }
+    .ai-summary-card h2 { font-size: 1.0em; }
+    .ai-summary-text { font-size: 0.85em; }
+    .ai-star-img { width: 24px; height: 24px; margin-right: 8px; }
+    .card-title-icon { width: 18px; height: 18px; }
 }

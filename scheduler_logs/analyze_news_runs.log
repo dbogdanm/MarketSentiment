@@ -461,3 +461,204 @@ Analysis process finished.
 
 --- End Log ---
 
+--- Log at 2025-05-10 19:18:39 for analyze_news.py ---
+Output:
+Attempting to load data from: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+Will save latest indices to: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+Starting news analysis process...
+Input file C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json found. Proceeding with loading.
+--- Inside load_data_from_json for C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json ---
+Successfully loaded 87 news articles key from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+Loaded VIX value (21.899999618530273) from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+*** DEBUG: Loaded articles count = 87 ***
+*** DEBUG: Loaded actual_vix_value = 21.899999618530273 ***
+
+--- Calling Azure DeepSeek API ---
+--- API Call Successful ---
+
+--- Raw Analysis Result from API ---
+<think>
+Okay, let's start by going through all these news articles to get a sense of the overall market sentiment. First, there's a lot about geopolitical tensions between India and Pakistan agreeing to a ceasefire but with reported violations. That kind of instability can make markets nervous, so that's a negative factor.
+
+Next, there are several articles mentioning the U.S. and China trade talks in Geneva. Trade talks can be a positive sign if they lead to reduced tariffs, but given the context of existing tensions and Trump's recent tariffs, the outcome is uncertain. Mixed sentiment here.
+
+Looking at specific sectors, real estate stocks are down due to higher yields and a slightly hawkish Fed. Higher interest rates typically hurt real estate, so that's a negative. Also, there's a piece on Social Security overpayment risks, which might concern consumers and affect spending�another negative.
+
+On the tech side, Alphabet and Apple are under scrutiny as AI-based search gains ground. Investor focus on AI could be positive for tech innovation, but if they're losing ground, that's a negative for those specific companies. Biotech stocks are spiking in searches, which might indicate positive investor interest in that sector.
+
+There's mention of Bitcoin surpassing $100,000 and crypto ETF boom, which is a strong positive sign for the crypto market and possibly related equities. However, there's also a warning about young investors from Ric Edelman, suggesting caution, which might temper enthusiasm.
+
+Insider trading notes on companies like Microsoft, JPMorgan, and Boeing could be neutral unless there's a pattern indicating insider sentiment, but the articles don't specify direction. Similarly, articles questioning if certain blue-chip stocks are the "worst" to buy now introduce some uncertainty and potential negative sentiment towards those specific stocks.
+
+The Fear & Greed Index factors to consider: geopolitical risks (Fear), trade talks (could be Greed if positive), sector-specific issues (mixed), crypto surge (Greed), and warnings about market risks (Fear). The crypto boom and possible trade progress might push towards Greed, but the geopolitical issues and sector downturns add Fear elements. Overall, it seems like a mix but leaning slightly negative due to the immediate risks from India-Pakistan tensions and real estate/hawkish Fed. However, the crypto and biotech positives might balance it. I'm thinking the Fear and Greed Index is around Neutral, maybe slightly towards Fear. But given the mix, maybe 45-50. Let's go with 48 as a middle ground.
+</think>
+
+Market sentiment is **neutral with mixed elements**, reflecting geopolitical tensions and sector-specific developments. Key events include **India-Pakistan ceasefire violations** raising regional instability concerns, **U.S.-China trade talks** signaling potential tariff relief, and **Bitcoin surpassing $100,000** amid crypto ETF growth. Recurring themes involve **hawkish Fed policies** pressuring real estate stocks, **AI-driven competition** impacting tech giants like Alphabet and Apple, and **tariff-related price hikes** on consumer goods. Concerns include **Social Security overpayment risks**, **airport chaos disrupting travel**, and debates over **tax policies** and **debt management**. Positive notes include biotech interest and crypto optimism, while geopolitical and trade uncertainties weigh on sentiment.  
+
+FEAR AND GREED INDEX = 48
+------------------------------------
+Parsed value - Fear&Greed: 48
+Extracted summary after <think> block.
+*** DEBUG: Parsed analysis data = {'fear_greed': 48, 'summary_text': 'Market sentiment is **neutral with mixed elements**, reflecting geopolitical tensions and sector-specific developments. Key events include **India-Pakistan ceasefire violations** raising regional instability concerns, **U.S.-China trade talks** signaling potential tariff relief, and **Bitcoin surpassing $100,000** amid crypto ETF growth. Recurring themes involve **hawkish Fed policies** pressuring real estate stocks, **AI-driven competition** impacting tech giants like Alphabet and Apple, and **tariff-related price hikes** on consumer goods. Concerns include **Social Security overpayment risks**, **airport chaos disrupting travel**, and debates over **tax policies** and **debt management**. Positive notes include biotech interest and crypto optimism, while geopolitical and trade uncertainties weigh on sentiment.'} ***
+
+*** DEBUG: Check before saving: parsed_analysis_data is truthy, actual_vix_value is not None ***
+
+--- Final Data (Ready to Save) ---
+  Fear & Greed: 48
+  VIX: 21.899999618530273
+  Summary: Market sentiment is **neutral with mixed elements**, reflecting geopolitical tensions and sector-specific developments. Key events include **India-Pakistan ceasefire violations** raising regional inst...
+-------------------
+--- Data being saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json ---
+{
+  "fear_greed": 48,
+  "vix": 21.899999618530273,
+  "timestamp_utc": "2025-05-10T16:18:52+00:00Z"
+}
+----------------------------------------
+Successfully saved latest indices to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+*** DEBUG: save_indices_to_json returned: True ***
+Connected to PostgreSQL DB 'proiectMDS'.
+Successfully inserted DB record ID: 40.
+Database connection closed.
+*** DEBUG: save_results_to_db returned: True ***
+
+Analysis process finished.
+
+--- End Log ---
+
+--- Log at 2025-05-10 19:20:57 for analyze_news.py ---
+Output:
+Attempting to load data from: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+Will save latest indices to: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+Starting news analysis process...
+Input file C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json found. Proceeding with loading.
+--- Inside load_data_from_json for C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json ---
+Successfully loaded 87 news articles key from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+Loaded VIX value (21.899999618530273) from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+*** DEBUG: Loaded articles count = 87 ***
+*** DEBUG: Loaded actual_vix_value = 21.899999618530273 ***
+
+--- Calling Azure DeepSeek API ---
+--- API Call Successful ---
+
+--- Raw Analysis Result from API ---
+<think>
+Okay, let's start by going through all these news articles to figure out the market sentiment. First, there's a lot about geopolitical tensions between India and Pakistan agreeing to a ceasefire but with reported violations. That kind of instability can make markets nervous, so that's a negative factor.
+
+Then there are several articles mentioning the US and China trade talks. If they're working on easing the trade war, that's positive because trade tensions usually hurt markets. But since the outcome isn't clear yet, maybe it's a mixed signal.
+
+Looking at the market-specific news, there's talk about historic volatility crushing seasonal indicators like "Sell in May." High volatility often leads to fear, which is negative. Real estate stocks are down due to higher yields and a hawkish Fed, which is another negative point because rising rates can hurt sectors like real estate.
+
+There are concerns about Social Security overpayments and advice on debt management from Suze Orman. These personal finance issues might not directly impact the stock market much, but they could affect consumer spending, which is a slight negative.
+
+On the tech side, Alphabet and Apple are under scrutiny as AI-based search gains ground. Investor focus on AI could be positive for tech stocks, but if they're in the crosshairs, maybe there's some uncertainty there. Also, insider trades in big names like Microsoft and JPMorgan might indicate internal confidence or lack thereof, but without specifics, it's hard to tell.
+
+There's a mention of Bitcoin hitting $100k and crypto ETFs booming, which is a positive sign for risk appetite. However, Trump's crypto agenda being threatened by personal profit pursuits adds some uncertainty, so mixed there.
+
+Some articles highlight potential tax hikes under Trump for the wealthy, which could impact certain sectors. Additionally, tariffs leading to pricier household items might contribute to inflationary pressures, which the Fed is already hawkish about. That's another negative.
+
+On the positive side, there are stocks near buy points (Visa, Insulet) and discussions about AI stocks with growth potential. Also, the case for owning stocks at any age suggests some underlying confidence in the market.
+
+The Fear and Greed Index needs to balance these factors. The geopolitical issues, market volatility, hawkish Fed, and tariff impacts lean towards fear. However, positive trade talks, crypto growth, and tech advancements might balance it a bit. But overall, the negatives seem to outweigh the positives, leading to a Fear-heavy sentiment. I'd estimate the Fear and Greed Index around 35, indicating Fear.
+</think>
+
+Market sentiment appears mixed with cautious undertones. Geopolitical tensions dominate headlines, with India-Pakistan ceasefire violations and ongoing US-China trade talks creating uncertainty. Recurring themes include concerns about market volatility challenging traditional strategies ("Sell in May"), hawkish Fed policy impacting real estate stocks, and regulatory/political risks affecting tech giants (Alphabet, Apple). Key concerns involve tariff impacts on consumer prices, potential tax changes under Trump, and Social Security uncertainties. Positive elements include Bitcoin's resurgence and some stock-specific optimism (Visa, Insulet near buy points). However, geopolitical risks and policy uncertainties weigh heavier in the current mix.
+
+FEAR AND GREED INDEX = 35
+------------------------------------
+Parsed value - Fear&Greed: 35
+Extracted summary after <think> block.
+*** DEBUG: Parsed analysis data = {'fear_greed': 35, 'summary_text': 'Market sentiment appears mixed with cautious undertones. Geopolitical tensions dominate headlines, with India-Pakistan ceasefire violations and ongoing US-China trade talks creating uncertainty. Recurring themes include concerns about market volatility challenging traditional strategies ("Sell in May"), hawkish Fed policy impacting real estate stocks, and regulatory/political risks affecting tech giants (Alphabet, Apple). Key concerns involve tariff impacts on consumer prices, potential tax changes under Trump, and Social Security uncertainties. Positive elements include Bitcoin\'s resurgence and some stock-specific optimism (Visa, Insulet near buy points). However, geopolitical risks and policy uncertainties weigh heavier in the current mix.'} ***
+
+*** DEBUG: Check before saving: parsed_analysis_data is truthy, actual_vix_value is not None ***
+
+--- Final Data (Ready to Save) ---
+  Fear & Greed: 35
+  VIX: 21.899999618530273
+  Summary: Market sentiment appears mixed with cautious undertones. Geopolitical tensions dominate headlines, with India-Pakistan ceasefire violations and ongoing US-China trade talks creating uncertainty. Recur...
+-------------------
+--- Data being saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json ---
+{
+  "fear_greed": 35,
+  "vix": 21.899999618530273,
+  "timestamp_utc": "2025-05-10T16:21:10+00:00Z"
+}
+----------------------------------------
+Successfully saved latest indices to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+*** DEBUG: save_indices_to_json returned: True ***
+Connected to PostgreSQL DB 'proiectMDS'.
+Successfully inserted DB record ID: 42.
+Database connection closed.
+*** DEBUG: save_results_to_db returned: True ***
+
+Analysis process finished.
+
+--- End Log ---
+
+--- Log at 2025-05-10 19:45:57 for analyze_news.py ---
+Output:
+Attempting to load data from: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+Will save latest indices to: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+Starting news analysis process...
+Input file C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json found. Proceeding with loading.
+--- Inside load_data_from_json for C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json ---
+Successfully loaded 87 news articles key from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+Loaded VIX value (21.899999618530273) from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+*** DEBUG: Loaded articles count = 87 ***
+*** DEBUG: Loaded actual_vix_value = 21.899999618530273 ***
+
+--- Calling Azure DeepSeek API ---
+--- API Call Successful ---
+
+--- Raw Analysis Result from API ---
+<think>
+Okay, let's start by going through all these news articles to get a sense of the overall market sentiment. First, there's the India-Pakistan ceasefire agreement, but there are reports of explosions in Kashmir. Geopolitical tensions can create uncertainty, which might make investors nervous. However, the actual impact on the US market isn't directly mentioned here, so maybe it's a minor factor.
+
+Next, there are several articles about legal and regulatory issues. Google settling with Texas for $1.4 billion and a previous settlement with Meta. Big tech companies facing fines could be seen as negative, but these are one-time events and might not have a lasting impact. Also, an investigation into Ibotta, which could affect that specific stock but not the broader market much.
+
+Looking at the market trends, there's mention of the US market seeing modest declines and real estate stocks down due to higher yields and a slightly hawkish Fed. Higher yields typically pressure growth stocks and real estate, so that's a negative signal. The article about historic volatility crushing seasonal indicators like "Sell in May and go away" suggests investors are facing unpredictable markets, which could lean towards fear.
+
+There's some positive news too. Harley-Davidson launching a racing series in 2026 might boost their stock. Also, AI-related stocks like Alphabet and Apple are in focus as AI-based search gains ground, which is a positive tech trend. Additionally, articles promoting investment tips from Tony Robbins and reasons to buy a dip in an AI quantum computing stock indicate some optimism or greed in certain sectors.
+
+The US and China trade talks in Geneva could be a positive if they lead to eased tensions, but the outcome is uncertain. Mixed signals here. Also, the Fed's slightly hawkish stance and higher yields are recurring themes that might contribute to cautious sentiment.
+
+Personal finance articles dominate, with questions about IRAs, inheritance, loans, and retirement funds. These don't directly affect market sentiment but reflect individual financial stress or caution, which could translate to a more risk-averse behavior among retail investors.
+
+Biotech and pharma stocks are mentioned with some movement, but without specifics, it's hard to gauge. Insider trades at companies like Microsoft, JPMorgan, Boeing might indicate confidence or lack thereof, but again, not enough info.
+
+The Fear & Greed Index factors to consider: Volatility (moderate to high), Market Momentum (modest declines), Safe Haven Demand (maybe some movement to bonds if yields are up), Junk Bond Demand, etc. The mix of negative (geopolitical issues, regulatory fines, market declines) and positive (AI growth, trade talks, some stock-specific gains) points to a mixed sentiment. However, the volatility and cautious articles about market declines and Fed policies might push the index towards Fear, but not extremely so. Maybe around 40-50, which is neutral to slightly fearful. But considering the AI optimism and possible trade progress, maybe a bit higher. Let's say around 45, which is Fear.
+</think>
+
+The overall market sentiment is **mixed**, with geopolitical tensions (India-Pakistan ceasefire violations, U.S.-China trade talks) and regulatory actions (Google’s $1.4B settlement, Ibotta investigation) introducing uncertainty. Recurring themes include concerns over Fed policy (hawkish tone, higher yields impacting real estate stocks), AI-driven opportunities (quantum computing, Alphabet/Apple focus), and volatility challenges ("Sell in May" skepticism). Key events include potential tariff impacts on consumer goods, Bitcoin surpassing $100K amid ETF growth, and debates over Trump-era tax policies. Legal/financial advisory articles (IRA errors, inheritance planning) highlight individual investor caution.  
+
+FEAR AND GREED INDEX = 45
+------------------------------------
+Parsed value - Fear&Greed: 45
+Extracted summary after <think> block.
+*** DEBUG: Parsed analysis data = {'fear_greed': 45, 'summary_text': 'The overall market sentiment is **mixed**, with geopolitical tensions (India-Pakistan ceasefire violations, U.S.-China trade talks) and regulatory actions (Google’s $1.4B settlement, Ibotta investigation) introducing uncertainty. Recurring themes include concerns over Fed policy (hawkish tone, higher yields impacting real estate stocks), AI-driven opportunities (quantum computing, Alphabet/Apple focus), and volatility challenges ("Sell in May" skepticism). Key events include potential tariff impacts on consumer goods, Bitcoin surpassing $100K amid ETF growth, and debates over Trump-era tax policies. Legal/financial advisory articles (IRA errors, inheritance planning) highlight individual investor caution.'} ***
+
+*** DEBUG: Check before saving: parsed_analysis_data is truthy, actual_vix_value is not None ***
+
+--- Final Data (Ready to Save) ---
+  Fear & Greed: 45
+  VIX: 21.899999618530273
+  Summary: The overall market sentiment is **mixed**, with geopolitical tensions (India-Pakistan ceasefire violations, U.S.-China trade talks) and regulatory actions (Google’s $1.4B settlement, Ibotta investigat...
+-------------------
+--- Data being saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json ---
+{
+  "fear_greed": 45,
+  "vix": 21.899999618530273,
+  "timestamp_utc": "2025-05-10T16:46:11+00:00Z"
+}
+----------------------------------------
+Successfully saved latest indices to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+*** DEBUG: save_indices_to_json returned: True ***
+Connected to PostgreSQL DB 'proiectMDS'.
+Successfully inserted DB record ID: 43.
+Database connection closed.
+*** DEBUG: save_results_to_db returned: True ***
+
+Analysis process finished.
+
+--- End Log ---
+

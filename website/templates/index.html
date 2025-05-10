@@ -9,11 +9,41 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"> -->
 </head>
 <body>
     <div class="dashboard-container">
         <h1>Market Sentiment Dashboard</h1>
-        <button id="exportPdfButton" style="margin-bottom: 20px; padding: 10px 15px; background-color: var(--accent-color-vix); color: white; border: none; border-radius: 5px; cursor: pointer;">Export Data to PDF</button>
+
+        <div class="controls-row">
+            <form id="dateFilterForm" method="GET" action="{{ url_for('index') }}">
+                <div class="filter-date-group">
+                    <label for="start_date">Start Date:</label>
+                    <input type="date" id="start_date" name="start_date" value="{{ current_start_date if current_start_date else '' }}">
+                </div>
+                <div class="filter-date-group">
+                    <label for="end_date">End Date:</label>
+                    <input type="date" id="end_date" name="end_date" value="{{ current_end_date if current_end_date else '' }}">
+                </div>
+                <button type="submit" class="control-button filter-button">Filter</button>
+                <a href="{{ url_for('index') }}" class="control-button clear-button">Clear</a>
+            </form>
+
+            <div class="pipeline-controls">
+                <button id="runWebscrapeBtn" class="control-button pipeline-button">Run Scraper</button>
+                <button id="runAnalyzeBtn" class="control-button pipeline-button">Run Analyzer</button>
+                <button id="runFullPipelineBtn" class="control-button pipeline-button-main">Refresh All Data</button>
+            </div>
+
+            <div class="export-buttons">
+                <a id="exportCsvLink"
+                   href="{{ url_for('export_csv', start_date=request.args.get('start_date'), end_date=request.args.get('end_date')) }}"
+                   class="control-button export-csv-button">Export CSV</a>
+                <button id="exportPdfButton" class="control-button export-pdf-button">Export PDF</button>
+            </div>
+        </div>
+
+
         <div class="metrics-row">
              <div class="card gauge-card">
                  <h2>Fear & Greed Index</h2>
@@ -39,8 +69,21 @@
              </div>
         </div>
 
+        <div class="card ai-summary-card">
+            <h2>
+                <img src="{{ url_for('static', filename='images/gemini-star.png') }}" alt="AI Icon" class="ai-star-img">
+                AI Market Perspective
+            </h2>
+            <div id="aiSummaryDisplay" class="ai-summary-text">
+                {{ latest_summary if latest_summary else 'No AI summary currently available.' }}
+            </div>
+        </div>
+
         <div class="card charts-card">
-            <h2>Historical Trends</h2>
+            <h2>
+                <img src="{{ url_for('static', filename='images/market-trends.png') }}" alt="Trends Icon" class="card-title-icon">
+                Historical Trends
+            </h2>
             <div class="chart-container">
                 <canvas id="fgHistoryChart"></canvas>
             </div>
@@ -50,7 +93,10 @@
         </div>
 
         <div class="card history-card">
-            <h2>Recent History (Table)</h2>
+            <h2>
+                <img src="{{ url_for('static', filename='images/recent-history.png') }}" alt="History Icon" class="card-title-icon">
+                Recent History (Table)
+            </h2>
             {% if history %}
             <table class="history-table">
                 <thead>
@@ -67,7 +113,7 @@
                 </tbody>
             </table>
             {% else %}
-            <p>No historical data available yet.</p>
+            <p style="text-align: center; color: var(--secondary-text-color);">No historical data available for the selected period.</p>
             {% endif %}
         </div>
 
@@ -76,39 +122,19 @@
         </div>
     </div>
 
-
     <script>
-        console.log("--- Raw Data from Flask ---");
-        // Gauge data - ensure it's treated as a number, default to 50 if invalid/missing
         const fearGreedRawValue = '{{ fear_greed_value if fear_greed_value != "N/A" and fear_greed_value is not none else 50 }}';
         const fearGreedData = parseFloat(fearGreedRawValue);
-        console.log("Raw F&G:", fearGreedRawValue, "Parsed F&G:", fearGreedData);
 
-        // Chart data (using the | safe filter is crucial here)
-        // Use '[]' as default if data is missing/None from Flask to ensure valid JSON parse
-        const historyTimestampsRaw = '{{ chart_timestamps | safe if chart_timestamps else "[]" }}';
-        const historyFgValuesRaw = '{{ chart_fg_values | safe if chart_fg_values else "[]" }}';
-        const historyVixValuesRaw = '{{ chart_vix_values | safe if chart_vix_values else "[]" }}';
-
-        let historyTimestamps = [];
-        let historyFgValues = [];
-        let historyVixValues = [];
-
-        try {
-            historyTimestamps = JSON.parse(historyTimestampsRaw);
-            console.log("Parsed Timestamps:", historyTimestamps.length > 0 ? historyTimestamps : "Empty");
-        } catch (e) { console.error("Error parsing Timestamps JSON:", e, "Raw:", historyTimestampsRaw); }
-        try {
-            historyFgValues = JSON.parse(historyFgValuesRaw);
-             console.log("Parsed F&G Values:", historyFgValues.length > 0 ? historyFgValues : "Empty");
-        } catch (e) { console.error("Error parsing F&G Values JSON:", e, "Raw:", historyFgValuesRaw); }
-        try {
-            historyVixValues = JSON.parse(historyVixValuesRaw);
-             console.log("Parsed VIX Values:", historyVixValues.length > 0 ? historyVixValues : "Empty");
-        } catch (e) { console.error("Error parsing VIX Values JSON:", e, "Raw:", historyVixValuesRaw); }
-         console.log("--------------------------");
+        const historyTimestamps = {{ chart_timestamps | safe if chart_timestamps else "[]" }};
+        const historyFgValues = {{ chart_fg_values | safe if chart_fg_values else "[]" }};
+        const historyVixValues = {{ chart_vix_values | safe if chart_vix_values else "[]" }};
+        const runWebscrapeUrl = "{{ url_for('run_webscrape_route') }}";
+        const runAnalyzeNewsUrl = "{{ url_for('run_analyze_news_route') }}";
+        const runPipelineUrl = "{{ url_for('run_pipeline_route') }}";
+        console.log("--- Data from Flask ---");
+        console.log("Parsed F&G for Gauge:", fearGreedData);
     </script>
-
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

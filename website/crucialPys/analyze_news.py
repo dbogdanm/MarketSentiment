@@ -32,7 +32,7 @@ if not AZURE_API_KEY:
     print("!!! Azure AI API call will fail.")
     print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-MAX_TOKENS = 4096
+MAX_TOKENS = 65536
 
 def load_data_from_json(filename):
     """Loads news articles and VIX data from the combined JSON file."""
@@ -116,10 +116,13 @@ def analyze_news_with_deepseek(news_articles):
     system_message_content = (
         "You are a top financial assistant specialized in analyzing financial news regarding the US stock market. "
         "Your task is to read the provided list of news articles (in JSON format) "
-        "and provide a concise summary covering the overall market sentiment (positive, negative, neutral, mixed), "
+        "and provide a long complex answer covering the overall market sentiment (positive, negative, neutral, mixed), "
         "key events or announcements, and any recurring themes or major concerns mentioned across the articles. "
         "Base your analysis *only* on the information presented in the articles. "
-        "IMPORTANT: Do NOT include your thought process or reasoning steps within the main response body. "
+        "Once again, DON'T USE MARKDOWN."
+        "IMPORTANT: Do  include your thought process or reasoning steps within the main response body and DON'T answer using Markdown."
+        "When you change the sentence's topic, leave some room before talking about the next topic but don't insert any spaces before the first sentence."
+        "Write a long-long answer, use as many tokens as possible."
         "Conclude your entire response with a single final line containing ONLY the estimated Fear and Greed value in the following exact format (using capital letters): "
         "\nFEAR AND GREED INDEX = [estimated F&G value]"
     )
