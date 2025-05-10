@@ -1,8 +1,6 @@
-// --- START OF static/js/script.js ---
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM fully loaded and parsed.");
 
-    // --- Gauge Initialization ---
     console.log("Attempting to initialize Gauge...");
     const gaugeTarget = document.getElementById('fearGreedGauge');
 
@@ -15,11 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
             colorStart: '#6FADCF', colorStop: '#8FC0DA', strokeColor: '#2a2a4e',
             generateGradient: true, highDpiSupport: true,
             staticZones: [
-               {strokeStyle: "#ef4444", min: 0, max: 25},   // Extreme Fear - Red
-               {strokeStyle: "#f59e0b", min: 25, max: 45},  // Fear - Orange
-               {strokeStyle: "#6b7280", min: 45, max: 55},  // Neutral - Grey
-               {strokeStyle: "#84cc16", min: 55, max: 75},  // Greed - Light Green
-               {strokeStyle: "#22c55e", min: 75, max: 100}  // Extreme Greed - Green
+               {strokeStyle: "#ef4444", min: 0, max: 25},
+               {strokeStyle: "#f59e0b", min: 25, max: 45},
+               {strokeStyle: "#6b7280", min: 45, max: 55},
+               {strokeStyle: "#84cc16", min: 55, max: 75},
+               {strokeStyle: "#22c55e", min: 75, max: 100}
             ],
             renderTicks: {
                 divisions: 5, divWidth: 0.8, divLength: 0.5, divColor: '#4a4a6e',
@@ -48,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof Gauge === 'undefined') console.error("Gauge.js library NOT LOADED!");
     }
 
-    // --- Chart.js Initialization ---
     console.log("Attempting to initialize Charts...");
     if (typeof Chart !== 'undefined' &&
         typeof historyTimestamps !== 'undefined' && Array.isArray(historyTimestamps) &&
@@ -118,71 +115,60 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof historyVixValues === 'undefined' || !Array.isArray(historyVixValues)) console.error("Chart data 'historyVixValues' is missing or not an array!");
     }
 
-    // --- Export to PDF Functionality ---
     const exportPdfButton = document.getElementById('exportPdfButton');
     if (exportPdfButton) {
         console.log("Export PDF button found.");
         exportPdfButton.addEventListener('click', function() {
             console.log("Export to PDF button clicked.");
-            // Selectează elementul principal pe care vrei să-l exporți.
-            // Poți alege '.dashboard-container' sau un element mai specific.
+
             const dashboardElement = document.querySelector('.dashboard-container');
 
             if (dashboardElement && typeof html2canvas !== 'undefined' && typeof jspdf !== 'undefined') {
                 exportPdfButton.textContent = 'Generating PDF...';
                 exportPdfButton.disabled = true;
 
-                // Opțiuni pentru html2canvas
                 const options = {
-                    scale: 2, // Crește scala pentru o rezoluție mai bună
-                    useCORS: true, // Important dacă ai imagini de pe alte domenii (nu e cazul aici)
-                    logging: false, // Setează pe true pentru debugging html2canvas
-                    scrollX: 0, // Asigură că începe de la scroll 0
-                    scrollY: -window.scrollY, // Compensează scroll-ul paginii
-                    windowWidth: document.documentElement.offsetWidth, // Folosește lățimea documentului
-                    windowHeight: document.documentElement.offsetHeight, // Folosește înălțimea documentului
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    scrollX: 0,
+                    scrollY: -window.scrollY,
+                    windowWidth: document.documentElement.offsetWidth,
+                    windowHeight: document.documentElement.offsetHeight,
                     onclone: (documentClone) => {
-                        // Ascunde butonul de export din clonă înainte de a face screenshot
+
                         const btnToHide = documentClone.getElementById('exportPdfButton');
                         if (btnToHide) {
                             btnToHide.style.display = 'none';
                         }
-                        // Poți ascunde și alte elemente dacă nu vrei să apară în PDF
+
                     }
                 };
 
                 html2canvas(dashboardElement, options).then(canvas => {
                     const imgData = canvas.toDataURL('image/png');
-                    const { jsPDF } = window.jspdf; // Asigură-te că accesezi corect constructorul
+                    const { jsPDF } = window.jspdf;
 
-                    // Dimensiuni standard A4 în mm: 210 x 297
                     const pdfA4WidthMm = 210;
                     const pdfA4HeightMm = 297;
 
-                    // Calculează raportul imaginii
                     const imgWidthPx = canvas.width;
                     const imgHeightPx = canvas.height;
                     const aspectRatio = imgWidthPx / imgHeightPx;
 
                     let pdfImgWidthMm, pdfImgHeightMm;
 
-                    // Determină orientarea și dimensiunile imaginii în PDF
-                    // pentru a se potrivi pe o pagină A4, păstrând proporțiile
-                    if (aspectRatio > (pdfA4WidthMm / pdfA4HeightMm)) { // Imaginea e mai lată decât A4 portrait
+                    if (aspectRatio > (pdfA4WidthMm / pdfA4HeightMm)) {
                         pdfImgWidthMm = pdfA4WidthMm;
                         pdfImgHeightMm = pdfA4WidthMm / aspectRatio;
-                    } else { // Imaginea e mai înaltă sau la fel
+                    } else {
                         pdfImgHeightMm = pdfA4HeightMm;
                         pdfImgWidthMm = pdfA4HeightMm * aspectRatio;
                     }
 
-                    // Creează PDF-ul. Poți alege orientarea în funcție de imagine.
-                    // Dacă imaginea e foarte lată, 'landscape' poate fi mai bun.
                     const orientation = pdfImgWidthMm > pdfImgHeightMm ? 'landscape' : 'portrait';
                     const pdf = new jsPDF(orientation, 'mm', 'a4');
 
-                    // Adaugă imaginea la PDF
-                    // Centrează imaginea pe pagină dacă e mai mică decât A4
                     const xOffset = (pdf.internal.pageSize.getWidth() - pdfImgWidthMm) / 2;
                     const yOffset = (pdf.internal.pageSize.getHeight() - pdfImgHeightMm) / 2;
 
@@ -212,4 +198,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log("Script execution finished.");
 });
-// --- END OF static/js/script.js ---
+

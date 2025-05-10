@@ -13,7 +13,7 @@
 <body>
     <div class="dashboard-container">
         <h1>Market Sentiment Dashboard</h1>
-        <button id="exportPdfButton" style="margin-bottom: 20px; padding: 10px 15px; background-color: var(--accent-color-vix); color: white; border: none; border-radius: 5px; cursor: pointer;">Export Dashboard to PDF</button>
+        <button id="exportPdfButton" style="margin-bottom: 20px; padding: 10px 15px; background-color: var(--accent-color-vix); color: white; border: none; border-radius: 5px; cursor: pointer;">Export Data to PDF</button>
         <div class="metrics-row">
              <div class="card gauge-card">
                  <h2>Fear & Greed Index</h2>
@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <!-- Pass data to JavaScript - CRITICAL PART -->
+
     <script>
         console.log("--- Raw Data from Flask ---");
         // Gauge data - ensure it's treated as a number, default to 50 if invalid/missing
@@ -108,7 +108,7 @@
         } catch (e) { console.error("Error parsing VIX Values JSON:", e, "Raw:", historyVixValuesRaw); }
          console.log("--------------------------");
     </script>
-    <!-- Load your script AFTER defining the data variables -->
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
