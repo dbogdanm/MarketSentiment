@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- No inline styles needed -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
         <h1>Market Sentiment Dashboard</h1>
-
+        <button id="exportPdfButton" style="margin-bottom: 20px; padding: 10px 15px; background-color: var(--accent-color-vix); color: white; border: none; border-radius: 5px; cursor: pointer;">Export Dashboard to PDF</button>
         <div class="metrics-row">
              <div class="card gauge-card">
                  <h2>Fear & Greed Index</h2>

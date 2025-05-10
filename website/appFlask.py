@@ -6,7 +6,6 @@ from psycopg2.extras import RealDictCursor
 import json # Import json for safe data passing to template
 
 app = Flask(__name__)
-
 DB_HOST = os.environ.get("DB_HOST", "localhost")
 DB_NAME = os.environ.get("DB_NAME")
 DB_USER = os.environ.get("DB_USER")

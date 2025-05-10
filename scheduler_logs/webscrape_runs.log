@@ -1,0 +1,1172 @@
+--- EROARE FATALĂ la 2025-05-10 17:13:24 pentru webScrape.py ---
+Python executable not found at: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Verifică căile PYTHON_EXECUTABLE și script_path.
+PYTHON_EXECUTABLE: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Script Path: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\crucialPys\webScrape.py
+
+--- Sfârșit Log Eroare ---
+
+--- Log la 2025-05-10 17:19:00 pentru webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:19:07+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "European leaders tell Putin to agree to Ukraine ceasefire or face new sanctions",
+  "url": "https://www.investing.com/news/world-news/european-leaders-head-to-kyiv-to-show-support-after-putins-parade-4037599",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T14:18:10Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39977 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:19:11+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "European leaders tell Putin to agree to Ukraine ceasefire or face new sanctions",
+  "url": "https://www.investing.com/news/world-news/european-leaders-head-to-kyiv-to-show-support-after-putins-parade-4037599",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T14:18:10Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39977 bytes.
+
+Web scraping process finished in 4.30 seconds.
+
+--- Sfârșit Log ---
+
+--- Log at 2025-05-10 17:25:36 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:25:42+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "America is failing its youngest investors, warns personal finance guru Ric Edelman",
+  "url": "https://www.cnbc.com/2025/05/10/america-failing-its-young-investors-warns-financial-guru-ric-edelman-.html",
+  "summary": "Ric Edelman is warning young people to avoid several traps regarding their financial future.",
+  "timestamp": "2025-05-10T14:19:42Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40072 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:25:46+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "America is failing its youngest investors, warns personal finance guru Ric Edelman",
+  "url": "https://www.cnbc.com/2025/05/10/america-failing-its-young-investors-warns-financial-guru-ric-edelman-.html",
+  "summary": "Ric Edelman is warning young people to avoid several traps regarding their financial future.",
+  "timestamp": "2025-05-10T14:19:42Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40072 bytes.
+
+Web scraping process finished in 4.16 seconds.
+
+--- End Log ---
+
+--- EROARE FATALĂ la 2025-05-10 17:43:25 pentru webScrape.py ---
+Python executable not found at: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Verifică căile PYTHON_EXECUTABLE și script_path.
+PYTHON_EXECUTABLE: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Script Path: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\crucialPys\webScrape.py
+
+--- Sfârșit Log Eroare ---
+
+--- Log at 2025-05-10 17:55:36 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:55:43+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Suze Orman says retirees should have a 5-year \u2018just-in-case\u2019 fund. Is this true?",
+  "url": "https://www.marketwatch.com/story/suze-orman-says-retirees-should-have-a-5-year-just-in-case-fund-is-she-right-a1decd2b?mod=mw_rss_topstories",
+  "summary": "\u201cI had people coming unglued on me when I suggested retirees should have three to five years of savings.\u201d",
+  "timestamp": "2025-05-10T14:49:00Z",
+  "source_name": "RSS (MarketWatch Top Stories)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40540 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T14:55:47+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Suze Orman says retirees should have a 5-year \u2018just-in-case\u2019 fund. Is this true?",
+  "url": "https://www.marketwatch.com/story/suze-orman-says-retirees-should-have-a-5-year-just-in-case-fund-is-she-right-a1decd2b?mod=mw_rss_topstories",
+  "summary": "\u201cI had people coming unglued on me when I suggested retirees should have three to five years of savings.\u201d",
+  "timestamp": "2025-05-10T14:49:00Z",
+  "source_name": "RSS (MarketWatch Top Stories)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40540 bytes.
+
+Web scraping process finished in 4.42 seconds.
+
+--- End Log ---
+
+--- EROARE FATALĂ la 2025-05-10 18:13:26 pentru webScrape.py ---
+Python executable not found at: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Verifică căile PYTHON_EXECUTABLE și script_path.
+PYTHON_EXECUTABLE: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Script Path: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\crucialPys\webScrape.py
+
+--- Sfârșit Log Eroare ---
+
+--- Log at 2025-05-10 18:14:37 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:14:44+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40149 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:14:49+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40149 bytes.
+
+Web scraping process finished in 5.14 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:15:12 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:15:18+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40149 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:15:22+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40149 bytes.
+
+Web scraping process finished in 4.00 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:18:04 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:18:11+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40377 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:18:15+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Microchip price target raised to $70 from $60 at Stifel",
+  "url": "https://finance.yahoo.com/news/microchip-price-target-raised-70-150516646.html",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:05:16Z",
+  "source_name": "RSS (Yahoo Finance Market News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40098 bytes.
+
+Web scraping process finished in 4.43 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:21:00 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:21:08+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Microchip price target raised to $70 from $60 at Stifel",
+  "url": "https://finance.yahoo.com/news/microchip-price-target-raised-70-150516646.html",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:05:16Z",
+  "source_name": "RSS (Yahoo Finance Market News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40098 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:21:12+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Insider trades: Microsoft, JPMorgan, Boeing among notable names this week",
+  "url": "https://seekingalpha.com/news/4446109-insider-trades-microsoft-jpmorgan-boeing-among-notable-names-this-week?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:03:00Z",
+  "source_name": "RSS (Seeking Alpha Market Currents)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40149 bytes.
+
+Web scraping process finished in 4.12 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:28:23 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:28:30+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39977 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:28:34+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39985 bytes.
+
+Web scraping process finished in 3.99 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:30:23 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:30:30+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39974 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:30:35+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39985 bytes.
+
+Web scraping process finished in 4.49 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:31:54 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:32:00+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39985 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:32:04+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Why Pope Leo chose his name: AI, workers\u2019 rights, new Industrial Revolution",
+  "url": "https://www.cnbc.com/2025/05/10/pope-leo-name-ai-workers-catholic.html",
+  "summary": "Pope Leo also suggested that he would follow the late Pope Francis' lead on his commitment to social justice.",
+  "timestamp": "2025-05-10T15:25:11Z",
+  "source_name": "RSS (CNBC Top News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39985 bytes.
+
+Web scraping process finished in 4.41 seconds.
+
+--- End Log ---
+
+--- EROARE FATALĂ la 2025-05-10 18:43:26 pentru webScrape.py ---
+Python executable not found at: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Verifică căile PYTHON_EXECUTABLE și script_path.
+PYTHON_EXECUTABLE: C:\Users\ripip\Desktop\Proiect MDS - Copy\PythonProject1\.venv1\Scripts\python.exe
+Script Path: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\crucialPys\webScrape.py
+
+--- Sfârșit Log Eroare ---
+
+--- Log at 2025-05-10 18:46:43 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:46:50+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Pope Leo takes first trip outside Vatican, visiting shrine near Rome",
+  "url": "https://www.investing.com/news/world-news/pope-leo-takes-first-trip-outside-vatican-visiting-shrine-near-rome-4037706",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:35:36Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40350 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:46:55+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Pope Leo takes first trip outside Vatican, visiting shrine near Rome",
+  "url": "https://www.investing.com/news/world-news/pope-leo-takes-first-trip-outside-vatican-visiting-shrine-near-rome-4037706",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:35:36Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40350 bytes.
+
+Web scraping process finished in 5.29 seconds.
+
+--- End Log ---
+
+--- Log at 2025-05-10 18:53:27 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:53:33+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Pope Leo takes first trip outside Vatican, visiting shrine near Rome",
+  "url": "https://www.investing.com/news/world-news/pope-leo-takes-first-trip-outside-vatican-visiting-shrine-near-rome-4037706",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:35:36Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40370 bytes.
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-10T15:53:37+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Pope Leo takes first trip outside Vatican, visiting shrine near Rome",
+  "url": "https://www.investing.com/news/world-news/pope-leo-takes-first-trip-outside-vatican-visiting-shrine-near-rome-4037706",
+  "summary": "N/A",
+  "timestamp": "2025-05-10T15:35:36Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 40370 bytes.
+
+Web scraping process finished in 4.28 seconds.
+
+--- End Log ---
+
