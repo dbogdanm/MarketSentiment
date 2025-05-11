@@ -1,0 +1,180 @@
+--- Log at 2025-05-11 20:18:23 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:18:23.904322+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:22:57 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:22:57.711783+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:27:59 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:27:59.649531+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:33:00 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:33:01.378369+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:38:02 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:38:03.299897+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:43:29 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:43:29.724645+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:48:30 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:48:31.412397+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:53:32 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:53:33.338064+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 20:58:34 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 17:58:35.165069+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 21:03:36 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 18:03:37.326360+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 21:09:02 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 18:09:03.313777+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 21:14:04 for alert_monitor.py ---
+Output:
+Warn: newsapi-python not found.
+Successfully imported VIX fetching function from webScrape.
+Running VIX alert monitor directly...
+[2025-05-11 18:14:05.046067+00:00] Starting VIX alert check...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+Current VIX value fetched: 21.899999618530273
+No users to alert for the current VIX level or alerts sent recently.
+VIX alert monitor direct run finished.
+
+--- End Log ---
+

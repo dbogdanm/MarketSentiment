@@ -71,7 +71,7 @@
 
         <div class="card ai-summary-card">
             <h2>
-                <img src="{{ url_for('static', filename='images/gemini-star.png') }}" alt="AI Icon" class="ai-star-img">
+                <img src="{{ url_for('static', filename='images/gemini-star.jpg') }}" alt="AI Icon" class="ai-star-img">
                 AI Market Perspective
             </h2>
             <div id="aiSummaryDisplay" class="ai-summary-text">
@@ -117,6 +117,51 @@
             {% endif %}
         </div>
 
+        <!-- START: VIX Alert Subscription Card -->
+        <div class="card vix-alert-subscription-card">
+            <h2>VIX Alert Subscription</h2>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" style="padding: 10px; margin-bottom: 15px; border-radius: 4px; color: #fff; background-color: {{ '#28a745' if category == 'success' else '#dc3545' }};">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <p style="margin-bottom: 15px; font-size: 0.9em; color: var(--secondary-text-color);">
+                Receive an email notification when the VIX (Volatility Index) goes above your specified threshold.
+            </p>
+
+            <!-- Linia CORECTATĂ: -->
+            <form method="POST" action="{{ url_for('index') }}" class="subscription-form">
+                {{ vix_alert_form.csrf_token }} {# Necesar dacă folosești Flask-WTF #}
+
+                <div class="form-group">
+                    <label for="email">Your Email Address:</label>
+                    {{ vix_alert_form.email(class="form-control", placeholder="your.email@example.com") }}
+                    {% if vix_alert_form.email.errors %}
+                        <ul class="errors">{% for error in vix_alert_form.email.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    <label for="vix_threshold">Alert me when VIX is above:</label>
+                    {{ vix_alert_form.vix_threshold(class="form-control", placeholder="e.g., 30.0", step="0.1", min="0") }}
+                    {% if vix_alert_form.vix_threshold.errors %}
+                        <ul class="errors">{% for error in vix_alert_form.vix_threshold.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+                    {% endif %}
+                </div>
+                {{ vix_alert_form.submit(class="control-button filter-button") }}
+            </form>
+             <p style="margin-top: 15px; font-size: 0.8em; color: var(--secondary-text-color);">
+                If you are already subscribed, this will update your threshold.
+            </p>
+        </div>
+        <!-- END: VIX Alert Subscription Card -->
+
         <div class="footer">
              <p>Analysis Last Updated: {{ last_updated if last_updated else 'N/A' }}</p>
         </div>
@@ -129,9 +174,11 @@
         const historyTimestamps = {{ chart_timestamps | safe if chart_timestamps else "[]" }};
         const historyFgValues = {{ chart_fg_values | safe if chart_fg_values else "[]" }};
         const historyVixValues = {{ chart_vix_values | safe if chart_vix_values else "[]" }};
+
         const runWebscrapeUrl = "{{ url_for('run_webscrape_route') }}";
         const runAnalyzeNewsUrl = "{{ url_for('run_analyze_news_route') }}";
         const runPipelineUrl = "{{ url_for('run_pipeline_route') }}";
+
         console.log("--- Data from Flask ---");
         console.log("Parsed F&G for Gauge:", fearGreedData);
     </script>

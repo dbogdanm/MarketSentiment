@@ -3,6 +3,8 @@ import json  # pentru a lucra cu fisiere si date in format json
 import re  # pentru expresii regulate (cautare de text avansata)
 import psycopg2  # biblioteca pentru a te conecta si lucra cu baza de date postgresql
 from datetime import datetime, timezone  # pentru a lucra cu data si ora, inclusiv fusuri orare
+import smtplib
+from email.mime.text import MIMEText
 
 # importam clasele necesare din sdk-ul azure pentru a interactiona cu modelul ai
 from azure.ai.inference import ChatCompletionsClient
@@ -35,7 +37,12 @@ DB_HOST = os.environ.get("DB_HOST", "localhost")
 DB_NAME = os.environ.get("DB_NAME")
 DB_USER = os.environ.get("DB_USER")
 DB_PASS = os.environ.get("DB_PASS")
-
+SMTP_SERVER = os.environ.get("SMTP_SERVER")
+SMTP_PORT = os.environ.get("SMTP_PORT")
+SMTP_USER = os.environ.get("SMTP_USER")
+SMTP_PASS = os.environ.get("SMTP_PASS")
+EMAIL_RECEIVER = os.environ.get("EMAIL_RECEIVER")
+VIX_ALERT_THRESHOLD = os.environ.get("VIX_ALERT_THRESHOLD")
 # configuratii pentru serviciul ai (deepseek) de la azure
 AZURE_ENDPOINT_URL = "https://deepseekmds7532865580.services.ai.azure.com/models"  # adresa url a modelului tau ai
 MODEL_NAME = "DeepSeek-R1-3"  # numele specific al modelului pe care l-ai deployat in azure
