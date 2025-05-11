@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Uncover market sentiment by leveraging AI-driven insights from aggregated financial news.** This sophisticated web application provides a dynamic dashboard displaying key indicators like a custom Fear & Greed Index, the VIX, and historical trends, all powered by real-time data and intelligent analysis.
+**Uncover market sentiment by leveraging AI-driven insights from aggregated financial news.** This sophisticated web application provides a dynamic dashboard displaying key indicators like a custom Fear & Greed Index, the VIX, and historical trends, all powered by real-time data, intelligent analysis, and **proactive VIX alert notifications**.
 
 ---
 
@@ -21,6 +21,7 @@
     *   [Data Pipeline Execution](#data-pipeline-execution)
     *   [Launching the Web Dashboard](#launching-the-web-dashboard)
     *   [Automated Scheduling (Recommended)](#automated-scheduling-recommended)
+    *   [VIX Alert Monitor](#vix-alert-monitor)
 *   [Key Configuration Points](#key-configuration-points)
 *   [Roadmap & Potential Enhancements](#roadmap--potential-enhancements)
 *   [Contribution Guidelines](#contribution-guidelines)
@@ -38,8 +39,9 @@ The Market Sentiment Dashboard is designed to offer a consolidated and intellige
 3.  **Integrating:** Fetching the latest VIX (Volatility Index) data to complement the sentiment analysis.
 4.  **Persisting:** Storing historical sentiment data (Fear & Greed Index, VIX, AI summary, timestamps) within a robust PostgreSQL database for trend analysis.
 5.  **Visualizing:** Presenting these insights through an intuitive Flask-powered web dashboard, featuring an F&G gauge, VIX display, interactive historical charts, and a recent activity table.
+6.  **Notifying:** Proactively alerting subscribed users via email when the VIX crosses their predefined thresholds, keeping them informed of significant market volatility changes.
 
-This tool empowers users to quickly gauge market undercurrents, supported by data-driven AI.
+This tool empowers users to quickly gauge market undercurrents, supported by data-driven AI and timely alerts.
 
 ---
 
@@ -57,8 +59,12 @@ This tool empowers users to quickly gauge market undercurrents, supported by dat
     *   A sortable **table** detailing recent analysis records.
     *   **PDF Export:** Allows users to download a snapshot of the current dashboard view.
     *   **Enhanced User Control:** Includes 'Run Scraper', 'Run Analyzer', and 'Refresh All Data' buttons directly within the interface for simplified manual operation and data management.
+*   **Proactive VIX Email Alerts:**
+    *   Users can subscribe to receive email notifications when the VIX surpasses a custom-defined threshold.
+    *   Alerts include current VIX value, user's threshold, and a timestamp.
+    *   Configurable minimum interval between alerts to prevent spam.
 *   **Modern Web Interface:** Developed with Flask, HTML5, CSS3, and JavaScript, incorporating Gauge.js and Chart.js for superior data visualization.
-*   **Automated Data Refresh:** Includes a Python-based scheduler (`scheduler_main.py`) to automate the data collection and analysis pipeline at configurable intervals.
+*   **Automated Data Refresh & Alert Monitoring:** Includes a Python-based scheduler (`scheduler_main.py`) to automate the data collection, analysis pipeline, and VIX alert checks at configurable intervals.
 
 ---
 
@@ -68,11 +74,14 @@ The application employs a layered architecture for modularity and maintainabilit
 
 *   **Data Ingestion Layer (`webScrape.py`):** Responsible for fetching raw news data and VIX values from external sources.
 *   **AI Analysis & Processing Layer (`analyze_news.py`):** Handles communication with the Azure AI service, parses AI responses, and prepares data for storage.
+*   **Notification Layer (`alert_monitor.py`):** Monitors VIX values, checks user subscriptions, and dispatches email alerts via SMTP.
 *   **Persistence Layer:**
-    *   **PostgreSQL Database:** Stores historical sentiment records.
+    *   **PostgreSQL Database:**
+        *   `sentiment_history`: Stores historical sentiment records.
+        *   `vix_alerts_subscriptions`: Manages user subscriptions for VIX alerts (email, threshold, last alert timestamp).
     *   **JSON Files:** Used for intermediate data storage (`financial_news_agg.json`) and caching the latest index values (`latest_indices.json`) for rapid dashboard loading.
-*   **Presentation Layer (`appFlask.py` & Frontend):** The Flask application serves the web dashboard, retrieving data from the database and presenting it through HTML templates enhanced with CSS and JavaScript.
-*   **Scheduling Layer (`scheduler_main.py`):** Orchestrates the periodic execution of the data ingestion and analysis scripts.
+*   **Presentation Layer (`appFlask.py` & Frontend):** The Flask application serves the web dashboard, retrieving data from the database, managing VIX alert subscriptions, and presenting it through HTML templates enhanced with CSS and JavaScript.
+*   **Scheduling Layer (`scheduler_main.py`):** Orchestrates the periodic execution of the data ingestion, analysis, and VIX alert monitoring scripts.
 
 ---
 
@@ -85,6 +94,7 @@ The application employs a layered architecture for modularity and maintainabilit
 *   **Artificial Intelligence:** Azure AI Services (via `azure-ai-inference` SDK for custom deployed models like DeepSeek)
 *   **Database System:** PostgreSQL
 *   **Database Connector (Python):** `psycopg2-binary`
+*   **Email Notifications:** `smtplib` (Python's built-in SMTP library)
 *   **Task Scheduling (Python):** `schedule`
 *   **Environment Management:** `python-dotenv` (for managing API keys and secrets)
 *   **Version Control System:** Git & GitHub
@@ -101,6 +111,7 @@ Follow these steps to get the Market Sentiment Dashboard running on your local m
 *   PostgreSQL server installed and running.
 *   Git installed.
 *   API keys for NewsAPI and Azure AI Services.
+*   SMTP server credentials for sending email alerts (e.g., Gmail App Password if using Gmail with 2FA).
 
 ### Installation
 
@@ -133,18 +144,35 @@ Follow these steps to get the Market Sentiment Dashboard running on your local m
 1.  **Connect to your PostgreSQL instance.**
 2.  **Create a new database** (e.g., `market_sentiment_db`).
 3.  **Create a dedicated user** and grant it necessary privileges on the new database.
-4.  **Execute the Data Definition Language (DDL) script to create the `sentiment_history` table:**
-    ```sql
-    CREATE TABLE sentiment_history (
-        id SERIAL PRIMARY KEY,
-        timestamp TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-        fear_greed INTEGER,
-        vix REAL, -- Or NUMERIC(5, 2) for fixed precision if preferred
-        summary_text TEXT
-    );
-    -- Optional: Create an index for faster querying on the timestamp column
-    CREATE INDEX idx_sentiment_history_timestamp ON sentiment_history (timestamp DESC);
-    ```
+4.  **Execute the Data Definition Language (DDL) scripts to create the necessary tables:**
+
+    *   **For Sentiment History:**
+        ```sql
+        CREATE TABLE sentiment_history (
+            id SERIAL PRIMARY KEY,
+            timestamp TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+            fear_greed INTEGER,
+            vix REAL, -- Or NUMERIC(5, 2) for fixed precision if preferred
+            summary_text TEXT
+        );
+        -- Optional: Create an index for faster querying on the timestamp column
+        CREATE INDEX idx_sentiment_history_timestamp ON sentiment_history (timestamp DESC);
+        ```
+
+    *   **For VIX Alert Subscriptions:**
+        ```sql
+        CREATE TABLE vix_alerts_subscriptions (
+            id SERIAL PRIMARY KEY,
+            email VARCHAR(255) UNIQUE NOT NULL,
+            vix_threshold REAL NOT NULL,
+            is_active BOOLEAN DEFAULT TRUE,
+            subscribed_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+            last_alert_sent_at TIMESTAMPTZ,
+            unsubscribe_token VARCHAR(64) UNIQUE -- Optional: for one-click unsubscribe links
+        );
+        -- Optional: Index for active subscriptions
+        CREATE INDEX idx_vix_alerts_active_threshold ON vix_alerts_subscriptions (is_active, vix_threshold);
+        ```
 
 ### Environment Configuration
 
@@ -162,6 +190,12 @@ Follow these steps to get the Market Sentiment Dashboard running on your local m
     DB_PASS="your_db_password"
     DB_HOST="localhost" # Or your PostgreSQL server address
     DB_PORT="5432" # Optional, defaults to 5432 if not specified
+
+    # SMTP Configuration for Email Alerts
+    SMTP_SERVER="smtp.example.com" # e.g., smtp.gmail.com
+    SMTP_PORT="587" # Or 465 for SSL
+    SMTP_USER="your_email_address@example.com" # Email address to send alerts from
+    SMTP_PASS="your_email_password_or_app_password" # For Gmail with 2FA, use an App Password
     ```
 3.  **Security:** Add `.env` to your `.gitignore` file to prevent accidental commitment of sensitive credentials.
 
@@ -169,7 +203,7 @@ Follow these steps to get the Market Sentiment Dashboard running on your local m
 
 ## Running the Application
 
-The application consists of a data pipeline (scraping and analysis) and a web dashboard.
+The application consists of a data pipeline (scraping and analysis), an alert monitor, and a web dashboard.
 
 ### Data Pipeline Execution
 
@@ -189,13 +223,7 @@ The data pipeline can be run manually or automatically using the provided schedu
     *Note: These scripts can also be triggered from the web interface after launching the dashboard.*
 
 *   **Automated Execution (Recommended):**
-    1.  Ensure your virtual environment is activated.
-    2.  Navigate to the project root directory.
-    3.  Run the Python-based scheduler:
-        ```bash
-        python scheduler_main.py
-        ```
-    This script will run continuously in the terminal, executing `webScrape.py` and `analyze_news.py` sequentially at configurable intervals (default is 30 minutes). Log files will be generated in the `scheduler_logs` directory. Press `Ctrl+C` to stop the scheduler.
+    See [Automated Scheduling](#automated-scheduling-recommended) below.
 
 ### Launching the Web Dashboard
 
@@ -207,11 +235,31 @@ The data pipeline can be run manually or automatically using the provided schedu
     ```
     *(If `appFlask.py` is in the root, use `python appFlask.py`)*
 4.  Open your web browser and navigate to `http://127.0.0.1:5000` (or the URL displayed in the terminal).
+    The dashboard will allow users to subscribe/unsubscribe to VIX alerts.
 
 ### Automated Scheduling (Recommended)
 
-For continuous, unattended operation (while your machine is running), use the `scheduler_main.py` script as described above. This script handles the periodic execution of the data pipeline.
-The default 30-minute interval for the scheduler is designed to be well within the free tier limits of NewsAPI (100 calls/day), resulting in approximately 48 calls daily.
+For continuous, unattended operation (while your machine is running), use the `scheduler_main.py` script. This script handles the periodic execution of the data pipeline and the VIX alert monitor.
+
+1.  Ensure your virtual environment is activated.
+2.  Navigate to the project root directory.
+3.  Run the Python-based scheduler:
+    ```bash
+    python scheduler_main.py
+    ```
+This script will run continuously in the terminal, executing `webScrape.py`, `analyze_news.py`, and `alert_monitor.py` sequentially at configurable intervals (default is 30 minutes for data pipeline, and a separate interval for alert monitor - typically more frequent, e.g., every 5-15 minutes, if configured). Log files will be generated in the `scheduler_logs` directory. Press `Ctrl+C` to stop the scheduler.
+
+The default 30-minute interval for the news scheduler is designed to be well within the free tier limits of NewsAPI (100 calls/day), resulting in approximately 48 calls daily. The VIX alert monitor's frequency should be set considering `yfinance`'s rate limits and the desired responsiveness of alerts.
+
+### VIX Alert Monitor
+
+The `alert_monitor.py` script is responsible for checking the current VIX value against subscribed user thresholds and sending email alerts.
+
+*   **Manual Execution (for testing):**
+    ```bash
+    python website/crucialPys/alert_monitor.py
+    ```
+*   **Automated Execution:** This script is typically run by `scheduler_main.py`.
 
 ---
 
@@ -219,12 +267,15 @@ The default 30-minute interval for the scheduler is designed to be well within t
 
 Fine-tune the application's behavior by adjusting parameters:
 
-*   **API Keys, Database Credentials, AI Endpoints (`.env` file):** This is the primary location for all sensitive and environment-specific configurations.
+*   **API Keys, Database Credentials, AI Endpoints, SMTP Settings (`.env` file):** This is the primary location for all sensitive and environment-specific configurations.
 *   **News Sources (`webScrape.py`):** Modify `NEWSAPI_SOURCES` and `ALL_RSS_FEEDS` lists within the script if necessary.
 *   **Financial Tickers (`webScrape.py`):** Adjust the `YAHOO_TICKERS` list.
-*   **AI Model Configuration (`analyze_news.py` & `.env`):** The `AZURE_ENDPOINT_URL` and `MODEL_NAME` (your Azure deployment name) are primarily loaded from the `.env` file. Fallbacks or direct settings might exist in `analyze_news.py` but using `.env` is recommended.
-*   **File Paths & Output (`webScrape.py`, `analyze_news.py`):** Constants like `OUTPUT_DIR`, `JSON_NEWS_FILE_PATH` are defined at the top of these scripts. Ensure these paths are appropriate for your environment.
-*   **Scheduling Interval (`scheduler_main.py`):** Modify the `schedule.every(...).minutes.do(...)` line to change the frequency of automated data pipeline runs.
+*   **AI Model Configuration (`analyze_news.py` & `.env`):** The `AZURE_ENDPOINT_URL` and `MODEL_NAME` (your Azure deployment name) are primarily loaded from the `.env` file.
+*   **File Paths & Output (`webScrape.py`, `analyze_news.py`):** Constants like `OUTPUT_DIR`, `JSON_NEWS_FILE_PATH` are defined at the top of these scripts.
+*   **Scheduling Intervals (`scheduler_main.py`):** Modify the `schedule.every(...).minutes.do(...)` lines for `webScrape.py`, `analyze_news.py`, and `alert_monitor.py` to change their execution frequencies.
+*   **Alerting Parameters (`alert_monitor.py`):**
+    *   `MIN_ALERT_INTERVAL`: Defines the minimum time (e.g., 6 hours) between consecutive alerts to the same user to prevent spamming.
+    *   Email templates and content can be modified within this script.
 
 ---
 
@@ -235,11 +286,15 @@ This project serves as a strong foundation. Future enhancements could include:
 *   **Advanced Error Handling & Logging:** Implement comprehensive logging using Python's `logging` module across all scripts for better diagnostics.
 *   **More Frequent VIX Updates:** Investigate robust methods (e.g., Selenium, Playwright, or specialized APIs) for more frequent VIX updates, while being mindful of source limitations and script fragility.
 *   **Enhanced Data Visualization:** Introduce date range selectors for charts, more detailed tooltips, and potentially new chart types (e.g., heatmaps for sector sentiment).
-*   **User Authentication & Personalization:** Allow users to create accounts, save preferences, or track specific assets.
+*   **User Authentication & Personalization:** Allow users to create accounts, save preferences, or track specific assets beyond just VIX alerts.
 *   **Nuanced Sentiment Scoring:** Explore advanced NLP models or techniques for multi-dimensional sentiment analysis (e.g., positivity, negativity, uncertainty, specific emotions).
 *   **Asynchronous Data Fetching:** Utilize `asyncio` and `aiohttp` in `webScrape.py` to potentially accelerate news aggregation from multiple sources concurrently.
 *   **Containerization (Docker):** Package the application and its dependencies into Docker containers for simplified deployment, scalability, and portability.
-*   **Alerting System:** Implement notifications (e.g., via email or in-app alerts) for significant sentiment shifts or critical data pipeline failures.
+*   **Enhanced Alerting System:**
+    *   Allow users to manage their alert subscriptions (threshold, active status) directly from the dashboard.
+    *   Implement one-click unsubscribe links in alert emails.
+    *   Add alerts for critical data pipeline failures.
+*   **Dashboard UI for Alert Management:** Integrate forms and views in `appFlask.py` for users to subscribe, update, or unsubscribe from VIX alerts.
 
 ---
 

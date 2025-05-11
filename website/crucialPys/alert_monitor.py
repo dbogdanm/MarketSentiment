@@ -98,7 +98,7 @@ def send_actual_vix_alert(receiver_email, current_vix, user_specific_threshold):
     alert_trigger_time_formatted = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 
 
-    msg['Subject'] = f"VIX Alert: VIX is at {current_vix:.2f} (Your Threshold: >{user_specific_threshold:.2f})"
+    msg['Subject'] = f"Market Sentiment Dashboard: VIX Alert: VIX is at {current_vix:.2f} (Your Threshold: >{user_specific_threshold:.2f})"
 
     html_body = f"""
     <!DOCTYPE html>
