@@ -1652,3 +1652,189 @@ Analysis process finished.
 
 --- End Log ---
 
+--- Log at 2025-05-11 21:34:09 for analyze_news.py ---
+Output:
+Attempting to load data from: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+Will save latest indices to: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+Starting news analysis process...
+Input file C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json found. Proceeding with loading.
+--- Inside load_data_from_json for C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json ---
+Successfully loaded 87 news articles key from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+Loaded VIX value (21.899999618530273) from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+*** DEBUG: Loaded articles count = 87 ***
+*** DEBUG: Loaded actual_vix_value = 21.899999618530273 ***
+
+--- Calling Azure DeepSeek R1 API ---
+
+--- Thinking... ---
+--- API Call Successful ---
+
+--- Raw Analysis Result from API ---
+<think>
+Okay, let's start by going through all these news articles to figure out the overall market sentiment. First, I notice several articles about the U.S.-China trade talks. There's a mention of a deal being struck to reduce the trade deficit, and officials are expected to release details soon. That sounds positive because trade tensions can create market uncertainty, so any progress might boost investor confidence. However, there's also an article saying that defensive investors are scrambling due to a whiplash market rebound. That suggests some volatility and maybe caution, which could be a negative sign.
+
+Then there's the ECB interest rates path outlined by Deutsche Bank. If they're discussing different paths, it might indicate uncertainty about future monetary policy, which can affect markets. The article about Saudi Aramco's profit dip due to lower oil prices and budget strains points to challenges in the energy sector, which might be a negative factor. Lower oil prices can impact energy stocks and related markets.
+
+Looking at the geopolitical side, there are multiple articles about India-Pakistan tensions and Trump pushing for a Kashmir deal. Geopolitical risks can lead to market nervousness, so that's a negative. Also, the situation in Ukraine with proposed peace talks and Zelenskiy's cautious stance adds to geopolitical concerns. However, any progress in peace talks could be seen as positive, so it's a mixed signal there.
+
+On the consumer side, there's an article about Mother's Day brunch being more expensive due to inflation and tariffs. Rising prices can indicate inflationary pressures, which might worry investors about potential interest rate hikes. Another piece mentions Walmart's upcoming earnings report as crucial, which could affect market sentiment depending on the results. If Walmart shows strong performance, it might signal consumer resilience, but if not, it could raise concerns about consumer spending.
+
+There are several articles about personal finance, like how to manage money when paychecks are tight, retirement savings fears, and investment advice from influencers. These suggest that individual investors are concerned about their finances, which might translate into cautious market behavior. The mention of seeking high dividend yields (10%) and strategies to profit in a recession indicates that some investors are preparing for tougher times, which is a bearish signal.
+
+The tech sector has an article about Microsoft and OpenAI revising their partnership terms, which could impact tech stocks depending on the nature of the changes. Additionally, there's a piece on the FAA considering reducing Newark flights due to disruptions, which might affect airline and related stocks.
+
+In terms of market movements, the whiplash rebound causing defensive investors to scramble suggests recent volatility. Defensive investors typically move to safer assets, so if they're caught off guard by a rebound, it might mean the market is reacting unpredictably to news, leading to mixed sentiments.
+
+The Fear and Greed Index usually factors in things like market volatility, stock price strength, safe-haven demand, etc. Positive trade talk progress and strong earnings (like Marvel's box office success) could push towards greed. However, geopolitical tensions, inflation concerns, and profit warnings (like Saudi Aramco) would lean towards fear. The mix of these factors makes me think the index is somewhere in the middle but slightly leaning towards fear due to the number of risk factors mentioned.
+</think>
+
+The provided news articles present a mixed market sentiment with elements of both optimism and caution, heavily influenced by geopolitical developments, trade negotiations, and macroeconomic indicators. Key themes include ongoing U.S.-China trade talks, geopolitical tensions in South Asia and Eastern Europe, inflationary pressures, corporate earnings concerns, and investor strategies in a volatile environment. 
+
+**Positive Factors**:  
+1. **U.S.-China Trade Progress**: Multiple articles highlight "substantial progress" in trade talks, with a deal reportedly struck to reduce the trade deficit. This could ease market anxieties about escalating tariffs and supply chain disruptions. The anticipation of details being released soon suggests potential relief for sectors impacted by trade tensions.  
+2. **Market Rebound**: The "whiplash market rebound" indicates resilience, potentially signaling investor confidence in overcoming short-term volatility. Articles mentioning bullish options strategies (e.g., Palantir, Alibaba) and high dividend-yield stock recommendations (e.g., Jefferies’ 10% yield picks) reflect opportunistic positioning.  
+3. **Corporate Performance**: Marvel’s box office dominance and IFC’s record-setting film performance suggest strong entertainment sector activity, which could buoy related equities. Walmart’s upcoming earnings are framed as a critical indicator, with potential positive spillover for retail stocks if results exceed expectations.  
+
+**Negative Factors**:  
+1. **Geopolitical Risks**: Tensions between India and Pakistan over Kashmir, coupled with Trump’s push for a diplomatic resolution, introduce uncertainty. Similarly, the fragile Ukraine-Russia ceasefire and Zelenskiy’s cautious stance on direct talks with Putin highlight unresolved conflicts that could destabilize markets.  
+2. **Inflation and Tariffs**: Rising costs for consumer goods (e.g., Mother’s Day brunch prices) and reports of small businesses struggling with tariffs underscore persistent inflationary pressures. The Fed’s potential response to inflation data this week could reignite fears of prolonged higher interest rates.  
+3. **Corporate Earnings Weakness**: Saudi Aramco’s profit dip due to lower oil prices and budget strains points to energy sector vulnerabilities. Microsoft and OpenAI’s partnership revisions and FAA’s potential flight reductions at Newark signal sector-specific headwinds.  
+4. **Defensive Investor Anxiety**: The article on defensive investors scrambling amid market volatility suggests lingering risk aversion, possibly due to concerns about overvaluation or macroeconomic instability.  
+
+**Recurring Themes**:  
+- **Trade War Uncertainty**: The U.S.-China trade narrative dominates, with outcomes likely to influence global equity performance. While progress is noted, the "10% baseline tariff" remaining for the "foreseeable future" (per Commerce Secretary Lutnick) implies long-term structural challenges.  
+- **Retail and Consumer Sentiment**: Multiple pieces address personal finance struggles (e.g., tight paychecks, retirement fears), reflecting broader consumer strain that could dampen spending and earnings in consumer discretionary sectors.  
+- **Geopolitical Volatility**: From Kashmir to Ukraine, unresolved conflicts are a persistent undercurrent, threatening to disrupt markets if escalations occur.  
+- **Monetary Policy Speculation**: The ECB’s potential interest rate paths (Deutsche Bank’s analysis) and Fed Chair Powell’s balancing act between inflation and growth remain critical to investor calculus.  
+
+**Major Concerns**:  
+- **Inflation Data Impact**: Upcoming U.S. inflation reports could sway Fed policy expectations, with hotter-than-expected data potentially triggering sell-offs.  
+- **Earnings Vulnerability**: Walmart’s results and Cisco’s performance will test consumer and tech sector resilience amid rising costs.  
+- **Tariff Spillover**: Small businesses and consumers are already feeling the pinch, which could worsen if trade talks stall or tariffs expand.  
+
+**Fear and Greed Drivers**:  
+- **Fear**: Geopolitical risks, inflation anxiety, defensive positioning, and energy sector weakness.  
+- **Greed**: Trade deal optimism, market rebound momentum, and high-yield investment strategies.  
+
+Given the balance of risks and cautious optimism, sentiment leans slightly negative due to unresolved geopolitical and inflationary pressures, but the market’s recent rebound and trade progress prevent a purely fearful outlook.  
+
+FEAR AND GREED INDEX = 45
+------------------------------------
+Parsed value - Fear&Greed: 45
+Extracted summary after <think> block.
+*** DEBUG: Parsed analysis data = {'fear_greed': 45, 'summary_text': 'The provided news articles present a mixed market sentiment with elements of both optimism and caution, heavily influenced by geopolitical developments, trade negotiations, and macroeconomic indicators. Key themes include ongoing U.S.-China trade talks, geopolitical tensions in South Asia and Eastern Europe, inflationary pressures, corporate earnings concerns, and investor strategies in a volatile environment. \n\n**Positive Factors**:  \n1. **U.S.-China Trade Progress**: Multiple articles highlight "substantial progress" in trade talks, with a deal reportedly struck to reduce the trade deficit. This could ease market anxieties about escalating tariffs and supply chain disruptions. The anticipation of details being released soon suggests potential relief for sectors impacted by trade tensions.  \n2. **Market Rebound**: The "whiplash market rebound" indicates resilience, potentially signaling investor confidence in overcoming short-term volatility. Articles mentioning bullish options strategies (e.g., Palantir, Alibaba) and high dividend-yield stock recommendations (e.g., Jefferies’ 10% yield picks) reflect opportunistic positioning.  \n3. **Corporate Performance**: Marvel’s box office dominance and IFC’s record-setting film performance suggest strong entertainment sector activity, which could buoy related equities. Walmart’s upcoming earnings are framed as a critical indicator, with potential positive spillover for retail stocks if results exceed expectations.  \n\n**Negative Factors**:  \n1. **Geopolitical Risks**: Tensions between India and Pakistan over Kashmir, coupled with Trump’s push for a diplomatic resolution, introduce uncertainty. Similarly, the fragile Ukraine-Russia ceasefire and Zelenskiy’s cautious stance on direct talks with Putin highlight unresolved conflicts that could destabilize markets.  \n2. **Inflation and Tariffs**: Rising costs for consumer goods (e.g., Mother’s Day brunch prices) and reports of small businesses struggling with tariffs underscore persistent inflationary pressures. The Fed’s potential response to inflation data this week could reignite fears of prolonged higher interest rates.  \n3. **Corporate Earnings Weakness**: Saudi Aramco’s profit dip due to lower oil prices and budget strains points to energy sector vulnerabilities. Microsoft and OpenAI’s partnership revisions and FAA’s potential flight reductions at Newark signal sector-specific headwinds.  \n4. **Defensive Investor Anxiety**: The article on defensive investors scrambling amid market volatility suggests lingering risk aversion, possibly due to concerns about overvaluation or macroeconomic instability.  \n\n**Recurring Themes**:  \n- **Trade War Uncertainty**: The U.S.-China trade narrative dominates, with outcomes likely to influence global equity performance. While progress is noted, the "10% baseline tariff" remaining for the "foreseeable future" (per Commerce Secretary Lutnick) implies long-term structural challenges.  \n- **Retail and Consumer Sentiment**: Multiple pieces address personal finance struggles (e.g., tight paychecks, retirement fears), reflecting broader consumer strain that could dampen spending and earnings in consumer discretionary sectors.  \n- **Geopolitical Volatility**: From Kashmir to Ukraine, unresolved conflicts are a persistent undercurrent, threatening to disrupt markets if escalations occur.  \n- **Monetary Policy Speculation**: The ECB’s potential interest rate paths (Deutsche Bank’s analysis) and Fed Chair Powell’s balancing act between inflation and growth remain critical to investor calculus.  \n\n**Major Concerns**:  \n- **Inflation Data Impact**: Upcoming U.S. inflation reports could sway Fed policy expectations, with hotter-than-expected data potentially triggering sell-offs.  \n- **Earnings Vulnerability**: Walmart’s results and Cisco’s performance will test consumer and tech sector resilience amid rising costs.  \n- **Tariff Spillover**: Small businesses and consumers are already feeling the pinch, which could worsen if trade talks stall or tariffs expand.  \n\n**Fear and Greed Drivers**:  \n- **Fear**: Geopolitical risks, inflation anxiety, defensive positioning, and energy sector weakness.  \n- **Greed**: Trade deal optimism, market rebound momentum, and high-yield investment strategies.  \n\nGiven the balance of risks and cautious optimism, sentiment leans slightly negative due to unresolved geopolitical and inflationary pressures, but the market’s recent rebound and trade progress prevent a purely fearful outlook.'} ***
+
+*** DEBUG: Check before saving: parsed_analysis_data is truthy, actual_vix_value is not None ***
+
+--- Final Data (Ready to Save) ---
+  Fear & Greed: 45
+  VIX: 21.899999618530273
+  Summary: The provided news articles present a mixed market sentiment with elements of both optimism and caution, heavily influenced by geopolitical developments, trade negotiations, and macroeconomic indicator...
+-------------------
+--- Data being saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json ---
+{
+  "fear_greed": 45,
+  "vix": 21.899999618530273,
+  "timestamp_utc": "2025-05-11T18:34:34+00:00Z"
+}
+----------------------------------------
+Successfully saved latest indices to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+*** DEBUG: save_indices_to_json returned: True ***
+Connected to PostgreSQL DB 'proiectMDS'.
+Successfully inserted DB record ID: 77.
+Database connection closed.
+*** DEBUG: save_results_to_db returned: True ***
+
+Analysis process finished.
+
+--- End Log ---
+
+--- Log at 2025-05-11 21:59:42 for analyze_news.py ---
+Output:
+Attempting to load data from: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+Will save latest indices to: C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+Starting news analysis process...
+Input file C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json found. Proceeding with loading.
+--- Inside load_data_from_json for C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json ---
+Successfully loaded 87 news articles key from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+Loaded VIX value (21.899999618530273) from C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json.
+*** DEBUG: Loaded articles count = 87 ***
+*** DEBUG: Loaded actual_vix_value = 21.899999618530273 ***
+
+--- Calling Azure DeepSeek R1 API ---
+
+--- Thinking... ---
+--- API Call Successful ---
+
+--- Raw Analysis Result from API ---
+<think>
+Okay, let's start by going through all these news articles to get a sense of the overall sentiment. First, I notice several articles about U.S.-China trade talks. There's mention of a deal being reached to reduce the trade deficit, with details expected soon. That's a positive sign because trade tensions can create market volatility, so any progress here might boost investor confidence. However, there's also a note that the 10% baseline tariffs will remain for the foreseeable future, which could be a negative as it maintains some trade barriers.
+
+Next, there are multiple articles related to geopolitical tensions. The situation between India and Pakistan over Kashmir, mediated by Trump, adds uncertainty. Geopolitical risks can make markets nervous, so this might lean towards a negative sentiment. Similarly, talks between Hamas and the U.S. regarding a Gaza ceasefire and aid could be seen as a positive if progress is made, but the region's instability often leads to cautious investor behavior.
+
+Looking at corporate news, Saudi Aramco's profit dip due to lower oil prices might concern energy sector investors, but the strong demand for SMC's $500M IPO indicates investor appetite in specific sectors. Additionally, Microsoft and OpenAI revising their partnership terms could impact tech stocks, potentially positive if it leads to innovation, but uncertainty around terms might cause hesitation.
+
+The mention of a "whiplash market rebound" leaving defensive investors scrambling suggests recent volatility. This kind of market movement can indicate mixed sentiment—some investors are bullish, others are cautious. The article on Nasdaq recovery and AI stocks being undervalued points to optimism in the tech sector, which is a positive sign.
+
+Inflation is another recurring theme. Reports about upcoming inflation data and how it affects consumer spending, like the expensive Mother’s Day brunch, highlight concerns about persistent inflation. Higher inflation can lead to tighter monetary policies, which might worry investors. However, if inflation data comes in lower than expected, it could ease those fears.
+
+There are several personal finance articles, like Ramit Sethi's advice on saving money and discussions about retirement funds. These don't directly impact market sentiment but reflect consumer concerns, which can indirectly affect market behavior if spending habits change.
+
+The Pope’s appeal for peace and reduced military spending introduces a humanitarian angle, but its direct market impact is minimal unless it influences geopolitical stability. Similarly, the FEMA training cuts under Trump ahead of hurricane season might raise concerns about disaster response, affecting insurance and construction sectors.
+
+The tech sector shows mixed signals. While there's optimism around AI stocks, OpenAI's negotiations with Microsoft for funding and a future IPO could drive interest, but the revision of partnership terms introduces some uncertainty. The FAA considering reducing Newark flights due to disruptions might impact airline and travel stocks negatively.
+
+Looking at individual stocks, Tesla, Palantir, and Alibaba nearing buy points suggests some analysts see potential upside, which is positive. However, the overall market's reaction would depend on broader economic conditions.
+
+The articles about Trump's potential policies, like accepting a Qatar jet gift and crypto agenda conflicts, add layers of political risk. Political instability or controversial decisions can lead to market uncertainty, which is generally a negative factor.
+
+Putting it all together, there are both positive and negative factors. Progress in trade talks and strong IPO demand are positives, but ongoing tariffs, geopolitical tensions, inflation concerns, and political risks weigh on sentiment. The mix of these elements suggests a neutral to slightly negative overall market sentiment, with caution due to geopolitical and policy uncertainties. The Fear and Greed Index likely reflects this caution, leaning towards fear but not extreme. Considering all factors, I'd estimate the Fear and Greed Index around 45, indicating a neutral stance with a tilt towards fear.
+</think>
+
+The provided news articles present a complex tapestry of market influences, with both positive and negative elements creating a mixed sentiment landscape. Key themes emerge around geopolitical tensions, trade negotiations, corporate developments, and macroeconomic indicators, each contributing to the overall investor psychology. 
+
+Starting with trade dynamics, multiple articles highlight progress in U.S.-China trade talks, with U.S. officials announcing a tentative deal to reduce the trade deficit and Commerce Secretary Lutnick emphasizing efforts to lower tensions. This suggests potential relief for industries impacted by tariffs, particularly technology and manufacturing sectors. However, the persistence of a 10% baseline tariff as a "new normal" introduces lingering uncertainty, which could dampen the optimism. The dual narrative of diplomatic progress coupled with structural trade barriers creates a neutral-to-cautiously optimistic outlook on international commerce.
+
+Geopolitical risks loom large, with recurring mentions of Middle Eastern instability (Syria seeking sanctions relief, Gaza ceasefire talks), South Asian tensions (India-Pakistan ceasefire challenges amid Trump’s Kashmir mediation push), and the Russia-Ukraine conflict (Zelenskiy’s conditional openness to talks with Putin). These developments inject volatility into energy markets (given Saudi Aramco’s profit dip and Qatar’s potential aircraft gift to Trump) and defense-related sectors, while also raising broader concerns about global stability. The Pope’s appeal for reduced military spending adds a moral dimension but lacks immediate market implications.
+
+Corporate developments show divergence. Strong demand for Saudi hospital operator SMC’s $500M IPO signals investor confidence in regional healthcare growth, while Microsoft and OpenAI’s partnership renegotiation hints at evolving AI sector dynamics. The Nasdaq recovery narrative and articles highlighting undervalued AI stocks (e.g., Tesla, Palantir) suggest tech sector resilience, though the “whiplash market rebound” article implies lingering skepticism among defensive investors. Entertainment sector performance (Marvel’s box office dominance) and Walgreens’ automation push reflect industry-specific strengths against a backdrop of broader economic uncertainty.
+
+Inflation remains a critical undercurrent, with explicit references to upcoming CPI data and consumer-facing impacts like rising restaurant prices. The Saudi Aramco profit decline due to lower oil prices offers partial relief but conflicts with broader commodity market anxieties. Personal finance articles (Ramit Sethi’s savings advice, retirement fund concerns) underscore persistent cost-of-living pressures that could constrain consumer spending – a bearish signal for retail and discretionary sectors.
+
+Political risk factors are amplified by Trump-era policy continuity, including potential FEMA training cuts during hurricane season, immigration policy debates, and controversial diplomatic maneuvers (Syria sanctions relief discussions). The administration’s crypto agenda facing headwinds from personal profit motives adds regulatory uncertainty to digital asset markets.
+
+Market technicals present contradictions – the Nasdaq recovery and IPO enthusiasm contrast with defensive positioning and tariff-related inventory buildup concerns. The absence of major earnings misses or banking crises tempers outright bearishness, but geopolitical flashpoints and trade deal implementation risks prevent unbridled optimism.
+
+Recurring themes of diplomatic friction (U.S.-China, India-Pakistan, Russia-Ukraine) suggest markets must price in elevated geopolitical risk premiums. Meanwhile, the bifurcation between AI/tech optimism and cyclical sector pressures (energy, consumer staples) indicates sector rotation opportunities rather than broad market direction.
+
+FEAR AND GREED INDEX = 45
+------------------------------------
+Parsed value - Fear&Greed: 45
+Extracted summary after <think> block.
+*** DEBUG: Parsed analysis data = {'fear_greed': 45, 'summary_text': 'The provided news articles present a complex tapestry of market influences, with both positive and negative elements creating a mixed sentiment landscape. Key themes emerge around geopolitical tensions, trade negotiations, corporate developments, and macroeconomic indicators, each contributing to the overall investor psychology. \n\nStarting with trade dynamics, multiple articles highlight progress in U.S.-China trade talks, with U.S. officials announcing a tentative deal to reduce the trade deficit and Commerce Secretary Lutnick emphasizing efforts to lower tensions. This suggests potential relief for industries impacted by tariffs, particularly technology and manufacturing sectors. However, the persistence of a 10% baseline tariff as a "new normal" introduces lingering uncertainty, which could dampen the optimism. The dual narrative of diplomatic progress coupled with structural trade barriers creates a neutral-to-cautiously optimistic outlook on international commerce.\n\nGeopolitical risks loom large, with recurring mentions of Middle Eastern instability (Syria seeking sanctions relief, Gaza ceasefire talks), South Asian tensions (India-Pakistan ceasefire challenges amid Trump’s Kashmir mediation push), and the Russia-Ukraine conflict (Zelenskiy’s conditional openness to talks with Putin). These developments inject volatility into energy markets (given Saudi Aramco’s profit dip and Qatar’s potential aircraft gift to Trump) and defense-related sectors, while also raising broader concerns about global stability. The Pope’s appeal for reduced military spending adds a moral dimension but lacks immediate market implications.\n\nCorporate developments show divergence. Strong demand for Saudi hospital operator SMC’s $500M IPO signals investor confidence in regional healthcare growth, while Microsoft and OpenAI’s partnership renegotiation hints at evolving AI sector dynamics. The Nasdaq recovery narrative and articles highlighting undervalued AI stocks (e.g., Tesla, Palantir) suggest tech sector resilience, though the “whiplash market rebound” article implies lingering skepticism among defensive investors. Entertainment sector performance (Marvel’s box office dominance) and Walgreens’ automation push reflect industry-specific strengths against a backdrop of broader economic uncertainty.\n\nInflation remains a critical undercurrent, with explicit references to upcoming CPI data and consumer-facing impacts like rising restaurant prices. The Saudi Aramco profit decline due to lower oil prices offers partial relief but conflicts with broader commodity market anxieties. Personal finance articles (Ramit Sethi’s savings advice, retirement fund concerns) underscore persistent cost-of-living pressures that could constrain consumer spending – a bearish signal for retail and discretionary sectors.\n\nPolitical risk factors are amplified by Trump-era policy continuity, including potential FEMA training cuts during hurricane season, immigration policy debates, and controversial diplomatic maneuvers (Syria sanctions relief discussions). The administration’s crypto agenda facing headwinds from personal profit motives adds regulatory uncertainty to digital asset markets.\n\nMarket technicals present contradictions – the Nasdaq recovery and IPO enthusiasm contrast with defensive positioning and tariff-related inventory buildup concerns. The absence of major earnings misses or banking crises tempers outright bearishness, but geopolitical flashpoints and trade deal implementation risks prevent unbridled optimism.\n\nRecurring themes of diplomatic friction (U.S.-China, India-Pakistan, Russia-Ukraine) suggest markets must price in elevated geopolitical risk premiums. Meanwhile, the bifurcation between AI/tech optimism and cyclical sector pressures (energy, consumer staples) indicates sector rotation opportunities rather than broad market direction.'} ***
+
+*** DEBUG: Check before saving: parsed_analysis_data is truthy, actual_vix_value is not None ***
+
+--- Final Data (Ready to Save) ---
+  Fear & Greed: 45
+  VIX: 21.899999618530273
+  Summary: The provided news articles present a complex tapestry of market influences, with both positive and negative elements creating a mixed sentiment landscape. Key themes emerge around geopolitical tension...
+-------------------
+--- Data being saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json ---
+{
+  "fear_greed": 45,
+  "vix": 21.899999618530273,
+  "timestamp_utc": "2025-05-11T19:00:07+00:00Z"
+}
+----------------------------------------
+Successfully saved latest indices to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\latest_indices.json
+*** DEBUG: save_indices_to_json returned: True ***
+Connected to PostgreSQL DB 'proiectMDS'.
+Successfully inserted DB record ID: 78.
+Database connection closed.
+*** DEBUG: save_results_to_db returned: True ***
+
+Analysis process finished.
+
+--- End Log ---
+

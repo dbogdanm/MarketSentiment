@@ -1,7 +1,7 @@
 {
   "vix_data": {
     "vix": 21.899999618530273,
-    "timestamp_utc": "2025-05-11T18:08:35+00:00Z"
+    "timestamp_utc": "2025-05-11T18:59:42+00:00Z"
   },
   "articles": [
     {
@@ -12,11 +12,137 @@
       "source_name": "RSS (Investing.com News)"
     },
     {
+      "title": "Trump Tower Damascus? Syria seeks to charm US president for sanctions relief",
+      "url": "https://www.investing.com/news/world-news/trump-tower-damascus-syria-seeks-to-charm-us-president-for-sanctions-relief-4037760",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:55:36Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Saudi hospital operator SMC sees strong demand in $500M IPO",
+      "url": "https://seekingalpha.com/news/4446170-saudi-hospital-operator-smc-sees-strong-demand-in-500m-ipo?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:42:25Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Dow Jones Futures: Bessent Claims 'Productive' U.S.-China Trade Talks; Tesla, Palantir, Alibaba Near Buy Points",
+      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-u-s-china-trade-talks-tesla-palantir-alibaba-buy-points/?src=A00220&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:39:15Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Hamas in talks with US about Gaza ceasefire and aid, says senior Palestinian official",
+      "url": "https://www.investing.com/news/world-news/hamas-in-talks-with-us-about-ceasefire-and-aid-entry-in-gaza-says-senior-palestinian-official-4037754",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:35:33Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Ramit Sethi Reveals How To Save Thousands Of Dollars With A 5-Minute Call: 'Here Are The Exact Words To Use'",
+      "url": "https://finance.yahoo.com/news/ramit-sethi-reveals-save-thousands-183109766.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:31:09Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Marvel's 'Thunderbolts' leads box office for 2nd Week; 'Clown in a Cornfield' sets IFC record",
+      "url": "https://seekingalpha.com/news/4446169-marvels-thunderbolts-leads-box-office-for-2nd-week-clown-in-a-cornfield-sets-ifc-record?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:28:05Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Analysis-India's diplomatic ambitions tested as Trump pushes for deal on Kashmir",
+      "url": "https://www.investing.com/news/world-news/analysisindias-diplomatic-ambitions-tested-as-trump-pushes-for-deal-on-kashmir-4037749",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:24:36Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Indian military warns Pakistan against ceasefire violations",
+      "url": "https://www.investing.com/news/world-news/fragile-ceasefire-holds-between-india-pakistan-as-trump-offers-more-help-4037730",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:23:23Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Nasdaq Recovery: 3 Artificial Intelligence (AI) Stocks That Are Still Too Cheap to Ignore",
+      "url": "https://finance.yahoo.com/news/nasdaq-recovery-3-artificial-intelligence-181900767.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:19:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "My husband and I spend more money on our daughter and her family than on my single son. Do we compensate him?",
+      "url": "https://www.marketwatch.com/story/my-husband-and-i-spend-far-more-on-our-daughter-and-her-family-than-on-my-single-son-do-we-compensate-him-ab236ba5?mod=mw_rss_topstories",
+      "summary": "“I want to be as fair as possible and avoid any potential resentment down the line.”",
+      "timestamp": "2025-05-11T18:14:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Whiplash market rebound is said to leave defensive investors scrambling",
+      "url": "https://seekingalpha.com/news/4446168-whiplash-market-rebound-is-said-to-leave-defensive-investors-scrambling?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:11:25Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "US officials say deal struck to cut China trade deficit, details on Monday",
+      "url": "https://www.investing.com/news/world-news/uschina-talks-to-defuse-trade-row-resume-in-geneva-4037736",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:11:06Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "US officials say deal struck to cut China trade deficit, details on Monday",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPS1BIek84emttNHlYbmhZdGVrSGRROU9semxOTEsweWxBNVhOb19qVkNUTVc5TXpnRU1nRk5nSHEtWFp1WGdFbDdCVndjMFdydHdhaE4zMG5FT1luRmxYR3hpRGJodnA2UFNaMUZMeUVkQmZOOXNNMXJUdW05eFFJcEJSRk5XY24xQ3p2M1NFTkgzQ0JiX3JlLQ?oc=5",
+      "summary": "US officials say deal struck to cut China trade deficit, details on Monday Reuters",
+      "timestamp": "2025-05-11T18:09:21Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Stock Futures Poised to React After U.S.-China Trade Talks",
+      "url": "https://www.barrons.com/articles/stock-futures-us-china-trade-talks-ab83d55e?siteid=yhoof2&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:08:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "17 Money Hacks for When Your Paycheck Can’t Cover Your Bills",
+      "url": "https://finance.yahoo.com/news/24-things-more-bills-paycheck-140001248.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:02:05Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Graham Stephan Says This Investment Has Become the ‘Ultimate Money Printer’ — Here’s Why",
+      "url": "https://finance.yahoo.com/news/graham-stephan-says-investment-become-180142928.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:01:42Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "3 Ways To Profit in a Recession, According to Humphrey Yang",
+      "url": "https://finance.yahoo.com/news/3-ways-profit-recession-according-180139480.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:01:39Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
       "title": "Pope Leo XIV appeals for 'no more war' in first Sunday message",
       "url": "https://www.investing.com/news/world-news/pope-leo-xiv-appeals-to-world-powers-for-no-more-war-in-first-sunday-appearance-4037739",
       "summary": "N/A",
       "timestamp": "2025-05-11T18:00:33Z",
       "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Inflation Reports, Walmart, Cisco Earnings; and More to Watch This Week",
+      "url": "https://www.barrons.com/articles/inflation-walmart-cisco-stock-earnings-485e2524?siteid=yhoof2&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T18:00:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "Saudi Aramco sees profit dip amid lower oil prices, budget strains",
@@ -40,32 +166,11 @@
       "source_name": "RSS (MarketWatch Top Stories)"
     },
     {
-      "title": "Seeking 10% Dividend Yield? Jefferies and BTIG Suggest 2 Dividend Stocks to Buy",
-      "url": "https://finance.yahoo.com/news/seeking-10-dividend-yield-jefferies-174858589.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:48:58Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "1 Stock to Buy, 1 Stock to Sell This Week: Alibaba, Walmart",
-      "url": "https://finance.yahoo.com/news/1-stock-buy-1-stock-174629550.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:46:29Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
       "title": "Zelenskiy says he will meet Putin after Trump tells him not to await truce",
       "url": "https://www.investing.com/news/world-news/putin-proposes-direct-talks-with-ukraine-on-may-15-4037721",
       "summary": "N/A",
       "timestamp": "2025-05-11T17:46:21Z",
       "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "Dow Jones Futures: Bessent Claims 'Productive' U.S.-China Trade Talks; Tesla, Palantir, Alibaba Near Buy Points",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-u-s-china-trade-talks-tesla-palantir-alibaba-buy-points/?src=A00220&yptr=yahoo",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:45:15Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "900 BTC Leaves Binance in Mysterious Whale Move, What's Happening?",
@@ -75,25 +180,11 @@
       "source_name": "RSS (Investing.com News)"
     },
     {
-      "title": "Hamas in talks with US about Gaza ceasefire and aid, says senior Palestinian official",
-      "url": "https://www.investing.com/news/world-news/hamas-in-talks-with-us-about-ceasefire-and-aid-entry-in-gaza-says-senior-palestinian-official-4037754",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:25:33Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
       "title": "Here are the 3 things we're watching in the stock market in the week ahead",
       "url": "https://www.cnbc.com/2025/05/11/here-are-the-3-things-were-watching-in-the-stock-market-in-the-week-ahead.html",
       "summary": "The economic data calendar is jam-packed, and trade headlines will dominate too.",
       "timestamp": "2025-05-11T17:22:23Z",
       "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "Hamas in talks with US about Gaza ceasefire and aid, says senior Palestinian official",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPV0pZXzNhb0FBUzdWcllCdTVzckYzak1HVk53YkZrTG90bmkwVl9tQ29UVS1sWG5zbWFSckNYN0VnVFIxaHc0YU1PcW9GUm1ReHBtdS1NLUJYMjM2SGdDS2gtQWdndzVkTEF6MkhPcGZGU2hqSHRtR01oV0dCeXRFVmhUQXB3VThkZmlUY3Y2ZGgtRm5yM2p2N21JWE9PSnc2dnhod013MnMxTHJBM0QyLVh1TWxjVzM1SXNrMHdvSzI4TFo1eDlv?oc=5",
-      "summary": "Hamas in talks with US about Gaza ceasefire and aid, says senior Palestinian official Reuters",
-      "timestamp": "2025-05-11T17:21:39Z",
-      "source_name": "Google News (Reuters)"
     },
     {
       "title": "Barcelona edge closer to title with thrilling 4-3 win over Real Madrid",
@@ -110,32 +201,11 @@
       "source_name": "RSS (Investing.com News)"
     },
     {
-      "title": "Wary investors hope US-China talks cool high-stakes trade war",
-      "url": "https://www.investing.com/news/economy-news/wary-investors-hope-uschina-talks-cool-highstakes-trade-war-4037714",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:15:48Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
       "title": "Zelenskiy says: I am ready to meet Putin in Turkey on Thursday",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNanZTMHF3NE05MTFBVW5lTTFvX1ZzWFlpTjZwRkhOa3ppVy1sWmJLa3Z5VUFnTnFzYUcxWHZfLUp4dUJSdnlnS05PSzNHdWtOanZzbWg2Ym9SMmJGaW1UeFpvekJxRVlFLTdJN1RpcDZuNkxmdU5LU2tJMjh1U3FVTlhxVDFQMG5qQmRVV2djWkh6YlRZT1ZycFZvZXN1dXhTT2hz?oc=5",
       "summary": "Zelenskiy says: I am ready to meet Putin in Turkey on Thursday Reuters",
       "timestamp": "2025-05-11T17:13:42Z",
       "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Analysis-India's diplomatic ambitions tested as Trump pushes for deal on Kashmir",
-      "url": "https://www.investing.com/news/world-news/analysisindias-diplomatic-ambitions-tested-as-trump-pushes-for-deal-on-kashmir-4037749",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:11:30Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "US, China reach deal to cut trade deficit, US officials say, details on Monday",
-      "url": "https://www.investing.com/news/world-news/uschina-talks-to-defuse-trade-row-resume-in-geneva-4037736",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:06:00Z",
-      "source_name": "RSS (Investing.com News)"
     },
     {
       "title": "India's diplomatic ambitions tested as Trump pushes for deal on Kashmir",
@@ -145,39 +215,11 @@
       "source_name": "Google News (Reuters)"
     },
     {
-      "title": "Here’s How To Maximize Your Income If You’re in a Dual-Income Household, According to Rachel Cruze",
-      "url": "https://finance.yahoo.com/news/maximize-income-dual-income-household-170212520.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:02:12Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "I Asked ChatGPT Whether or Not I Should Buy a Used Car in 2025, Here’s What It Said",
-      "url": "https://finance.yahoo.com/news/asked-chatgpt-whether-not-buy-170206853.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:02:06Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Skechers Set To Go Private Amidst Tariff Drama, Hopes New Partnership Will 'Enable The Company's Long-Term Growth'",
-      "url": "https://finance.yahoo.com/news/skechers-set-private-amidst-tariff-170105924.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T17:01:05Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
       "title": "Gaza ceasefire talks resume between U.S., Hamas - report",
       "url": "https://seekingalpha.com/news/4446166-gaza-ceasefire-talks-resume-between-u-s-hamas-report?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
       "summary": "N/A",
       "timestamp": "2025-05-11T16:56:50Z",
       "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "Newark plane traffic briefly slowed again due to telecoms issue, FAA says",
-      "url": "https://www.investing.com/news/stock-market-news/new-newark-air-traffic-telecom-issue-forces-brief-slowing-of-traffic-faa-says-4037752",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T16:55:36Z",
-      "source_name": "RSS (Investing.com News)"
     },
     {
       "title": "Brace for Mother’s Day brunch to be more expensive this year as inflation and tariffs drive up prices",
@@ -194,13 +236,6 @@
       "source_name": "Google News (Reuters)"
     },
     {
-      "title": "US, China reach deal to cut trade deficit, US officials say, details on Monday",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPS1BIek84emttNHlYbmhZdGVrSGRROU9semxOTEsweWxBNVhOb19qVkNUTVc5TXpnRU1nRk5nSHEtWFp1WGdFbDdCVndjMFdydHdhaE4zMG5FT1luRmxYR3hpRGJodnA2UFNaMUZMeUVkQmZOOXNNMXJUdW05eFFJcEJSRk5XY24xQ3p2M1NFTkgzQ0JiX3JlLQ?oc=5",
-      "summary": "US, China reach deal to cut trade deficit, US officials say, details on Monday Reuters",
-      "timestamp": "2025-05-11T16:42:22Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
       "title": "Microsoft and OpenAI revising terms of partnership and contract - report",
       "url": "https://seekingalpha.com/news/4446164-microsoft-openai-revising-terms-partnership-contract?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
       "summary": "N/A",
@@ -212,13 +247,6 @@
       "url": "https://seekingalpha.com/news/4446111-sa-asks-what-are-the-best-cannabis-stocks-right-now?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
       "summary": "N/A",
       "timestamp": "2025-05-11T16:30:42Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "U.S. and China report 'substantial progress' in trade talks, more details soon: reports",
-      "url": "https://seekingalpha.com/news/4446165-u-s-and-china-report-substantial-progress-in-trade-talks-more-details-soon-reports?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T16:22:12Z",
       "source_name": "RSS (Seeking Alpha Market Currents)"
     },
     {
@@ -243,18 +271,11 @@
       "source_name": "Google News (Reuters)"
     },
     {
-      "title": "Musk says Trump’s 'Gold Card' visa pilot underway ahead of public launch",
-      "url": "https://seekingalpha.com/news/4446163-musk-says-trump-s-gold-card-visa-pilot-underway-ahead-of-public-launch?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T16:07:56Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "SA Asks: What's next for the cannabis sector?",
-      "url": "https://seekingalpha.com/news/4446108-sa-asks-whats-next-for-the-cannabis-sector?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T16:00:19Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
+      "title": "Iran, US nuclear talks end in Oman, next round to be announced",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNVkpyNjdkRDlURnBhR0g5X1dGMG5odFNtVUUwSndXamJjQWs2N1Vma2lIbjJYQzVhZDBucDdKa1dsVXZjTmRlOUZLS0otYzBTQ1U5M2lKX0lFVXlZLU5kTC1HOTBWTmR0SFVxMW0xc2NoQS0wNzJ6N1Z3bnViejNsY1pSTDZ0SzNoaWNuX1JpZG9xQXIzekYzNWdn?oc=5",
+      "summary": "Iran, US nuclear talks end in Oman, next round to be announced Reuters",
+      "timestamp": "2025-05-11T15:55:43Z",
+      "source_name": "Google News (Reuters)"
     },
     {
       "title": "FAA weighs reducing Newark flights after hundreds of disruptions",
@@ -334,32 +355,11 @@
       "source_name": "Google News (Reuters)"
     },
     {
-      "title": "How Tariffs Are Crushing Small Businesses: ‘Nobody in Power Seems to Care’",
-      "url": "https://www.wsj.com/business/entrepreneurship/small-business-tariffs-e6dfaccb?siteid=yhoof2&yptr=yahoo",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T13:00:00Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "OpenAI negotiates with Microsoft for new funding and future IPO, FT reports",
-      "url": "https://finance.yahoo.com/news/openai-negotiates-microsoft-unlock-funding-125544787.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T12:55:44Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
       "title": "‘I’m flabbergasted’: My friend wants to borrow $5,800 to save his home from foreclosure. What should I do?",
       "url": "https://www.marketwatch.com/story/im-flabbergasted-my-friend-wants-to-borrow-5-800-to-save-his-home-from-foreclosure-what-should-i-do-c578b12b?mod=mw_rss_topstories",
       "summary": "“I previously loaned a friend $7,000, and she later died.”",
       "timestamp": "2025-05-11T12:45:00Z",
       "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "A Bill Ackman investing golden rule that bullish traders might be forgetting about right now",
-      "url": "https://finance.yahoo.com/news/a-bill-ackman-investing-golden-rule-that-bullish-traders-might-be-forgetting-about-right-now-123056823.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-11T12:30:56Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "Walgreens doubles down on prescription-filling robots to cut costs, free up pharmacists amid turnaround",
@@ -481,34 +481,6 @@
       "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
-      "title": "Warren Buffett’s succession plan has begun. Here’s what a longtime insider is watching.",
-      "url": "https://www.marketwatch.com/story/warren-buffetts-succession-plan-has-begun-heres-what-a-longtime-insider-is-watching-e25c015a?mod=mw_rss_topstories",
-      "summary": "Naming Greg Abel as CEO of Berkshire Hathaway is just the first step.",
-      "timestamp": "2025-05-10T20:46:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "CrowdStrike Holdings, Inc. (CRWD) Reported “Unbelieveable” Quarterly Results, Well-Known Investor Says",
-      "url": "https://finance.yahoo.com/news/crowdstrike-holdings-inc-crwd-reported-195137868.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:51:37Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Two Prominent Investors Are Bearish on Alphabet Inc. (GOOG) Stock",
-      "url": "https://finance.yahoo.com/news/two-prominent-investors-bearish-alphabet-194333017.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:43:33Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Trader Suggests Potential Bullish Options Strategies Involving Palantir Technologies (PLTR) Stock",
-      "url": "https://finance.yahoo.com/news/trader-suggests-potential-bullish-options-193658134.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:36:58Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
       "title": "The Trump tax cut debate is heating up. Here are the key issues and who stands to benefit",
       "url": "https://www.cnbc.com/2025/05/10/trumps-tax-cuts-who-benefits.html",
       "summary": "Republican debate is heating up for Trump's tax cuts. Here's who could benefit from the final bill, according to policy experts.",
@@ -537,24 +509,59 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
+      "title": "Well-Known Investor Is Leaning Towards Holding Alphabet Inc. (GOOG) Stock",
+      "url": "https://finance.yahoo.com/news/well-known-investor-leaning-towards-172757403.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:27:57Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Opendoor Technologies Inc. (OPEN): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/opendoor-technologies-inc-open-bull-172128822.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:21:28Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Lithia Motors, Inc. (LAD): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/lithia-motors-inc-lad-bull-172120418.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:21:20Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Ally Financial Inc. (ALLY): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/ally-financial-inc-ally-bull-172112166.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:21:12Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Joint Stock Company Kaspi.kz (KSPI): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/joint-stock-company-kaspi-kz-172103866.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:21:03Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Casey’s General Stores, Inc. (CASY): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/casey-general-stores-inc-casy-172039755.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:20:39Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "SoFi Technologies, Inc. (SOFI): A Bull Case Theory",
+      "url": "https://finance.yahoo.com/news/sofi-technologies-inc-sofi-bull-170626436.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T17:06:26Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
       "title": "Analyst Explains Why the Valuation of Palantir Technologies (PLTR) Stock Is So High",
       "url": "https://finance.yahoo.com/news/analyst-explains-why-valuation-palantir-165902176.html",
       "summary": "N/A",
       "timestamp": "2025-05-10T16:59:02Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Apple Wants Its $20 Billion, and Is Willing to Throw Google Under the Bus to Keep It",
-      "url": "https://www.barrons.com/articles/apple-google-search-trial-alphabet-stock-price-ed740fb2?siteid=yhoof2&yptr=yahoo",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T16:03:00Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "S&P 500 Giants Visa, Insulet Lead 5 Stocks Near Buy Points",
-      "url": "https://www.investors.com/news/sp-500-stocks-visa-insulet-buy-points/?src=A00220&yptr=yahoo",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T15:47:52Z",
       "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
@@ -591,13 +598,6 @@
       "summary": "Multiple court cases challenging the Trump administrations effort to deport undocumented immigrants from the U.S. are based on habeas claims.",
       "timestamp": "2025-05-09T22:37:07Z",
       "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "Gasoline prices: How does under $3 a gallon sound this summer?",
-      "url": "https://finance.yahoo.com/news/gasoline-prices-how-does-under-3-a-gallon-sound-this-summer-173451297.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-09T20:33:29Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "Tech's strong ad sales are showing signs of cracking from Trump's trade war",

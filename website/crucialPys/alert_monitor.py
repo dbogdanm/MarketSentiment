@@ -5,16 +5,17 @@ from datetime import datetime, timezone, timedelta  # pentru a lucra cu date, or
 import psycopg2  # biblioteca pentru a ne conecta la baza de date postgresql
 from psycopg2.extras import RealDictCursor  # pentru a primi rezultatele din db ca dictionare
 import smtplib  # biblioteca pentru a trimite email-uri folosind protocolul smtp
-from email.mime.text import MIMEText  # pentru a crea corpul mesajului email in format text
 
-# --- adaugam directorul radacina al proiectului la sys.path ---
-# aflam calea catre directorul unde se gaseste acest script (alert_monitor.py)
-PROJECT_ROOT_FOR_ALERT_MONITOR = os.path.dirname(os.path.abspath(__file__))
-# daca acest script este in website/crucialpys, trebuie sa urcam doua niveluri pentru a ajunge la radacina proiectului
-# daca este deja in radacina proiectului, aceasta linie nu mai este necesara sau trebuie ajustata
-# presupunand ca este in radacina proiectului, aceasta linie este corecta pentru importurile de mai jos
-if PROJECT_ROOT_FOR_ALERT_MONITOR not in sys.path:
-    sys.path.insert(0, PROJECT_ROOT_FOR_ALERT_MONITOR)  # adaugam la inceputul listei de cautare
+from email.mime.text import MIMEText  # pentru a crea corpul mesajului email in format text/html
+from email.mime.multipart import MIMEMultipart # pentru a combina diferite parti ale emailului (text, imagine)
+from email.mime.image import MIMEImage # pentru a atasa imagini
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__)) # .../ProjectMarketSentimentMDS/website/crucialPys
+WEBSITE_DIR = os.path.dirname(SCRIPT_DIR) # .../ProjectMarketSentimentMDS/website
+PROJECT_ROOT = os.path.dirname(WEBSITE_DIR) # .../ProjectMarketSentimentMDS
+
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)  # adaugam la inceputul listei de cautare
 
 try:
     # incercam sa importam functia get_vix_value_yfinance si flag-ul yfinance_available
@@ -47,6 +48,11 @@ except Exception as e_general:  # prindem orice alta eroare generala la import
 # intervalul minim (in ore) intre trimiterea a doua alerte consecutive catre acelasi utilizator
 MIN_ALERT_INTERVAL = timedelta(hours=6)
 
+# Calea catre imaginea pentru footer-ul emailului
+# Din .../ProjectMarketSentimentMDS/website/crucialPys mergem in sus la PROJECT_ROOT
+# apoi website/static/images/mail-footer-logo.png
+IMAGE_FOOTER_PATH = os.path.join(PROJECT_ROOT, "website", "static", "images", "mail-footer-logo-removed.png")
+IMAGE_FOOTER_CID = 'mailfooterlogo' # Content-ID pentru imagine
 
 def get_db_conn_for_alerts():
     """functie care stabileste si returneaza o conexiune la baza de date pentru scriptul de alerte."""
@@ -68,84 +74,157 @@ def get_db_conn_for_alerts():
 
 
 def send_actual_vix_alert(receiver_email, current_vix, user_specific_threshold):
-    """functie care trimite efectiv emailul de alerta vix."""
-    # citim configuratiile smtp din variabilele de mediu direct in functie
+    """functie care trimite efectiv emailul de alerta vix (acum in format HTML cu imagine)."""
     smtp_server_local = os.environ.get("SMTP_SERVER")
     smtp_port_str_local = os.environ.get("SMTP_PORT")
-    smtp_user_local = os.environ.get("SMTP_USER")  # emailul de la care se trimite
-    smtp_pass_local = os.environ.get("SMTP_PASS")  # parola (sau parola de aplicatie pentru gmail cu 2fa)
+    smtp_user_local = os.environ.get("SMTP_USER")
+    smtp_pass_local = os.environ.get("SMTP_PASS")
 
-    # verificam daca avem toate configuratiile smtp necesare
     if not all([receiver_email, smtp_server_local, smtp_port_str_local, smtp_user_local, smtp_pass_local]):
         print(f"Skipping email to {receiver_email}: SMTP configuration missing from environment variables.")
         return False
     try:
-        smtp_port_int = int(smtp_port_str_local)  # convertim portul la numar intreg
-    except ValueError:  # daca portul nu e un numar valid
+        smtp_port_int = int(smtp_port_str_local)
+    except ValueError:
         print(f"Skipping email to {receiver_email}: Invalid SMTP_PORT '{smtp_port_str_local}'.")
         return False
 
-    # construim subiectul si corpul emailului
-    # folosim f-stringuri pentru a insera valorile dinamice
-    # :.2f formateaza numarul float cu exact doua zecimale
-    subject = f"VIX Alert: VIX is at {current_vix:.2f} (Your Threshold: >{user_specific_threshold:.2f})"
-    body = f"""Dear User,
+    # cream mesajul ca MIMEMultipart pentru a putea include HTML si imagini
+    msg = MIMEMultipart('related')
+    msg['From'] = smtp_user_local
+    msg['To'] = receiver_email
 
-    This is an automated notification from the Market Sentiment Dashboard.
+    current_year = datetime.now(timezone.utc).year
+    alert_trigger_time_formatted = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 
-    We wish to inform you that the CBOE Volatility Index (VIX) has registered a significant movement.
 
-    Current VIX Level: {current_vix:.2f}
-    Your Alert Threshold: > {user_specific_threshold:.2f}
+    msg['Subject'] = f"VIX Alert: VIX is at {current_vix:.2f} (Your Threshold: >{user_specific_threshold:.2f})"
 
-    This reading indicates that the VIX is currently above the threshold you have specified,
-    suggesting a potential increase in market volatility.
+    html_body = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VIX Alert - Market Sentiment Dashboard</title>
+        <style type="text/css">
+            body, table, td, p, a, li, blockquote {{ -webkit-text-size-adjust:none!important; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }}
+            table {{ border-collapse:collapse; }}
+            img {{ -ms-interpolation-mode:bicubic; display:block; border:0; outline:none; text-decoration:none; }}
+        </style>
+    </head>
+    <body style="margin:0; padding:0; background-color:#f0f0f0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+        <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#f0f0f0;">
+            <tr>
+                <td align="center" style="padding:20px 0;">
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                    <tr>
+                    <td align="center" valign="top" width="600">
+                    <![endif]-->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px; margin:0 auto; background-color:#ffffff; border-radius:8px; box-shadow: 0px 0px 15px rgba(0,0,0,0.05);">
+                        <!-- Header -->
+                        <tr>
+                            <td align="center" style="padding:30px 20px; background-color:#1a1a1a; color:#ffffff; border-top-left-radius:8px; border-top-right-radius:8px;">
+                                <h1 style="margin:0; font-size:28px; font-weight:bold;">Market Sentiment Dashboard</h1>
+                            </td>
+                        </tr>
+                        <!-- Content -->
+                        <tr>
+                            <td style="padding:30px 25px; color:#333333; font-size:16px; line-height:1.6;">
+                                <p style="margin:0 0 20px;">Dear User,</p>
+                                <p style="margin:0 0 15px;">This is an automated notification from the Market Sentiment Dashboard (MSD).</p>
+                                <p style="margin:0 0 20px;">We wish to inform you that the CBOE Volatility Index (VIX) has registered a significant movement.</p>
 
-    We advise you to monitor market conditions and consult your financial advisor
-    for any investment decisions.
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin:25px 0; background-color:#f5f5f5; border-left:4px solid #555555; padding:15px 20px;">
+                                    <tr>
+                                        <td>
+                                            <p style="margin:0 0 8px; color:#333333; font-size:17px;"><strong>Current VIX Level: <span style="color:#000000; font-size:1.2em;">{current_vix:.2f}</span></strong></p>
+                                            <p style="margin:0; color:#333333; font-size:17px;"><strong>Your Alert Threshold: > {user_specific_threshold:.2f}</strong></p>
+                                        </td>
+                                    </tr>
+                                </table>
 
-    Details:
-    - Alert Trigger Time (UTC): {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')}
-    - Data Source: Market Sentiment Dashboard
+                                <p style="margin:0 0 15px;">This reading indicates that the VIX is currently above the threshold you have specified,
+                                suggesting a potential increase in market volatility.</p>
+                                <p style="margin:0 0 25px;">We advise you to monitor market conditions and consult your financial advisor
+                                for any investment decisions.</p>
 
-    Thank you for using our alert service.
+                                <h3 style="font-size:18px; color:#000000; margin:30px 0 10px; padding-bottom:5px; border-bottom:1px solid #dddddd;">Alert Details:</h3>
+                                <ul style="margin:0 0 20px; padding-left:20px; list-style-type:disc;">
+                                    <li style="margin-bottom:8px;">Alert Trigger Time (UTC): {alert_trigger_time_formatted}</li>
+                                    <li style="margin-bottom:8px;">Data Source: Market Sentiment Dashboard</li>
+                                </ul>
 
-    Sincerely,
-    The Market Sentiment Dashboard Team
-    Dinu Bogdan-Marius CEO 
-    --------------------------------------
-    Note: This is an automated message. Please do not reply directly to this email.
-    To manage your alert settings, please visit the dashboard. 
-    
-    2025 Market Sentiment Dashboard™ 
-    
-    All Rights Reserved.
+                                <p style="margin:0 0 15px;">Thank you for using our alert service.</p>
+                                <p style="margin:0 0 5px;">Sincerely,</p>
+                                <p style="margin:0 0 5px;"><strong>The Market Sentiment Dashboard Team</strong></p>
+                                <p style="margin:0;"><em>Dinu Bogdan-Marius, CEO</em></p>
+                            </td>
+                        </tr>
+                        <!-- Footer -->
+                        <tr>
+                            <td align="center" style="padding:25px 20px; background-color:#e0e0e0; color:#444444; font-size:13px; border-bottom-left-radius:8px; border-bottom-right-radius:8px; border-top:1px solid #cccccc;">
+                                <p style="margin:0 0 10px;">
+                                    <img src="cid:{IMAGE_FOOTER_CID}" alt="MSD Logo Transparent" style="max-width:160px; height:auto; margin-bottom:15px;">
+                                </p>
+                                <p style="margin:0 0 10px;">Note: This is an automated message. Please do not reply directly to this email.<br>To manage your alert settings, please visit the dashboard.</p>
+                                <p style="margin:0;">© {current_year} Market Sentiment Dashboard™ All Rights Reserved.</p>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
     """
-    # cream obiectul mesajului email, specificand ca e text simplu si codificare utf-8
-    msg = MIMEText(body, 'plain', 'utf-8')
-    msg['Subject'] = subject  # setam subiectul
-    msg['From'] = smtp_user_local  # setam expeditorul
-    msg['To'] = receiver_email  # setam destinatarul
+
+    # cream partea HTML a mesajului
+    part_html = MIMEText(html_body, 'html', 'utf-8')
+    msg.attach(part_html)
+
+    try:
+        if not os.path.exists(IMAGE_FOOTER_PATH):  # verificare extra daca exista fisieru
+            print(f"ERROR: Image file NOT FOUND at {IMAGE_FOOTER_PATH}. Email will be sent without footer image.")
+        else:
+            with open(IMAGE_FOOTER_PATH, 'rb') as fp:
+                img = MIMEImage(fp.read())
+            # adaugam header-ul Content-ID pentru a o putea referentia din HTML
+            img.add_header('Content-ID', f'<{IMAGE_FOOTER_CID}>')
+            # adaugam content-disposition pentru a sugera clientilor de email sa o afiseze inline
+            img.add_header('Content-Disposition', 'inline', filename=os.path.basename(IMAGE_FOOTER_PATH))
+            msg.attach(img)
+            print(f"Successfully attached image: {IMAGE_FOOTER_PATH} with CID: {IMAGE_FOOTER_CID}")
+    except FileNotFoundError:
+        print(
+            f"ERROR: Image file not found at {IMAGE_FOOTER_PATH} (FileNotFoundError). Email will be sent without footer image.")
+    except Exception as e_img:
+        print(f"Error attaching image {IMAGE_FOOTER_PATH}: {e_img}. Email will be sent without footer image.")
+
 
     try:
         print(
             f"Attempting to send VIX alert to {receiver_email} for VIX={current_vix:.2f} (user threshold >{user_specific_threshold:.2f})...")
-        # ne conectam la serverul smtp
-        # 'with' se asigura ca server.quit() este apelat automat la final
         with smtplib.SMTP(smtp_server_local, smtp_port_int) as server:
-            server.ehlo()  # trimitem un salut initial serverului smtp
-            server.starttls()  # pornim criptarea tls (transport layer security)
-            server.ehlo()  # salutam din nou serverul dupa ce am pornit tls
-            server.login(smtp_user_local, smtp_pass_local)  # ne autentificam la server
-            server.sendmail(smtp_user_local, receiver_email, msg.as_string())  # trimitem emailul
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(smtp_user_local, smtp_pass_local)
+            server.sendmail(smtp_user_local, receiver_email, msg.as_string())
         print(f"VIX alert successfully sent to {receiver_email}.")
-        return True  # returnam true daca emailul a fost trimis
-    except smtplib.SMTPAuthenticationError as e:  # eroare specifica de autentificare smtp
+        return True
+    except smtplib.SMTPAuthenticationError as e:
         print(f"SMTP Authentication Error for {smtp_user_local}: {e}. Check SMTP_USER and SMTP_PASS.")
         print("For Gmail with 2FA, an 'App Password' is required.")
-    except Exception as e:  # orice alta eroare la trimiterea emailului
+    except Exception as e:
         print(f"Error sending VIX alert email to {receiver_email}: {e}")
-    return False  # returnam false daca a aparut o eroare
+    return False
 
 
 def check_vix_and_send_alerts():
@@ -154,31 +233,24 @@ def check_vix_and_send_alerts():
     si trimite alerte utilizatorilor abonati daca pragul lor este depasit.
     """
     print(f"[{datetime.now(timezone.utc)}] Starting VIX alert check...")
-    if not YFINANCE_AVAILABLE:  # daca biblioteca yfinance nu e disponibila (din cauza erorii de import)
+    if not YFINANCE_AVAILABLE:
         print("yfinance library not available. Cannot fetch VIX for alerts.")
         return
 
-    current_vix = get_vix_value_yfinance()  # preluam valoarea vix curenta
-    if current_vix is None:  # daca nu am putut prelua vix-ul
+    current_vix = get_vix_value_yfinance()
+    if current_vix is None:
         print("Could not retrieve current VIX value. Skipping alert check.")
         return
 
     print(f"Current VIX value fetched: {current_vix}")
 
-    # nu mai citim vix_alert_threshold din variabilele de mediu aici,
-    # deoarece fiecare utilizator are propriul prag in baza de date.
-
-    conn = get_db_conn_for_alerts()  # ne conectam la baza de date
-    if not conn:  # daca nu am reusit sa ne conectam
+    conn = get_db_conn_for_alerts()
+    if not conn:
         print("Could not connect to database to check subscriptions.")
         return
 
     try:
-        with conn.cursor(cursor_factory=RealDictCursor) as cur:  # deschidem un cursor
-            # selectam toti utilizatorii activi ('is_active = true')
-            # pentru care vix-ul curent este mai mare decat pragul lor ('%s > vix_threshold')
-            # si carora fie nu li s-a mai trimis alerta ('last_alert_sent_at is null')
-            # fie ultima alerta a fost trimisa cu mai mult de min_alert_interval in urma.
+        with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute("""
                 SELECT id, email, vix_threshold, last_alert_sent_at 
                 FROM vix_alerts_subscriptions 
@@ -186,39 +258,36 @@ def check_vix_and_send_alerts():
                 AND (last_alert_sent_at IS NULL OR last_alert_sent_at < %s)
             """, (current_vix, datetime.now(timezone.utc) - MIN_ALERT_INTERVAL))
 
-            subscriptions_to_alert = cur.fetchall()  # luam toate subscrierile care indeplinesc conditiile
+            subscriptions_to_alert = cur.fetchall()
 
-            if not subscriptions_to_alert:  # daca nu avem pe nimeni de alertat
+            if not subscriptions_to_alert:
                 print("No users to alert for the current VIX level or alerts sent recently.")
                 return
 
             print(f"Found {len(subscriptions_to_alert)} subscriptions to alert for VIX={current_vix}.")
-            for sub in subscriptions_to_alert:  # pentru fiecare subscriere de alertat
-                # trimitem emailul, folosind pragul specific al utilizatorului (sub['vix_threshold'])
+            for sub in subscriptions_to_alert:
                 if send_actual_vix_alert(sub['email'], current_vix, sub['vix_threshold']):
-                    # daca emailul a fost trimis cu succes, actualizam 'last_alert_sent_at' in baza de date
                     try:
                         cur.execute("""
                             UPDATE vix_alerts_subscriptions 
                             SET last_alert_sent_at = %s 
                             WHERE id = %s
                         """, (datetime.now(timezone.utc), sub['id']))
-                        conn.commit()  # salvam modificarea
+                        conn.commit()
                         print(f"Updated last_alert_sent_at for {sub['email']}.")
-                    except Exception as db_update_err:  # daca apare eroare la update
+                    except Exception as db_update_err:
                         print(f"Error updating last_alert_sent_at for {sub['email']}: {db_update_err}")
-                        conn.rollback()  # anulam modificarea
-    except Exception as e:  # prindem orice eroare in procesul de verificare
+                        conn.rollback()
+    except Exception as e:
         print(f"Error during VIX alert check process: {e}")
-    finally:  # indiferent de ce se intampla
-        if conn:  # daca conexiunea la db a fost deschisa
-            conn.close()  # o inchidem
+    finally:
+        if conn:
+            conn.close()
     print(f"[{datetime.now(timezone.utc)}] VIX alert check finished.")
 
 
-# acest bloc se executa doar daca scriptul este rulat direct (ex: 'python alert_monitor.py')
 if __name__ == "__main__":
-    # acest script ar putea fi rulat de scheduler_main.py sau de un cron job separat
     print("Running VIX alert monitor directly...")
-    check_vix_and_send_alerts()  # apelam functia principala de verificare si trimitere alerte
+    check_vix_and_send_alerts()
     print("VIX alert monitor direct run finished.")
+
