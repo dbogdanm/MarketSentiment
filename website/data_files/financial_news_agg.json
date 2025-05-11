@@ -1,57 +1,323 @@
 {
   "vix_data": {
     "vix": 21.899999618530273,
-    "timestamp_utc": "2025-05-10T20:46:47+00:00Z"
+    "timestamp_utc": "2025-05-11T13:41:21+00:00Z"
   },
   "articles": [
+    {
+      "title": "Deutsche Bank outlines two paths for ECB interest rates",
+      "url": "https://www.investing.com/news/economy/deutsche-bank-outlines-two-paths-for-ecb-interest-rates-4033231",
+      "summary": "N/A",
+      "timestamp": "2025-05-18T09:00:00Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "OpenAI negotiates with Microsoft for new funding and future IPO, FT reports",
+      "url": "https://www.investing.com/news/stock-market-news/openai-negotiates-with-microsoft-to-unlock-new-funding-and-future-ipo-ft-reports-4037745",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:35:47Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Fragile ceasefire holds between India, Pakistan as Trump offers more help",
+      "url": "https://www.investing.com/news/world-news/fragile-ceasefire-holds-between-india-pakistan-as-trump-offers-more-help-4037730",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:32:58Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Villagers evacuated from line of fire along India-Pakistan border fear going back",
+      "url": "https://www.investing.com/news/world-news/villagers-evacuated-from-line-of-fire-along-indiapakistan-border-fear-going-back-4037746",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:21:12Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Tariff turmoil rattles markets, but recession risk still low: Wolfe Research",
+      "url": "https://seekingalpha.com/news/4446155-tariff-turmoil-rattles-markets-but-recession-risk-still-low-wolfe-research?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:16:32Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Notable healthcare headlines for the week: Viatris, Novavax and UnitedHealth in focus",
+      "url": "https://seekingalpha.com/news/4445893-notable-healthcare-headlines-for-the-week-viatris-novavax-and-unitedhealth-in-focus?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:05:23Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "U.S. consumer spending levels off as households grow more cautious: BofA",
+      "url": "https://seekingalpha.com/news/4446153-us-consumer-spending-levels-off-as-households-grow-more-cautious-bofa?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:02:47Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Putin proposes direct peace talks with Ukraine after three years of war",
+      "url": "https://www.investing.com/news/world-news/putin-proposes-direct-talks-with-ukraine-on-may-15-4037721",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T13:02:09Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Saudi Arabia stocks lower at close of trade; Tadawul All Share down 0.15%",
+      "url": "https://www.investing.com/news/stock-market-news/saudi-arabia-stocks-lower-at-close-of-trade-tadawul-all-share-down-015-4037744",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:50:02Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "‘I’m flabbergasted’: My friend wants to borrow $5,800 to save his home from foreclosure. What should I do?",
+      "url": "https://www.marketwatch.com/story/im-flabbergasted-my-friend-wants-to-borrow-5-800-to-save-his-home-from-foreclosure-what-should-i-do-c578b12b?mod=mw_rss_topstories",
+      "summary": "“I previously loaned a friend $7,000, and she later died.”",
+      "timestamp": "2025-05-11T12:45:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Trump to receive $400M luxury jet gift from Qatar, later headed to his library: report",
+      "url": "https://seekingalpha.com/news/4446152-trump-to-receive-400m-luxury-jet-gift-from-qatar-later-headed-to-his-library-report?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:35:54Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "China’s J-10 fighter gains spotlight after India-Pakistan clash",
+      "url": "https://seekingalpha.com/news/4446151-china-s-jminus-10-fighter-gains-spotlight-after-india-pakistan-clash?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:29:51Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Pope Leo XIV appeals for 'no more war' in first Sunday message",
+      "url": "https://www.investing.com/news/world-news/pope-leo-xiv-appeals-to-world-powers-for-no-more-war-in-first-sunday-appearance-4037739",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:20:26Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Pope Leo XIV appeals for 'no more war' in first Sunday message",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPSHZXUnZMVXN3aFRLSnJiSmZQSXdDc2JiVzRiY3hCazJNVk5vZ045U0hLdi1MeEQ2UGNTeDBxRTU0aVVtWjZTRkxDWUFrbF9HaGVSTEhBWkpNOE1RdE1fSXgwa2w3eW42d0QyM2VROXpzMngzMjlVOTZaZVVaVGt3ekp3ODVDUHFBdkM3UXNnMlNUOGFNZk8yQlBXT1ZGT2hDeTc5ZFpHLUZWaWU1a1FQTQ?oc=5",
+      "summary": "Pope Leo XIV appeals for 'no more war' in first Sunday message Reuters",
+      "timestamp": "2025-05-11T12:19:37Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Trump dismisses U.S. Copyright Office chief amid broader shake-up",
+      "url": "https://seekingalpha.com/news/4446150-trump-dismisses-u-s-copyright-office-chief-amid-broader-shake-up?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:17:31Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "U.S. and China resume high-stakes trade talks in Geneva",
+      "url": "https://seekingalpha.com/news/4446149-u-s-and-china-resume-high-stakes-trade-talks-in-geneva?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T12:06:29Z",
+      "source_name": "RSS (Seeking Alpha Market Currents)"
+    },
+    {
+      "title": "Tufts student returns to Massachusetts after release from immigration custody",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQaG94ZTB0ZXJqQzRodldDc09xMk5ia0tGaV9sQmp2bmRFaDMtWFJ5NlVaWHRtWFQ0S3ZnX2hRdGZsRTNIQjNrT29ULWNNaGcyZUVLbno2ZkdPMFJ1ekR4dXNzaF9vRzcxZmlMSmpwX240MmdIZUNuNjAxcy11ZndtN1F0NWwta0pOcTdQWldIdlJZYkg5UVNTR1M4bkpHMWNtbFNHNERrSElJNUx6LXg2QS1YRjI?oc=5",
+      "summary": "Tufts student returns to Massachusetts after release from immigration custody Reuters",
+      "timestamp": "2025-05-11T12:05:03Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Fragile ceasefire holds between India, Pakistan as Trump offers more help",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNUzVteU9WcDJST1IzRWZROW9ERkpFbEg2WFZxNzVZUjVsalNrRndiYU9McVRkZzFIYy1DTDgwUXBmYlZJLVBGSjlyZ1BFNGNpclNKem1WUEFDWVdjdVVhLW45dFN6SXpIb0pKNDkwQlFwb2RpdHZDOWdseGVuZnAxVFhlWUlpQUJvMjY3Mks1eVZfRHRsMGF2MXB5SnJkSUs1cHFNNnA3bWVvT2N0cU9rVUoxdnVTSHhkVFhPLUJVZ2Rkdw?oc=5",
+      "summary": "Fragile ceasefire holds between India, Pakistan as Trump offers more help Reuters",
+      "timestamp": "2025-05-11T12:00:17Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Stock-market bulls face inflation test this week, but trade talks may set the tone",
+      "url": "https://www.marketwatch.com/story/stock-market-bulls-face-inflation-test-this-week-but-trade-talks-may-set-the-tone-fb126dbc?mod=mw_rss_topstories",
+      "summary": "Deals may matter more than data, including inflation readings, for stock-market investors looking for clarity around President Donald Trump’s tariff plans in the week ahead.",
+      "timestamp": "2025-05-11T12:00:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Turkey ready to host Russia-Ukraine peace talks, Erdogan tells Putin",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQcXFseG9NY2Uzb2ZVMDJTVVN4Y254VmJpR1FFUmY2RlN1dWdZeFFHN0h3TXBfWE1kOWhpU2hidDFKUDBkbmxsYldtVVBQWV9FLS12R3NDT3NfX3NFYXdmUlY4WXRCN3hlQ0QwenRDVlU1X1VVX1pPWFdHLThER0YxUms5SkUxaUZjVnBUeFNoU3Fjc3l1QnpGREVmZmRMcDRYVF9XVHhDb0dpaFpB?oc=5",
+      "summary": "Turkey ready to host Russia-Ukraine peace talks, Erdogan tells Putin Reuters",
+      "timestamp": "2025-05-11T11:44:25Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "US-China talks to defuse trade row resume in Geneva",
+      "url": "https://www.investing.com/news/world-news/uschina-talks-to-defuse-trade-row-resume-in-geneva-4037736",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T11:16:01Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "US-China talks to defuse trade row resume in Geneva",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPS1BIek84emttNHlYbmhZdGVrSGRROU9semxOTEsweWxBNVhOb19qVkNUTVc5TXpnRU1nRk5nSHEtWFp1WGdFbDdCVndjMFdydHdhaE4zMG5FT1luRmxYR3hpRGJodnA2UFNaMUZMeUVkQmZOOXNNMXJUdW05eFFJcEJSRk5XY24xQ3p2M1NFTkgzQ0JiX3JlLQ?oc=5",
+      "summary": "US-China talks to defuse trade row resume in Geneva Reuters",
+      "timestamp": "2025-05-11T11:14:16Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "US Risks Brexit-Style Slow-Burning Damage From Trade Shock: JPMorgan",
+      "url": "https://www.investing.com/news/economy/us-risks-brexitstyle-slowburning-damage-from-trade-shock-jpmorgan-4037629",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T11:00:02Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Israel fully endorses Trump's plan for Gaza aid, minister says",
+      "url": "https://www.investing.com/news/world-news/israel-fully-endorses-trumps-plan-for-gaza-aid-minister-says-4037741",
+      "summary": "N/A",
+      "timestamp": "2025-05-11T10:50:38Z",
+      "source_name": "RSS (Investing.com News)"
+    },
+    {
+      "title": "Albania votes as PM Rama seeks fourth term, promising EU integration",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOVmtzb1prTkhGcHJkTVprc3V3djV2UlY5Zmdybm5DSWM3Z3FBN1h1dW9OVmtIZUVVa2FuSzRtUUlBRFhWLUtLR05oNXpEeG5CdHBjNDZtNUFEdHVRYWV2cGpLME9RSUFGbUpzbzB1aE9Lbi1XRS1MX29JcUJRellSeXJoSlJOUVREdUVaZDd5VmpzZw?oc=5",
+      "summary": "Albania votes as PM Rama seeks fourth term, promising EU integration Reuters",
+      "timestamp": "2025-05-11T10:36:11Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Suze Orman says retirees should have a 5-year ‘just-in-case’ fund. Is this true?",
+      "url": "https://www.marketwatch.com/story/suze-orman-says-retirees-should-have-a-5-year-just-in-case-fund-is-she-right-a1decd2b?mod=mw_rss_topstories",
+      "summary": "“I had people coming unglued on me when I suggested retirees should have three to five years of savings.”",
+      "timestamp": "2025-05-11T10:36:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Kremlin focuses on draft 2022 deal for proposed peace talks",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMGh3OWptZGhpenBqYmRfdUJxd3pBb3hzTkdib3lodEJrX3kxSWt0Sldxbjdxa25WV2dXbnV3Rk41aTE1RUN3eHJMUVFHMUVlT1FzZW9adWJWckVWQWF5X3l0UjU0MUlYdGxGUVlwdF9CWmx2S080Sk84dHo5SThoeUQzdE42alV2MHJWdktubXVPZzJ2LXJvVk5GZFkwQnN2SGlR?oc=5",
+      "summary": "Kremlin focuses on draft 2022 deal for proposed peace talks Reuters",
+      "timestamp": "2025-05-11T10:34:04Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "FEMA cuts emergency training under Trump as hurricane season looms",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOLW5CLWtKZmgtTTMyYU0td1hsZDV6Q2VXNXBFcHVLTmZqS1BqM1lRYlJEblI1T2ZScFByTFNxYTNCVjJVMElJa2NmaWJlLU40S1FNU2lmdlBUM1pRSUtFTXBMMjd0RWR4dU5qNnNRdXBRcVNSdVdWRFk4dEE3ZVR5ejF2dHhGWDNPeWJ3WGNxTzg4YllfWHBHdzhjSW9VY0JKV1dqYXlyVmdvc3NM?oc=5",
+      "summary": "FEMA cuts emergency training under Trump as hurricane season looms Reuters",
+      "timestamp": "2025-05-11T10:08:05Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "‘We live modestly’: My wife and I have $900K in stocks and $380K in savings and CDs. Are we holding too much cash?",
+      "url": "https://www.marketwatch.com/story/we-live-modestly-my-wife-and-i-have-900k-in-stocks-and-380k-in-savings-and-cds-are-we-holding-too-much-cash-a8da648a?mod=mw_rss_topstories",
+      "summary": "“My investment adviser says we have too much invested in cash instruments.”",
+      "timestamp": "2025-05-11T10:06:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Iran, US resume nuclear talks as red lines clash",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNVkpyNjdkRDlURnBhR0g5X1dGMG5odFNtVUUwSndXamJjQWs2N1Vma2lIbjJYQzVhZDBucDdKa1dsVXZjTmRlOUZLS0otYzBTQ1U5M2lKX0lFVXlZLU5kTC1HOTBWTmR0SFVxMW0xc2NoQS0wNzJ6N1Z3bnViejNsY1pSTDZ0SzNoaWNuX1JpZG9xQXIzekYzNWdn?oc=5",
+      "summary": "Iran, US resume nuclear talks as red lines clash Reuters",
+      "timestamp": "2025-05-11T09:48:51Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Ukraine's Zelenskiy calls on Russia to confirm ceasefire before talks",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNMGx6Ty1IRWxxVjhESjlQTDBNRFc2aVJic29sSUlNS3d6VVhjSDNQYVFxUTFiSXJqZHppMFNLNHV0b05yVEFNVmZvczJ6NlluOFpSUGJEdXUzQWVjUmNLSTYxUjVaSC12bWs5UXNJbklDd2htdXdBd3JRUUNEMlM1cmRlNmp1dktXdnlUWFZSZzhVaWY3SG90c0xtekxqdXZyTlJ2cl9NSEVNMWNDeUFqVQ?oc=5",
+      "summary": "Ukraine's Zelenskiy calls on Russia to confirm ceasefire before talks Reuters",
+      "timestamp": "2025-05-11T09:35:52Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "‘We are the most privileged’: My husband and I are tired of paying for our friends. How do we get them to pay their way?",
+      "url": "https://www.marketwatch.com/story/we-are-not-poor-my-husband-and-i-are-tired-of-picking-up-the-check-for-our-friends-how-can-we-get-them-to-step-up-a05c7622?mod=mw_rss_topstories",
+      "summary": "“My husband almost always ends up paying for everyone or picks up the entire bill.”",
+      "timestamp": "2025-05-11T09:34:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "My second wife says her 2 kids should inherit our estate, but I also have 2 kids. Is that fair?",
+      "url": "https://www.marketwatch.com/story/my-second-wife-says-her-2-kids-should-inherit-our-estate-but-i-also-have-2-kids-is-that-fair-22c71a86?mod=mw_rss_topstories",
+      "summary": "“I will leave the $1 million inheritance I received from my parents to my biological daughters.”",
+      "timestamp": "2025-05-11T09:19:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
+    {
+      "title": "Prospects of Saudi ties to Israel elusive as Trump seeks $1 trillion bonanza",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNblpxVEJKTE9lYzNpekY5M2lpbzlMeEJoalR3M1dqaWw1dkJUalBvNVFRQW5LSV9ONDY1Z25YdFFHaEQ5YmtEbmNEVXV4N0gxTWt4WTZSQjd5QmR4Nm5pTEEzRzV1dXIxMnJ4U3BpU2RYVWNQTW1rdHhGMGZCMmxCS1hGRERiaHAxcUc1T0g2MGF1MFQyRXRjYTdVN1h1dDN6SWRNZ0xzUVkxeUJB?oc=5",
+      "summary": "Prospects of Saudi ties to Israel elusive as Trump seeks $1 trillion bonanza Reuters",
+      "timestamp": "2025-05-11T09:02:08Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Saudi oil giant Aramco posts 5% dip in first-quarter profit on weaker crude prices",
+      "url": "https://www.cnbc.com/2025/05/11/saudi-oil-giant-aramco-posts-5percent-dip-in-first-quarter-profit.html",
+      "summary": "Saudi Aramco's first-quarter net profit fell 5% year-on-year amid lower oil prices and production.",
+      "timestamp": "2025-05-11T08:40:50Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Putin proposes direct peace talks with Ukraine after three years of war",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPZXZscEtPNzE2Q3Z5R3BONUxmZ0NPWkpGR2paaGdnNHhNODEzd2UxVm5yTDA0ekg0T1lnUHdsRm16WEJMZ0FlVGdHNEhSSnRYUC1yUzdPMFRUcklqTlZoRzllV0NLcGZLSlFYUGpTSUMtSVl2cXpBQ3pHbUJDUkpOaFdDd1k3N1JxdkxLaHhWMHNPQS1HTWt6dENNM3M?oc=5",
+      "summary": "Putin proposes direct peace talks with Ukraine after three years of war Reuters",
+      "timestamp": "2025-05-11T08:10:32Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "UK plans to end 'failed free market experiment' in immigration",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSm5xZlhxcWZtS0p0MFlHblVFMU9tZjNQVTBTTEFnS1BoLWItOUFXNndOR21pS3oxcE9QTUFRZUZiazdkenVTLTAtTjNLTUo4MlliLVlkUHVpYk5Dbjh1WWl6REhYQllDMUx3MkphTk1BNWMzZnpSa2NUVG9RQTQ2UFBhMTQtZUN1alN2MlhBdWhXN1dpVDZnZW1MTE1HaGVz?oc=5",
+      "summary": "UK plans to end 'failed free market experiment' in immigration Reuters",
+      "timestamp": "2025-05-11T04:45:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Japan PM Ishiba reiterates call to eliminate all tariffs with US",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQZzRxU2JyY0k2dnFJWjdTSG0wMkk3WUVNNkNlV1dvUnQwdEMxYWsyNEpwTmtHMzU2MjE3bk9DMDdXNnpzcjBoOWV4dVBOU1hwYkVDd2x3dHY3U0RtUEZIMG85bjlxUGRRclltQWlCU19HVnMtR21VbE43ZWVlRlBUUlNVQ2hsbDRBN1JvcW5FblBJa252aG9UNnNEVTBaTzB4bFVfSEhIdEo5UEV0dUFPczdmM1JYbVcyR3hfSHJlTXpUdy15OFE?oc=5",
+      "summary": "Japan PM Ishiba reiterates call to eliminate all tariffs with US Reuters",
+      "timestamp": "2025-05-11T04:36:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Chinese passenger car sales rise for a third month in April",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNWlhSG5oWlR5SnJYOVppQldfMHRuZWlRYmlBWnlIM29XMU8xdnJmeUZoamFxdHNWenVHemFIY0dheHE0QWJueG9oMXN1cHU5QnVMdlVfa1ZDR01tclpXd0FjRzJWT2RrYVpfWVpyeHQwR1U3eWJRNXZVVTMxdk5GS0VyT1RfUDhsTGt5OHZiVmxOZW8zMXdPYVQtbTBidw?oc=5",
+      "summary": "Chinese passenger car sales rise for a third month in April Reuters",
+      "timestamp": "2025-05-11T03:29:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Bangladesh bans activities of ousted PM Hasina’s party following protests",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPekFBMkZuZ05ySXg3dmJSeURZemJuWkpGRnRhWi1pQVhFYlVTZkRHeHhPZ1c0eXh0d3BEeWpyUDZWTU9fTVcya0lVOGJ4QlAwZWZWN0p2NDF1aHQySzh6YnJUMlpia0g3NllFUDFsOXV5X0lfZ0pQSnBJdnpzdGtJSHN4UHFjb1JoeTZtc0ZZQW9xclVRc0gzYTdrT2lWNTRkUFZ4RzZxa3pta0tZLXdlbmlqLU5FR3d2eGhWd3dWVmZiQQ?oc=5",
+      "summary": "Bangladesh bans activities of ousted PM Hasina’s party following protests Reuters",
+      "timestamp": "2025-05-11T01:57:00Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Trump says US and China negotiated 'total reset' in Geneva talks",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQVE1CRGgxay1Xem1pUkZwOXlNSG5rdXR1c0FrSVNleVF6d0JnRmpNOFBvU1N3emFwMnh6anlNWkUxNTI4S0MwdXh2cENnN0xNN3dNcjJtS3pGdTAwT1Q5M3NiSlFNQlRta2haRHJhN2lPZUhUV1ZfOE9RMnFNb3UtODZGaGpxZmZfdHJJTUpmQm5kM3o0VlZNQXNNOTVDUQ?oc=5",
+      "summary": "Trump says US and China negotiated 'total reset' in Geneva talks Reuters",
+      "timestamp": "2025-05-10T23:36:59Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Ras Baraka arrest: Trump administration eyes charging three more NJ Democrats in ICE fracas",
+      "url": "https://www.cnbc.com/2025/05/10/ras-baraka-arrest-trump-new-jersey-newark-ice.html",
+      "summary": "New Jersey Democrats accuse the Trump administration of spreading \"lies and misinformation\" about events that led to the arrest of Newark Mayor Ras Baraka.",
+      "timestamp": "2025-05-10T23:21:26Z",
+      "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "Russia's Putin proposes direct talks with Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQemdzU0hGbzJZUzN1Y0FEZDJjckE0LXJFVE14cDRab2c5dmg5elBsUC1PNE1ZUE9VSGhIelpkek5YOFltbE9YajVPOE1NWXJaX2V3dWw2aGRkNFJMT1oybl9lZnUxTUVxOGxqa3NNZGc2YlN4V3RmMHQ3MTJ5Z3dIN2w3UDBZM084YXVLOHg3ZTNyamI0WDhpUm1SSERrdw?oc=5",
+      "summary": "Russia's Putin proposes direct talks with Ukraine Reuters",
+      "timestamp": "2025-05-10T23:17:09Z",
+      "source_name": "Google News (Reuters)"
+    },
+    {
+      "title": "Warren Buffett’s succession plan has begun. Here’s what a longtime insider is watching.",
+      "url": "https://www.marketwatch.com/story/warren-buffetts-succession-plan-has-begun-heres-what-a-longtime-insider-is-watching-e25c015a?mod=mw_rss_topstories",
+      "summary": "Naming Greg Abel as CEO of Berkshire Hathaway is just the first step.",
+      "timestamp": "2025-05-10T20:46:00Z",
+      "source_name": "RSS (MarketWatch Top Stories)"
+    },
     {
       "title": "Why tariffs are actually going to boost U.S. companies — and the stock market",
       "url": "https://www.marketwatch.com/story/why-tariffs-are-actually-going-to-boost-u-s-companies-and-the-stock-market-b2e42c6d?mod=mw_rss_topstories",
       "summary": "Wall Street is not the economy. Trump should remind Americans of that.",
       "timestamp": "2025-05-10T20:41:00Z",
       "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "Dow Jones Futures Eye U.S.-China Trade Talks; Tesla, Palantir, Alibaba Near Buy Points",
-      "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-u-s-china-trade-talks-tesla-palantir-alibaba-buy-points/?src=A00220&yptr=yahoo",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T20:23:15Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Mentions of 'uncertainty' in Q1 earnings calls surge as tariffs cloud outlook",
-      "url": "https://seekingalpha.com/news/4445840-mentions-of-uncertainty-in-q1-earnings-calls-surge-as-tariffs-cloud-outlook?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T20:05:53Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "European leaders tell Putin to agree to Ukraine ceasefire or face new sanctions",
-      "url": "https://www.investing.com/news/world-news/european-leaders-head-to-kyiv-to-show-support-after-putins-parade-4037599",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T20:03:22Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "Debt, Income, And Investments: Suze Orman Says We Should All Be Focused On These Because 'The Government Can't Save You'",
-      "url": "https://finance.yahoo.com/news/debt-income-investments-suze-orman-200240856.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T20:02:40Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "8 Ways To Stay Safe When Using Mobile Banking Apps",
-      "url": "https://finance.yahoo.com/news/stay-safe-using-mobile-banking-120039951.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T20:01:08Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "U.S. and China talks in Switzerland said to have lasted at least eight hours, no deal yet",
-      "url": "https://seekingalpha.com/news/4446137-us-and-china-talks-in-switzerland-said-to-have-lasted-at-least-eight-hours-no-deal-yet?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:58:17Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
     },
     {
       "title": "Empty shelves, for-lease signs and job layoffs point to recession by summer",
@@ -61,53 +327,11 @@
       "source_name": "RSS (MarketWatch Top Stories)"
     },
     {
-      "title": "US and Chinese officials to resume talks to ease trade war on Sunday",
-      "url": "https://www.investing.com/news/economic-indicators/us-chinese-officials-start-geneva-talks-on-easing-trade-war-sources-say-4037684",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:56:33Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
       "title": "As talk about taxing the rich heats up, here are 7 ways millionaires stay wealthy that can help you too",
       "url": "https://www.marketwatch.com/story/7-ways-millionaires-stay-rich-that-can-help-you-build-wealth-too-ea17c17a?mod=mw_rss_topstories",
       "summary": "How to keep money flowing in — no matter what life throws at you.",
       "timestamp": "2025-05-10T19:54:00Z",
       "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "CrowdStrike Holdings, Inc. (CRWD) Reported “Unbelieveable” Quarterly Results, Well-Known Investor Says",
-      "url": "https://finance.yahoo.com/news/crowdstrike-holdings-inc-crwd-reported-195137868.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:51:37Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Wary investors hope US-China talks cool high-stakes trade war",
-      "url": "https://www.investing.com/news/economy-news/wary-investors-hope-uschina-talks-cool-highstakes-trade-war-4037714",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:50:39Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "US and Chinese officials to resume talks to ease trade war on Sunday",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNM1lmcnJiT1JidzVoZFdJeUdEaUJtNGZQZGV0SUZSY0NMd2lHVFJTam1Xd1ZmekpHRzh5Z1ZWSGo5NjdKY0RueWJ0d1cxdjdFcG5Cb2NfYjN0QzUyMWlqU050a1NrOGMwYXlWVEhaUmpMenJwZ3o2Q1BySHBCQTJISlE3SmVCOG9i?oc=5",
-      "summary": "US and Chinese officials to resume talks to ease trade war on Sunday Reuters",
-      "timestamp": "2025-05-10T19:49:52Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Two Prominent Investors Are Bearish on Alphabet Inc. (GOOG) Stock",
-      "url": "https://finance.yahoo.com/news/two-prominent-investors-bearish-alphabet-194333017.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:43:33Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Trader Suggests Potential Bullish Options Strategies Involving Palantir Technologies (PLTR) Stock",
-      "url": "https://finance.yahoo.com/news/trader-suggests-potential-bullish-options-193658134.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:36:58Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "The Trump tax cut debate is heating up. Here are the key issues and who stands to benefit",
@@ -138,207 +362,11 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "U.S. pharma imports soar in March as drugmakers look to get ahead of potential tariffs",
-      "url": "https://seekingalpha.com/news/4446136-u-s-pharma-imports-soar-in-march-as-drugmakers-look-to-get-ahead-of-potential-tariffs?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:19:29Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "Key deals this week: Sunoco, TaskUS, BP, DoorDash, Gold Fields and more",
-      "url": "https://seekingalpha.com/news/4446120-key-deals-this-week-sunoco-taskus-bp-doordash-gold-fields-and-more?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:15:48Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "New Jersey mayor charged with trespassing at US immigration detention center",
-      "url": "https://www.investing.com/news/world-news/new-jersey-mayor-arrested-at-us-immigration-detention-center-prosecutor-says-4037391",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:10:40Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "Former OpenAI CTO Mira Murati's $2B AI Startup Thinking Machines Lab Sets $50M Investment Minimum, Backed By Andreessen Horowitz And Sequoia Capital",
-      "url": "https://finance.yahoo.com/news/former-openai-cto-mira-muratis-190858758.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:08:58Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "‘We live modestly’: My wife and I have $900K in stocks and $380K in savings and CDs. Are we holding too much cash?",
-      "url": "https://www.marketwatch.com/story/we-live-modestly-my-wife-and-i-have-900k-in-stocks-and-380k-in-savings-and-cds-are-we-holding-too-much-cash-a8da648a?mod=mw_rss_topstories",
-      "summary": "“My investment adviser says we have too much invested in cash instruments.”",
-      "timestamp": "2025-05-10T19:06:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "Gate.io Releases Latest Proof of Reserves Report: Total Reserves Reach $10.865 Billion, with $2.415 Billion in Excess Reserves",
-      "url": "https://www.investing.com/news/press-releases/gateio-releases-latest-proof-of-reserves-report-total-reserves-reach-10865-billion-with-2415-billion-in-excess-reserves-4037715",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:02:22Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "Wall Street plays long game as deals go private",
-      "url": "https://finance.yahoo.com/news/wall-street-plays-long-game-190000469.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T19:00:00Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Explosions reported in Kashmir after India-Pakistan ceasefire agreement",
-      "url": "https://www.cnbc.com/2025/05/10/trump-india-pakistan-ceasefire-.html",
-      "summary": "Explosions were reported in the area of Kashmir controlled by India after the ceasefire took effect.",
-      "timestamp": "2025-05-10T18:51:51Z",
-      "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "Ras Baraka arrest: Trump administration eyes charging three more NJ Democrats in ICE fracas",
-      "url": "https://www.cnbc.com/2025/05/10/ras-baraka-arrest-trump-new-jersey-newark-ice.html",
-      "summary": "New Jersey Democrats accuse the Trump administration of spreading \"lies and misinformation\" about events that led to the arrest of Newark Mayor Ras Baraka.",
-      "timestamp": "2025-05-10T18:41:38Z",
-      "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "Explosions reported after India and Pakistan agree to ceasefire",
-      "url": "https://www.investing.com/news/world-news/pakistan-says-three-air-bases-targeted-by-indian-missiles-4037659",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:33:31Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "This Ivy League student sent a DOGE-style email to 3,805 employees as school costs top $90,000 per year",
-      "url": "https://finance.yahoo.com/news/ivy-league-student-sent-doge-183000703.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:30:00Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Iran will not back down from nuclear rights, foreign minister says",
-      "url": "https://www.investing.com/news/commodities-news/iran-will-not-back-down-from-nuclear-rights-foreign-minister-says-ahead-of-us-talks-4037710",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:25:54Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "US-China trade talks in Geneva end for night, to continue on Sunday, source says",
-      "url": "https://www.investing.com/news/world-news/uschina-trade-talks-in-geneva-end-for-night-to-continue-on-sunday-source-says-4037713",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:25:33Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "US-China trade talks in Geneva end for night, to continue on Sunday, source says",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMnI1LXlNTEc5ZURreC1DWjJaRk52YUFhMERud2ljLURTRUN1MHFvakZkX3lfX1luSDV1d0dYTDlXLTVEVlBob3BzWXNGekJxTlZuZ1k1ODllemZyWkFxUE0zVnJudEw1QlBsZU1EeGJuMVdNZXZ2TXJ4MGpZdGsyTzZrR05qR2dCbW1tMWlrUFRvX1FNWVkxMFFzZW83S1NlR3NyQk5CZ2p3VXc?oc=5",
-      "summary": "US-China trade talks in Geneva end for night, to continue on Sunday, source says Reuters",
-      "timestamp": "2025-05-10T18:22:50Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Iran will not back down from nuclear rights, foreign minister says",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQRWQ2cC03ZWR0aXIwYWdXd2N2aWRwWkJZVXY0SjcwMXFzV3FSZlpKX0MwQ01vX0xKRldrOGNoNjJncVhjRF82R3ZncW80ZXpxWEZtc0JHUUl5Q3FvSFE0aWU0MjFpSWRzNFo0WFlENHBvci16OXhkTi1hOVBFSkRueHhvQjI1Tm9MUUNYekdJbGhuc1h4MEJPLTRweHpfd0d6bHpSbVU2OWxhWGt4ZC15YWZEOVhuWndD?oc=5",
-      "summary": "Iran will not back down from nuclear rights, foreign minister says Reuters",
-      "timestamp": "2025-05-10T18:20:29Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Pope Leo visits Pope Francis' tomb and Marian shrine on first trip outside Vatican",
-      "url": "https://www.investing.com/news/world-news/pope-leo-takes-first-trip-outside-vatican-visiting-shrine-near-rome-4037706",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:01:20Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
       "title": "India and Pakistan exchange fire despite ceasefire agreement",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOS3M1dkVjb3h0OXVnbGg1X2NSaGVYcmNFWFBkVGh1aXNmS2dVSHdzQnNSZ1A4YTZ0ZTNJVy14MFJORG80Z05iNXREM1lxaW1uSk9lUXJpSW96Z0Exb29PWWpLcDgwQktzc3RTUmh5MWZxVzItcENiVE5BUlNNZ3BKUWNDcDcyYVZNMXpLVHFtUHZlaFU0a2FNdnJFWjlaU2ZobkM1TF8wVQ?oc=5",
       "summary": "India and Pakistan exchange fire despite ceasefire agreement Reuters",
       "timestamp": "2025-05-10T18:00:55Z",
       "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Ethereum Forms Rare Golden Cross in Bitcoin Chart; Reversal Imminent?",
-      "url": "https://www.investing.com/news/cryptocurrency-news/ethereum-forms-rare-golden-cross-in-bitcoin-chart-reversal-imminent-4037712",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T18:00:17Z",
-      "source_name": "RSS (Investing.com News)"
-    },
-    {
-      "title": "India says Pakistan has violated a ceasefire reached earlier in the day (update)",
-      "url": "https://seekingalpha.com/news/4446132-india-pakistan-agree-to-cease-firing-and-military-action-in-talks-mediated-by-the-us?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:56:35Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "Google inks $1.375B settlement with Texas to resolve data privacy lawsuit",
-      "url": "https://seekingalpha.com/news/4446135-google-inks-1375b-settlement-texas?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:56:07Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "Over 80% of companies beat EPS estimates this week: Earnings Scorecard",
-      "url": "https://seekingalpha.com/news/4445837-over-80-of-companies-beat-eps-estimates-this-week-earnings-scorecard?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:46:00Z",
-      "source_name": "RSS (Seeking Alpha Market Currents)"
-    },
-    {
-      "title": "Well-Known Investor Is Leaning Towards Holding Alphabet Inc. (GOOG) Stock",
-      "url": "https://finance.yahoo.com/news/well-known-investor-leaning-towards-172757403.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:27:57Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Top Chinese and US trade negotiators continue Geneva trade talks into evening",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPNEc3dXIxdnVRV2NwUWxIQTVhUTBQUUFET1FQVWxDejZtb2JHbEJlUjE3bFhsUi1MLXZTWmlzUWZNNVBEZ3BTRFJYcFRyc1BnMVV3M3F0NFRjZlR4UFphZXB0ZWJhNS1seUhRWUh0YXAxQ3B5NnFhT182N1VNbWtocFNTc1l4YThfNjNhWWIyY3RuZElVWmdSc2ctN0liVWtMczVlNUhPSzJWdGVRZDlXb0RR?oc=5",
-      "summary": "Top Chinese and US trade negotiators continue Geneva trade talks into evening Reuters",
-      "timestamp": "2025-05-10T17:26:23Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Opendoor Technologies Inc. (OPEN): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/opendoor-technologies-inc-open-bull-172128822.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:21:28Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Lithia Motors, Inc. (LAD): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/lithia-motors-inc-lad-bull-172120418.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:21:20Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Ally Financial Inc. (ALLY): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/ally-financial-inc-ally-bull-172112166.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:21:12Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Joint Stock Company Kaspi.kz (KSPI): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/joint-stock-company-kaspi-kz-172103866.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:21:03Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "TransMedics Group, Inc. (TMDX): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/transmedics-group-inc-tmdx-bull-172050768.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:20:50Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "Casey’s General Stores, Inc. (CASY): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/casey-general-stores-inc-casy-172039755.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:20:39Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "Germany will stop reporting arms deliveries to Ukraine, Merz says",
@@ -348,74 +376,11 @@
       "source_name": "Google News (Reuters)"
     },
     {
-      "title": "SoFi Technologies, Inc. (SOFI): A Bull Case Theory",
-      "url": "https://finance.yahoo.com/news/sofi-technologies-inc-sofi-bull-170626436.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T17:06:26Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "World reacts after India, Pakistan agree to stop firing",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNZHJ3TVB5NGhIVE81Tzg4amw0OVl0WTFIazBkNU1hQ2dTOGJpbnBjUUFJby1TTml1SXRhejUwSTNOY0VLeHhzdmR1MWVGWEtPRDcwNlJzR3I5SzNCRGt4a3lJb19FdmFoSFdodTlRU3ljUnp5LVFtaUJudVNRbDU3dlBmSGVfcExhVjlod2dQWkFMMGpXSjJEVG5CVC1hekpNSlFYU2htVW9GUQ?oc=5",
-      "summary": "World reacts after India, Pakistan agree to stop firing Reuters",
-      "timestamp": "2025-05-10T17:03:43Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Analyst Explains Why the Valuation of Palantir Technologies (PLTR) Stock Is So High",
-      "url": "https://finance.yahoo.com/news/analyst-explains-why-valuation-palantir-165902176.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-10T16:59:02Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
-    },
-    {
-      "title": "I told my bank to fund a backdoor IRA, but my adviser left the money in the wrong account. Should I sue?",
-      "url": "https://www.marketwatch.com/story/i-told-my-bank-to-fund-a-backdoor-ira-but-my-adviser-left-the-money-in-the-wrong-account-should-i-sue-a612c511?mod=mw_rss_topstories",
-      "summary": "“The return value of the IRA account increased about 20% that year.”",
-      "timestamp": "2025-05-10T16:43:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
       "title": "Google to pay Texas $1.4 billion in data privacy settlement",
       "url": "https://www.cnbc.com/2025/05/09/google-texas-data-privacy-settlement-paxton.html",
       "summary": "It is the second huge data privacy settlement landed by Texas' attorney general, who in 2024 got a similar amount from Facebook and Instagram parent Meta.",
       "timestamp": "2025-05-10T16:40:37Z",
       "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "I’m 65 and a widow with 5 children. Should I split my $1.1 million nest egg between them while I’m still alive?",
-      "url": "https://www.marketwatch.com/story/im-65-and-a-widow-with-5-grown-children-should-i-split-my-1-1-million-investment-account-between-them-8db13b56?mod=mw_rss_topstories",
-      "summary": "“I receive part of my late husband’s government annuity, which is enough for me to live off.”",
-      "timestamp": "2025-05-10T16:31:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "Pope Leo XIV’s election: Pope Francis, like Warren Buffett, mastered the art of succession",
-      "url": "https://www.marketwatch.com/story/pope-leo-xivs-election-pope-francis-like-warren-buffett-mastered-the-art-of-succession-450ebd15?mod=mw_rss_topstories",
-      "summary": "Politicians, corporate leaders and owners of family businesses should take a leaf out of the late pope’s playbook",
-      "timestamp": "2025-05-10T16:28:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "‘I’m flabbergasted’: My friend wants to borrow $5,800 to save his home from foreclosure. What should I do?",
-      "url": "https://www.marketwatch.com/story/im-flabbergasted-my-friend-wants-to-borrow-5-800-to-save-his-home-from-foreclosure-what-should-i-do-c578b12b?mod=mw_rss_topstories",
-      "summary": "“I previously loaned a friend $7,000, and she later died.”",
-      "timestamp": "2025-05-10T16:24:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "Blasts heard in Indian Kashmir hours after India-Pakistan ceasefire announcement, minister says",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPdzZUS1phTmZNc0xaWmR2Nm9ZWmFBdno5NWdhZmhUMVRlaDA1LUJLUVFrS2N0cUJoRW1iTWd0WXJia2VhVkNzNEx3YWtFb1AyYXdMRkswbUM2LVF2aWllUDYtLS00WlRPWmFmUFhaRE93MDBybkpuQk5GMkpqcFo2RVloQ0xhcjhnaW41Z1VlV2ZmenVpdHo1TEVGR21uMURFRXZFTkFRRk40RVhXYXNmbmREN3JPNW9QS2xBV0tnZ1JwY2RUaWNhdjlYbUw?oc=5",
-      "summary": "Blasts heard in Indian Kashmir hours after India-Pakistan ceasefire announcement, minister says Reuters",
-      "timestamp": "2025-05-10T15:41:54Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Pope Leo tells cardinals they must continue 'precious legacy' of Pope Francis",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVjFMTnpkM2ZzMFhVdGU5cUlsVkhJcjExVTBfLTAycHRuM1EtVmsyVTFVMHh6Z2c2RGZGVjdNT1hlR2lVUzhOOXFDTzJDZERRenNGd3pSdXJydmloc1lkaHdvU1FRS3ZIVEx4MW5nRXM5T2FSTWUzOGd6VkZqVzZJandHU3NZRFNSbnN5cGxVc2x1MGpycGhSSVJkSV9iMXNRVzRqWWJTLUNranBWT085T2RDcEk?oc=5",
-      "summary": "Pope Leo tells cardinals they must continue 'precious legacy' of Pope Francis Reuters",
-      "timestamp": "2025-05-10T15:29:25Z",
-      "source_name": "Google News (Reuters)"
     },
     {
       "title": "The case for owning stocks at every age, plus what the Street means by 'risk off'",
@@ -432,41 +397,6 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "Suze Orman says retirees should have a 5-year ‘just-in-case’ fund. Is this true?",
-      "url": "https://www.marketwatch.com/story/suze-orman-says-retirees-should-have-a-5-year-just-in-case-fund-is-she-right-a1decd2b?mod=mw_rss_topstories",
-      "summary": "“I had people coming unglued on me when I suggested retirees should have three to five years of savings.”",
-      "timestamp": "2025-05-10T14:49:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "India-Pakistan water treaty remains suspended despite ceasefire, sources say",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPTTlTbWpVOUJOQUN3ZElDQ0NzaVVGNVNWc1R4bzROTEZjQlVzOEVWR0JXeFhDZnU3M2hCR2VRZUgtN2lyQjFqZUJLY245cjdjUTI2R3NlYXlvRjg5WXVjUUJSc2pFSW1LM21ra0p4ZW96ZnlrR0JkOGpJUWdCOHp2V0VTbXAwUVFZVk5Dd1NTR1l5Y0tlOVJGMjRRcklDRnA0bDZuMHZVOXpTbzRIVGVxbFh6ZGhMM0xjQU9maEdSUHFsTnVHMkM2UnJn?oc=5",
-      "summary": "India-Pakistan water treaty remains suspended despite ceasefire, sources say Reuters",
-      "timestamp": "2025-05-10T14:48:45Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "My husband and I spend more money on our daughter and her family than on my single son. Do we compensate him?",
-      "url": "https://www.marketwatch.com/story/my-husband-and-i-spend-far-more-on-our-daughter-and-her-family-than-on-my-single-son-do-we-compensate-him-ab236ba5?mod=mw_rss_topstories",
-      "summary": "“I want to be as fair as possible and avoid any potential resentment down the line.”",
-      "timestamp": "2025-05-10T14:41:00Z",
-      "source_name": "RSS (MarketWatch Top Stories)"
-    },
-    {
-      "title": "Turkey ready to undertake duty for observing potential ceasefire in Ukraine, source says",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMUl6YnRFOVRkR3Y4NEdiVENaeXREa2tKWnctb19uQi01RTFqLUthWm1sREtNVE9VT3VhSnFydHJUeFFDcFhQY2Y4eGpRZloyYTd2dmpXVmZzSl8tR3JJcGd3c0pobF9Yak1nSkVQMllmWnNUcW9aOUtGM0taaEhKQXpyUGhHUk9lR0l3b3Nnc2xOTzllM1F3dUhhT3RBcG0wMG83RkNRVUd1TmttU3JkZG1rT3cxaXJ0UTRj?oc=5",
-      "summary": "Turkey ready to undertake duty for observing potential ceasefire in Ukraine, source says Reuters",
-      "timestamp": "2025-05-10T14:26:30Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "After ceasefire demand, Kremlin calls European statements 'confrontational'",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNc3hqX3JmYmQ2WlpxWnNNbWIwb3NJQ0UtWTRJdHRRdlpVSGI3ejRUZkJhV0hYNlBIbkdhcGZRMFd0akJkR3gydnNLQXZlVWNPWWIyd1FBTlBFMEViSlJsMjVDeFBPSDd4UGhhRnlHTHI0LXd5VUhXbEhxOXdtc0hpTElJeHViRnZWYTREZHpJNVpnSlFqSy1BRGtpM1FNZHRqUm9yTG1uMUlLVlB1M3M5RDJFUk1vbkJ1cVNNNWln?oc=5",
-      "summary": "After ceasefire demand, Kremlin calls European statements 'confrontational' Reuters",
-      "timestamp": "2025-05-10T14:20:12Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
       "title": "America is failing its youngest investors, warns personal finance guru Ric Edelman",
       "url": "https://www.cnbc.com/2025/05/10/america-failing-its-young-investors-warns-financial-guru-ric-edelman-.html",
       "summary": "Ric Edelman is warning young people to avoid several traps regarding their financial future.",
@@ -481,25 +411,11 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "Restrictions lifted after 160,000 Spaniards confined due to toxic cloud",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNVXNnMjg3Q1k3d1cwSGZ0MnlDTXVVM0JVM1BhVHJLd3V3emUwaV9ydlMtTTNwSnRBVmo5NkUwWTJEVDRDYXZ2eTg0b0lMV0dXXzd0bnpBbWUtcXp3YXRJVkt1YnFFZ3Fuam9kUzd6eFRHdGtrWFZKa09pQ1huR01uWU14RjdVTENZLW9LMFZTU1FmOWFLdmRoRGhvaTRjbUJzekpubld0andwelhXNGRKREJQSGQ5dw?oc=5",
-      "summary": "Restrictions lifted after 160,000 Spaniards confined due to toxic cloud Reuters",
-      "timestamp": "2025-05-10T13:38:00Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
       "title": "These household items have gotten pricier since Trump's tariffs announcement, new report finds",
       "url": "https://www.cnbc.com/2025/05/10/trump-tariffs-these-household-items-have-gotten-pricier-report-finds.html",
       "summary": "Some household items, like a Barbie doll at Target and a washing machine at Lowe's, have gone up in price since April 16, according to Telsey Advisory Group.",
       "timestamp": "2025-05-10T13:15:01Z",
       "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "Wounded Ukrainian soldiers ask: What ceasefire?",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPY3A5cU1qaEZPbE56SEkxQ1FSZkRHY2UyTW1PSUc2MGN6eTJHcWU5ZmtmT2YySU80N0tIS0hDTVcwV0NTN2VWd2tQTjgtSEs1cTNfYWZxSTdfa29za2NOSVprdDdXV21uMlZoMVF2aE1fSktIcE9sT1BUVGExMFpwRmtUTDNaMDV4MnJ4QlFSLV8?oc=5",
-      "summary": "Wounded Ukrainian soldiers ask: What ceasefire? Reuters",
-      "timestamp": "2025-05-10T13:07:23Z",
-      "source_name": "Google News (Reuters)"
     },
     {
       "title": "Why U.S. air traffic control is stretched so thin — and the fight to fix it",
@@ -516,6 +432,34 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
+      "title": "Was Jim Cramer Right About Salesforce, Inc. (CRM)?",
+      "url": "https://finance.yahoo.com/news/jim-cramer-salesforce-inc-crm-125553643.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:55:53Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Was Jim Cramer Right About Nucor Corporation (NUE)?",
+      "url": "https://finance.yahoo.com/news/jim-cramer-nucor-corporation-nue-125444655.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:54:44Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Why Thermo Fisher Scientific Inc. (TMO) is Among the Best Medical Device Stocks to Buy Now",
+      "url": "https://finance.yahoo.com/news/why-thermo-fisher-scientific-inc-125224312.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:52:24Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Atlanta Braves Holdings, Inc. (BATRK): Among Billionaire Mario Gabelli’s Small-Cap Stock Picks with Huge Upside Potential",
+      "url": "https://finance.yahoo.com/news/atlanta-braves-holdings-inc-batrk-125030198.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:50:30Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
       "title": "Activist Elliott reaches key agreement with Charles River. Here are three ways to create value",
       "url": "https://www.cnbc.com/2025/05/10/elliott-reaches-agreement-with-charles-river-3-ways-to-create-value.html",
       "summary": "The firm has three possible paths toward value creation at the drug development company.",
@@ -523,11 +467,88 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "European leaders say Trump agreed to sanction Russia unless ceasefire agreed",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQSUJyTFZHVHg2NUp5SUxTY1J4bk9RbGwxODUzbjM0SGZ0NGJPdTduVzlFNk5teFp4SnRsNEZfLVYzSk0tMHhVSmV2OU9MRjh6ajBLT2k0U0k2V1VhMm5xQnkyVlNsVVlxV0QtakY1RUhWY1puUi1xRmszaDNsY0Y4R1AyU0wyc0xCYmtmb2RTYTZKMnp2NEN3T0dVN0xoXzcySERXVkYxd24xMDdoYkZxMV9HdVhzNXlwM3FZV3ByNA?oc=5",
-      "summary": "European leaders say Trump agreed to sanction Russia unless ceasefire agreed Reuters",
-      "timestamp": "2025-05-10T12:40:23Z",
-      "source_name": "Google News (Reuters)"
+      "title": "Adobe Inc. (ADBE): Among Paul Tudor Jones’ Stock Picks with Huge Upside Potential",
+      "url": "https://finance.yahoo.com/news/adobe-inc-adbe-among-paul-123156652.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:31:56Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "How Can I Roll Over $865K to a Roth IRA and Keep the Tax Bill Low?",
+      "url": "https://finance.yahoo.com/news/want-convert-865k-roth-ira-135550664.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:30:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Can I Retire at 60 in 5 Years With $1 Million in a 401(k) and a Paid-Off $500K Home?",
+      "url": "https://finance.yahoo.com/news/wife-1-million-401-k-113000608.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:30:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "We Have $350,000 in IRAs. Can a Nursing Home Claim Our Savings?",
+      "url": "https://finance.yahoo.com/news/nursing-home-savings-350-000-145528883.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:30:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Ask an Advisor: I'm 65 With 82% in Stocks. Should I Shift Some Into Bonds Now?",
+      "url": "https://finance.yahoo.com/news/ask-advisor-moving-stocks-bonds-131134742.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:30:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Western Digital Corporation (WDC): Among Billionaire Paul Singer’s Stock Picks with Huge Upside Potential",
+      "url": "https://finance.yahoo.com/news/western-digital-corporation-wdc-among-122809822.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:28:09Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "Medtronic plc (MDT): Among the Best High-Yield Dividend Stocks for 2025 and Beyond",
+      "url": "https://finance.yahoo.com/news/medtronic-plc-mdt-among-best-122103354.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:21:03Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "7 Jobs That Will Be in Demand During Trump’s Trade War",
+      "url": "https://finance.yahoo.com/news/7-jobs-demand-during-trump-120121757.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:01:21Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "5 Money Moves To Make for Retirement Before It’s Too Late",
+      "url": "https://finance.yahoo.com/news/5-money-moves-retirement-too-120108171.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:01:08Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "$7,500 EV tax credit hasn't gone away — at least not yet",
+      "url": "https://finance.yahoo.com/news/7-500-ev-tax-credit-120037432.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:00:37Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "A lot changed this week at OpenAI. Elon Musk calls it a 'facade.'",
+      "url": "https://finance.yahoo.com/news/a-lot-changed-this-week-at-openai-elon-musk-calls-it-a-facade-120008704.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:00:08Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
+    },
+    {
+      "title": "For Exhausted Stock Market Pros the Choice Is Buy or Stay Home",
+      "url": "https://finance.yahoo.com/news/exhausted-stock-market-pros-choice-120007868.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:00:07Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "A rare platinum Rolex is heading to auction and could fetch $1.7 million",
@@ -537,39 +558,18 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "Wellness companies eager to avoid WeightWatchers' fate embrace weight-loss drugs",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQMXJJZ1J3a0ltSkdObjRyUWtSRVBSMV95aTNmaGo5ei1vRTVEOUlRMGFTek1Dbm1kcGtTZFl2ZnlTTktoOU54RFU2bE1Eb1Y2QjNzZFBiOERTOGg5b09OM1pmYy1laERFTU9tZlMyTGpZS2JrREFYcUxJQmtQOE5fbUFpcmExR3FuZWNZRmZoNVo4TzItbFFfZjJtdkR3c1I5VnNkWUxtNlZ6MVpLWVQwZ18zSjRYTU9HQ1RZTVFNZ2lIbXlqdnhYcTBBQXhDYkE2X3FXZFphLVFyY1BUdUZBdW1B?oc=5",
-      "summary": "Wellness companies eager to avoid WeightWatchers' fate embrace weight-loss drugs Reuters",
-      "timestamp": "2025-05-10T10:04:26Z",
-      "source_name": "Google News (Reuters)"
+      "title": "AI Agents Will Transform Customer Relationships, for Better or Worse",
+      "url": "https://www.wsj.com/articles/ai-agents-will-transform-customer-relationships-for-better-or-worse-142f177a?siteid=yhoof2&yptr=yahoo",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T12:00:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
-      "title": "China takes centre stage in Philippines' feisty midterm election",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSlE3QkJkUFBNeFhaMHM3Mm85WVcxdXZoeUpJM1hxalppMGg2aGwxUktfUXNHdHF5LVZmZUNZanVHLXFGRUk3Q3REOU5UUWg2UlR0YTdhY19Iak5wVy1uODl0UlUxbzEzY1B0ZklQSnp2dGRZNjhBZFBPZUpvSjRUNU5BNlFGcUhDNHlNWjJualBVbDMwVjBXamN3QUh0MUJGY2RkV0RUbXVfYWEzUGJxMlZ4X09Ydw?oc=5",
-      "summary": "China takes centre stage in Philippines' feisty midterm election Reuters",
-      "timestamp": "2025-05-10T08:29:00Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Pakistan continuing \"blatant escalation\" on border, says Indian army",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNZG1LcmNENDNJTHEtNWRpNmdFbTlsVkJnN09RM3h3TENOdnNvaFZOUURHMkEzc0FOa1hCcXdvdmxCSUdLWDhzZ3psZ2NUQThkcUxPbHc2RnJ4cUYxQm9xMGVjZ3N2Mk56RjJ3ZERxMDlkWDVSYnpQYUU4UlVpQjQweFgxY2g0WmJ6UWZtaWJ4eWJTY3NPanhRcGZ3ZnpoZFdMSzdjUUtiNmg2c0ZOaHN3?oc=5",
-      "summary": "Pakistan continuing \"blatant escalation\" on border, says Indian army Reuters",
-      "timestamp": "2025-05-10T08:19:49Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "Pakistan defence minister: no meeting of government top nuclear body is scheduled",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNazRHcDY5WGdUZjFJRlJ0TEpFZXJXMjh2U3RhTlB0THBqeDg4TGNyamYyUVo2a1BKVy10NUI4aXBMWUpzNUFzYmJ2UXN6cFdya1lfRnlBb2NXNG4zM0dmbWgzQ2VZTWhyamxZWU9GX05MdERieTZxSnBsYTQtNDg0VWN1QlVGX1BQczU4MFlCSTAwUDFHLVdPS3RScWlwcXp5ZzZlN2R2QjJWOGhIRG5IZEJCdTl2TG1VenNweEdDdHNrYVhua2JMdW1zcXg?oc=5",
-      "summary": "Pakistan defence minister: no meeting of government top nuclear body is scheduled Reuters",
-      "timestamp": "2025-05-10T05:36:45Z",
-      "source_name": "Google News (Reuters)"
-    },
-    {
-      "title": "US top diplomat Rubio speaks with Pakistan army chief, urges de-escalation",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQLW42cHYzTHBPNEs5UHdocTlIdnE3ODBQYnRNWVk4b2FaMDA1WjVUV3RRY2x2czNJTzhTdWFjTTdIQk4xQy14VmJsR1RoRFYwVmVzS2o0eDRsbHh5d0EwVDRmZElpeDl5QklzVW8tNGk4bXhfb29xTHdsVFdlMGVidl9MUy12TkJmNGFNZzFlRTF1ekhmOGNqTUExVmJET2JCMEJ4UHh1SFRFcE5WN2hVR3R0Sm9kUQ?oc=5",
-      "summary": "US top diplomat Rubio speaks with Pakistan army chief, urges de-escalation Reuters",
-      "timestamp": "2025-05-10T03:23:00Z",
-      "source_name": "Google News (Reuters)"
+      "title": "A shocking 50% of America’s parents of adult kids still support them financially — to the tune of $1,500/month",
+      "url": "https://finance.yahoo.com/news/shocking-50-america-parents-adult-114700873.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-10T11:47:00Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "Trump administration 'looking at' suspending habeas corpus for migrants, Stephen Miller says",
@@ -579,10 +579,10 @@
       "source_name": "RSS (CNBC Top News)"
     },
     {
-      "title": "Gasoline prices: How does under $3 a gallon sound this summer?",
-      "url": "https://finance.yahoo.com/news/gasoline-prices-how-does-under-3-a-gallon-sound-this-summer-173451297.html",
+      "title": "Tesla stock jumps to highest levels since February, notching 3rd straight week of gains",
+      "url": "https://finance.yahoo.com/news/tesla-stock-jumps-to-highest-levels-since-february-notching-3rd-straight-week-of-gains-200506133.html",
       "summary": "N/A",
-      "timestamp": "2025-05-09T20:33:29Z",
+      "timestamp": "2025-05-09T20:05:35Z",
       "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
@@ -591,6 +591,13 @@
       "summary": "Meta, Alphabet and Amazon reported strong online advertising sales in the face of economic worries fueled by the White House's global trade overhaul.",
       "timestamp": "2025-05-09T19:07:40Z",
       "source_name": "RSS (CNBC Top News)"
+    },
+    {
+      "title": "More warning signs emerge for US travel industry as summer nears",
+      "url": "https://finance.yahoo.com/news/expedia-cites-lower-demand-us-190603981.html",
+      "summary": "N/A",
+      "timestamp": "2025-05-09T19:06:03Z",
+      "source_name": "RSS (Yahoo Finance Market News)"
     },
     {
       "title": "First Chinese freight ship goods hit with Trump's 145%-plus tariffs arriving at U.S. ports",
@@ -605,13 +612,6 @@
       "summary": "Trump's Truth Social post shows his willingness to buck traditional Republican opposition to taxing the rich as he seeks to get his agenda through Congress.",
       "timestamp": "2025-05-09T17:51:15Z",
       "source_name": "RSS (CNBC Top News)"
-    },
-    {
-      "title": "One chart shows how Warren Buffett trounced the S&P 500 over the past 60 years",
-      "url": "https://finance.yahoo.com/news/one-chart-shows-how-warren-buffett-trounced-the-sp-500-over-the-past-60-years-191155882.html",
-      "summary": "N/A",
-      "timestamp": "2025-05-05T19:11:55Z",
-      "source_name": "RSS (Yahoo Finance Market News)"
     }
   ]
 }

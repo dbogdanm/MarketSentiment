@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="dcfcf6ab-d612-4453-aea3-0bf6a5dfcf89" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_analyze_news.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_analyze_news.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_appFlask.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_appFlask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_webScrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_webScrape.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/appFlask.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/appFlask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/crucialPys/analyze_news.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/crucialPys/analyze_news.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/crucialPys/webScrape.py" beforeDir="false" afterPath="$PROJECT_DIR$/website/crucialPys/webScrape.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/data_files/financial_news_agg.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/data_files/financial_news_agg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website/data_files/latest_indices.json" beforeDir="false" afterPath="$PROJECT_DIR$/website/data_files/latest_indices.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/website/static/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +152,7 @@
       <workItem from="1746607271508" duration="3278000" />
       <workItem from="1746882371106" duration="9016000" />
       <workItem from="1746891970719" duration="13716000" />
-      <workItem from="1746907780856" duration="6818000" />
+      <workItem from="1746907780856" duration="12934000" />
     </task>
     <servers />
   </component>
@@ -153,7 +161,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/test_webScrape_py$webScrape.coverage" NAME="webScrape Coverage Results" MODIFIED="1746900320415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website/crucialPys" />
-    <SUITE FILE_PATH="coverage/test_webScrape_py$appFlask.coverage" NAME="appFlask Coverage Results" MODIFIED="1746917840762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/test_webScrape_py$appFlask.coverage" NAME="appFlask Coverage Results" MODIFIED="1746967762635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ProiectMarketSentimentMDS$analyze_news.coverage" NAME="analyze_news Coverage Results" MODIFIED="1745173571698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/analyze_news_py$analyze_news.coverage" NAME="analyze_news Coverage Results" MODIFIED="1746002518240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website/crucialPys" />
     <SUITE FILE_PATH="coverage/analyze_news_py$appFlask.coverage" NAME="appFlask Coverage Results" MODIFIED="1746002568482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/website" />

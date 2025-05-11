@@ -1455,3 +1455,54 @@ Web scraping process finished in 4.12 seconds.
 
 --- End Log ---
 
+--- Log at 2025-05-11 16:41:13 for webScrape.py ---
+Output:
+Warn: newsapi-python not found.
+Starting news aggregation and VIX fetching process...
+
+--- Fetching VIX Value ---
+  Fetched VIX value (likely previous close): 21.90
+
+*** DEBUG: Value of fetched_vix = 21.899999618530273 ***
+
+
+--- Fetching news from RSS Feeds ---
+Fetching feed: Google News (Reuters Site) (https://news.google.com/rss/search?q=site%3Areuters.com+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen)
+  Fetched 20 valid items from Google News (Reuters Site).
+Fetching feed: Yahoo Finance Market News (https://finance.yahoo.com/news/rssindex)
+  Fetched 20 valid items from Yahoo Finance Market News.
+Fetching feed: Investing.com News (https://www.investing.com/rss/news.rss)
+  Fetched 10 valid items from Investing.com News.
+Fetching feed: MarketWatch Top Stories (https://feeds.marketwatch.com/marketwatch/topstories/)
+  Fetched 10 valid items from MarketWatch Top Stories.
+Fetching feed: CNBC Top News (https://www.cnbc.com/id/100003114/device/rss/rss.html)
+  Fetched 20 valid items from CNBC Top News.
+Fetching feed: Seeking Alpha Market Currents (https://seekingalpha.com/market_currents.xml)
+  Fetched 7 valid items from Seeking Alpha Market Currents.
+--- Finished RSS fetching. Found 87 items. ---
+
+--- Processing Combined Results ---
+*** DEBUG: Length of master_news_list before processing = 87 ***
+Total fetched before deduplication: 87
+Total unique articles after deduplication: 87
+Sorted articles by timestamp (newest first).
+
+--- Final data to be saved ---
+VIX Data: {'vix': 21.899999618530273, 'timestamp_utc': '2025-05-11T13:41:21+00:00Z'}
+Number of Articles: 87
+Sample Article: {
+  "title": "Deutsche Bank outlines two paths for ECB interest rates",
+  "url": "https://www.investing.com/news/economy/deutsche-bank-outlines-two-paths-for-ecb-interest-rates-4033231",
+  "summary": "N/A",
+  "timestamp": "2025-05-18T09:00:00Z",
+  "source_name": "RSS (Investing.com News)"
+}
+------------------------------
+
+Combined news and VIX data saved to C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json
+File size of C:\Users\ripip\Desktop\Proiect MDS - Copy\ProiectMarketSentimentMDS\website\data_files\financial_news_agg.json: 39378 bytes.
+
+Script finished in 7.05 seconds.
+
+--- End Log ---
+
