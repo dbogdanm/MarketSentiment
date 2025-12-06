@@ -1,6 +1,21 @@
 # Market Sentiment Dashboard & AI Analyzer
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<div align="center">
+
+![Status](https://img.shields.io/badge/Maintained%3F-no-red.svg?style=flat-square)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+![Repo Size](https://img.shields.io/github/repo-size/dbogdanm/MarketSentiment?style=flat-square)
+![Last Commit](https://img.shields.io/github/last-commit/dbogdanm/MarketSentiment?style=flat-square)
+
+<br/>
+
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Stock Market](https://img.shields.io/badge/Market-Analysis-green?style=for-the-badge&logo=google-finance&logoColor=white)
+![AI](https://img.shields.io/badge/AI-Sentiment-blueviolet?style=for-the-badge)
+
+</div>
 
 **Uncover market sentiment by leveraging AI-driven insights from aggregated financial news.** This sophisticated web application provides a dynamic dashboard displaying key indicators like a custom Fear & Greed Index, the VIX, and historical trends, all powered by real-time data, intelligent analysis, and **proactive VIX alert notifications**.
 
