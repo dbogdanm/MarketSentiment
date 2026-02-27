@@ -132,8 +132,8 @@ Follow these steps to get the Market Sentiment Dashboard running on your local m
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git # Replace with your actual repository URL
-    cd your-repository-name # Navigate to the project root directory
+    git clone https://github.com/dbogdanm/MarketSentiment
+    cd your-repository-name # navigate to the project root directory
     ```
 
 2.  **Create and Activate a Python Virtual Environment:**
