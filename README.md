@@ -36,30 +36,6 @@ The architecture and user experience have been completely overhauled for stabili
 
 -----
 
-## Table of Contents
-
-*   [Introduction](#introduction)
-*   [Core Features](#core-features)
-*   [System Architecture](#system-architecture)
-*   [Technology Ecosystem](#technology-ecosystem)
-*   [Getting Started: Setup & Deployment](#getting-started-setup--deployment)
-    *   [Prerequisites](#prerequisites)
-    *   [Installation](#installation)
-    *   [Database Configuration](#database-configuration)
-    *   [Environment Configuration](#environment-configuration)
-*   [Running the Application](#running-the-application)
-    *   [Data Pipeline Execution](#data-pipeline-execution)
-    *   [Launching the Web Dashboard](#launching-the-web-dashboard)
-    *   [Automated Scheduling (Recommended)](#automated-scheduling-recommended)
-    *   [VIX Alert Monitor](#vix-alert-monitor)
-*   [Key Configuration Points](#key-configuration-points)
-*   [Roadmap & Potential Enhancements](#roadmap--potential-enhancements)
-*   [Contribution Guidelines](#contribution-guidelines)
-*   [License](#license)
-*   [Contact & Support](#contact--support)
-
----
-
 ## Introduction
 
 The Market Sentiment Dashboard is designed to offer a consolidated and intelligent view of the prevailing mood in the financial markets. It achieves this by:
