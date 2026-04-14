@@ -133,127 +133,85 @@ The application employs a layered architecture for modularity and maintainabilit
 
 ## Getting Started: Setup & Deployment
 
-Follow these steps to get the Market Sentiment Dashboard running on your local machine.
+Follow these steps to get the Market Sentiment Dashboard running.
 
-### Prerequisites
+### Deploying with Docker (Recommended)
 
-*   Python 3.8+
-*   PostgreSQL server installed and running.
-*   Git installed.
-*   API keys for NewsAPI and Azure AI Services.
-*   SMTP server credentials for sending email alerts (e.g., Gmail App Password if using Gmail with 2FA).
-
-### Installation
+The easiest way to run the application is using Docker. This ensures all databases, web servers, and background schedulers boot up perfectly synced.
 
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/dbogdanm/MarketSentiment
-    cd your-repository-name # navigate to the project root directory
+    cd MarketSentiment
     ```
-
-2.  **Create and Activate a Python Virtual Environment:**
-    A common name for the virtual environment directory is `.venv`. If you use a different name, please adjust the activation paths accordingly.
+2.  **Configure Environment Variables:**
+    Copy the sample environment file and fill in your API keys and SMTP credentials.
     ```bash
-    # Windows
-    python -m venv .venv
-    .\.venv\Scripts\activate
-
-    # macOS / Linux
-    python3 -m venv .venv
-    source .venv/bin/activate
+    cp .env.example .env
     ```
+3.  **Launch the Application:**
+    ```bash
+    docker-compose up -d
+    ```
+    *The dashboard is now live at `http://localhost:5000`.*
 
-3.  **Install Dependencies:**
-    Ensure you have a `requirements.txt` file in the project root.
+### Manual / Local Installation
+
+If you prefer running without Docker:
+
+1.  **Create and Activate a Python Virtual Environment:**
+    ```bash
+    python -m venv .venv
+    # Windows: .\.venv\Scripts\activate
+    # macOS/Linux: source .venv/bin/activate
+    ```
+2.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
+3.  **Database Configuration:**
+    Ensure PostgreSQL is running locally, create a `market_sentiment_db` database, and execute the SQL table creations found in the `schema.sql` (or see the old instructions for table schema).
+4.  **Set `.env` variables** (same as Docker setup).
 
-### Database Configuration
-
-1.  **Connect to your PostgreSQL instance.**
-2.  **Create a new database** (e.g., `market_sentiment_db`).
-3.  **Create a dedicated user** and grant it necessary privileges on the new database.
-4.  **Execute the Data Definition Language (DDL) scripts to create the necessary tables:**
-
-    *   **For Sentiment History:**
-        ```sql
-        CREATE TABLE sentiment_history (
-            id SERIAL PRIMARY KEY,
-            timestamp TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-            fear_greed INTEGER,
-            vix REAL, -- Or NUMERIC(5, 2) for fixed precision if preferred
-            summary_text TEXT
-        );
-        -- Optional: Create an index for faster querying on the timestamp column
-        CREATE INDEX idx_sentiment_history_timestamp ON sentiment_history (timestamp DESC);
-        ```
-
-    *   **For VIX Alert Subscriptions:**
-        ```sql
-        CREATE TABLE vix_alerts_subscriptions (
-            id SERIAL PRIMARY KEY,
-            email VARCHAR(255) UNIQUE NOT NULL,
-            vix_threshold REAL NOT NULL,
-            is_active BOOLEAN DEFAULT TRUE,
-            subscribed_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
-            last_alert_sent_at TIMESTAMPTZ,
-            unsubscribe_token VARCHAR(64) UNIQUE -- Optional: for one-click unsubscribe links
-        );
-        -- Optional: Index for active subscriptions
-        CREATE INDEX idx_vix_alerts_active_threshold ON vix_alerts_subscriptions (is_active, vix_threshold);
-        ```
-
-### Environment Configuration
-
-1.  **Create an Environment File:** In the project root directory (e.g., `ProiectMarketSentimentMDS`), create a file named `.env`.
-2.  **Populate `.env` with your credentials and configuration:**
-    ```dotenv
-    # .env example
-    NEWSAPI_KEY="YOUR_ACTUAL_NEWSAPI_KEY"
-    AZURE_DEEPSEEK_API_KEY="YOUR_ACTUAL_AZURE_AI_KEY"
-    AZURE_ENDPOINT_URL="YOUR_AZURE_MODEL_ENDPOINT_URL" # e.g., https://your-resource.inference.ai.azure.com
-    MODEL_NAME="YOUR_AZURE_MODEL_DEPLOYMENT_NAME" # e.g., deepseek-coder-6.7b-instruct
-
-    DB_NAME="market_sentiment_db"
-    DB_USER="your_db_user"
-    DB_PASS="your_db_password"
-    DB_HOST="localhost" # Or your PostgreSQL server address
-    DB_PORT="5432" # Optional, defaults to 5432 if not specified
-
-    # SMTP Configuration for Email Alerts
-    SMTP_SERVER="smtp.example.com" # e.g., smtp.gmail.com
-    SMTP_PORT="587" # Or 465 for SSL
-    SMTP_USER="your_email_address@example.com" # Email address to send alerts from
-    SMTP_PASS="your_email_password_or_app_password" # For Gmail with 2FA, use an App Password
-    ```
-3.  **Security:** Add `.env` to your `.gitignore` file to prevent accidental commitment of sensitive credentials.
-
----
 
 ## Running the Application
 
-The application consists of a data pipeline (scraping and analysis), an alert monitor, and a web dashboard.
+If you are running the app locally (without Docker Compose), you need to start the components manually:
 
-### Data Pipeline Execution
+**1. Launching the Web Dashboard:**
 
-The data pipeline can be run manually or automatically using the provided scheduler.
+```bash
+python website/appFlask.py
+```
 
-*   **Manual Execution (for testing or initial run):**
-    1.  Ensure your virtual environment is activated.
-    2.  Navigate to the project root directory.
-    3.  Execute the scraper:
-        ```bash
-        python website/crucialPys/webScrape.py
-        ```
-    4.  Once completed, execute the analyzer:
-        ```bash
-        python website/crucialPys/analyze_news.py
-        ```
-    *Note: These scripts can also be triggered from the web interface after launching the dashboard.*
+**2. Automated Scheduling (Data Pipeline & Alerts):**
+For continuous operation of the fallback APIs, AI analysis, and alert system:
 
-*   **Automated Execution (Recommended):**
-    See [Automated Scheduling](#automated-scheduling-recommended) below.
+```bash
+python scheduler_main.py
+```
+
+*(Note: If using Docker, `scheduler_main.py` is already running autonomously in its own container).*
+
+-----
+
+## Key Configuration Points
+
+  * **API Keys & Credentials (`.env`):** Primary location for NewsAPI, Azure AI/Ollama endpoints, Postgres credentials, and SMTP settings.
+  * **VIX Fallback Logic (`webScrape.py`):** The logic prioritizing `yfinance` -\> `CNBC` -\> `Stooq` can be adjusted here, along with the 5-day lookback window.
+  * **AI Prompting (`analyze_news.py`):** Modify the system prompts to further tweak how the AI formats its Markdown response.
+  * **Scheduling Intervals (`scheduler_main.py`):** Modify `schedule.every(...).minutes` to change scraping and alerting frequencies.
+
+-----
+
+## Roadmap & Potential Enhancements
+
+  * **Advanced Error Handling:** Implement comprehensive Python `logging` for deeper diagnostics across the Docker containers.
+  * **User Authentication:** Allow users to create accounts to save personal dashboard layouts and track specific assets beyond just VIX alerts.
+  * **Enhanced UI Data Visualization:** Introduce date range selectors for historical charts and detailed sector-sentiment heatmaps.
+  * **Asynchronous Data Fetching:** Utilize `asyncio` and `aiohttp` in `webScrape.py` to accelerate news aggregation.
+
+
 
 ### Launching the Web Dashboard
 
@@ -267,64 +225,6 @@ The data pipeline can be run manually or automatically using the provided schedu
 4.  Open your web browser and navigate to `http://127.0.0.1:5000` (or the URL displayed in the terminal).
     The dashboard will allow users to subscribe/unsubscribe to VIX alerts.
 
-### Automated Scheduling (Recommended)
-
-For continuous, unattended operation (while your machine is running), use the `scheduler_main.py` script. This script handles the periodic execution of the data pipeline and the VIX alert monitor.
-
-1.  Ensure your virtual environment is activated.
-2.  Navigate to the project root directory.
-3.  Run the Python-based scheduler:
-    ```bash
-    python scheduler_main.py
-    ```
-This script will run continuously in the terminal, executing `webScrape.py`, `analyze_news.py`, and `alert_monitor.py` sequentially at configurable intervals (default is 30 minutes for data pipeline, and a separate interval for alert monitor - typically more frequent, e.g., every 5-15 minutes, if configured). Log files will be generated in the `scheduler_logs` directory. Press `Ctrl+C` to stop the scheduler.
-
-The default 30-minute interval for the news scheduler is designed to be well within the free tier limits of NewsAPI (100 calls/day), resulting in approximately 48 calls daily. The VIX alert monitor's frequency should be set considering `yfinance`'s rate limits and the desired responsiveness of alerts.
-
-### VIX Alert Monitor
-
-The `alert_monitor.py` script is responsible for checking the current VIX value against subscribed user thresholds and sending email alerts.
-
-*   **Manual Execution (for testing):**
-    ```bash
-    python website/crucialPys/alert_monitor.py
-    ```
-*   **Automated Execution:** This script is typically run by `scheduler_main.py`.
-
----
-
-## Key Configuration Points
-
-Fine-tune the application's behavior by adjusting parameters:
-
-*   **API Keys, Database Credentials, AI Endpoints, SMTP Settings (`.env` file):** This is the primary location for all sensitive and environment-specific configurations.
-*   **News Sources (`webScrape.py`):** Modify `NEWSAPI_SOURCES` and `ALL_RSS_FEEDS` lists within the script if necessary.
-*   **Financial Tickers (`webScrape.py`):** Adjust the `YAHOO_TICKERS` list.
-*   **AI Model Configuration (`analyze_news.py` & `.env`):** The `AZURE_ENDPOINT_URL` and `MODEL_NAME` (your Azure deployment name) are primarily loaded from the `.env` file.
-*   **File Paths & Output (`webScrape.py`, `analyze_news.py`):** Constants like `OUTPUT_DIR`, `JSON_NEWS_FILE_PATH` are defined at the top of these scripts.
-*   **Scheduling Intervals (`scheduler_main.py`):** Modify the `schedule.every(...).minutes.do(...)` lines for `webScrape.py`, `analyze_news.py`, and `alert_monitor.py` to change their execution frequencies.
-*   **Alerting Parameters (`alert_monitor.py`):**
-    *   `MIN_ALERT_INTERVAL`: Defines the minimum time (e.g., 6 hours) between consecutive alerts to the same user to prevent spamming.
-    *   Email templates and content can be modified within this script.
-
----
-
-## Roadmap & Potential Enhancements
-
-This project serves as a strong foundation. Future enhancements could include:
-
-*   **Advanced Error Handling & Logging:** Implement comprehensive logging using Python's `logging` module across all scripts for better diagnostics.
-*   **More Frequent VIX Updates:** Investigate robust methods (e.g., Selenium, Playwright, or specialized APIs) for more frequent VIX updates, while being mindful of source limitations and script fragility.
-*   **Enhanced Data Visualization:** Introduce date range selectors for charts, more detailed tooltips, and potentially new chart types (e.g., heatmaps for sector sentiment).
-*   **User Authentication & Personalization:** Allow users to create accounts, save preferences, or track specific assets beyond just VIX alerts.
-*   **Nuanced Sentiment Scoring:** Explore advanced NLP models or techniques for multi-dimensional sentiment analysis (e.g., positivity, negativity, uncertainty, specific emotions).
-*   **Asynchronous Data Fetching:** Utilize `asyncio` and `aiohttp` in `webScrape.py` to potentially accelerate news aggregation from multiple sources concurrently.
-*   **Containerization (Docker):** Package the application and its dependencies into Docker containers for simplified deployment, scalability, and portability.
-*   **Enhanced Alerting System:**
-    *   Allow users to manage their alert subscriptions (threshold, active status) directly from the dashboard.
-    *   Implement one-click unsubscribe links in alert emails.
-    *   Add alerts for critical data pipeline failures.
-*   **Dashboard UI for Alert Management:** Integrate forms and views in `appFlask.py` for users to subscribe, update, or unsubscribe from VIX alerts.
 
 ---
 
