@@ -20,6 +20,21 @@
 **Uncover market sentiment by leveraging AI-driven insights from aggregated financial news.** This sophisticated web application provides a dynamic dashboard displaying key indicators like a custom Fear & Greed Index, the VIX, and historical trends, all powered by real-time data, intelligent analysis, and **proactive VIX alert notifications**.
 
 ---
+-----
+
+## What's New: Version 1.0 vs. Version 2.0 (Latest Update)
+
+The architecture and user experience have been completely overhauled for stability, aesthetic appeal, and deployment ease.
+
+| Feature Area | Version 1.0 (Old) | Version 2.0 (New) |
+| :--- | :--- | :--- |
+| **VIX Data Retrieval** | Single point of failure (`yfinance`). Prone to silent failures during off-hours or API blocks. | **Multi-Source Fallback System:** `yfinance` -\> CNBC API -\> Stooq. Uses 5-day lookbacks and standard User-Agents to prevent 403 errors. |
+| **AI Output Formatting** | Raw, unformatted text blocks containing redundant system prompt data. | **Rich Markdown Rendering:** Uses `marked.js` for beautiful lists and bold text. Regex automatically strips redundant technical lines from the UI. |
+| **Alert System** | Susceptible to broken imports; disconnected from real-time syncs. | **Fully Functional & Synced:** Fixed core import errors. Data flow seamlessly syncs between the scraper, JSON cache, and PostgreSQL. |
+| **User Interface** | Basic static theme; visual components required manual refreshes to sync. | **Modern & Persistent UI:** Dark/Light mode toggle with `localStorage` persistence. Gauges and charts dynamically update colors on theme switch. |
+| **Deployment** | Manual script execution in virtual environments. | **Enterprise Docker Architecture:** Single `docker-compose up` command orchestrates DB, Web (Gunicorn), and Scheduler containers. |
+
+-----
 
 ## Table of Contents
 
@@ -329,7 +344,7 @@ We welcome contributions! If you'd like to contribute, please follow these steps
 
 ## License
 
-**Copyright (c) 2025 DINU BOGDAN**
+**Copyright (c) 2026 DINU BOGDAN**
 
 This project is licensed under the MIT License.
 
