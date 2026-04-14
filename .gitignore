@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+venv/
+ENV/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# Project specific data files (contains potential API keys and transient data)
+website/data_files/ai_config.json
+website/data_files/financial_news_agg.json
+website/data_files/latest_indices.json
+
+# Logs
+scheduler_logs/
+website/crucialPys/scheduler_logs/
+
+# Build artifacts
+website/static/css/style.css

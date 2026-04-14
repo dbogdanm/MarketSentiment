@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Sentiment Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.7/gauge.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200 min-h-screen">
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">M</div>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 dark:from-blue-400 dark:to-indigo-300">MarketSentiment</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="{{ url_for('settings') }}" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors" title="Settings">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </a>
+                    <button id="themeToggle" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors">
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707M12 5a7 7 0 100 14 7 7 0 000-14z"></path></svg>
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Header Controls -->
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+            <form id="dateFilterForm" method="GET" action="{{ url_for('index') }}" class="flex flex-wrap items-center gap-3">
+                <input type="date" name="start_date" value="{{ current_start_date or '' }}" class="p-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600 text-sm">
+                <span class="text-gray-400">to</span>
+                <input type="date" name="end_date" value="{{ current_end_date or '' }}" class="p-2 rounded-lg border dark:bg-gray-700 dark:border-gray-600 text-sm">
+                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">Filter</button>
+            </form>
+
+            <div class="flex items-center gap-2">
+                <button id="runWebscrapeBtn" class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Scraper</button>
+                <button id="runAnalyzeBtn" class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">Analyzer</button>
+                <button id="runFullPipelineBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-all shadow-md active:scale-95">Refresh All</button>
+                <a href="{{ url_for('export_csv', start_date=request.args.get('start_date'), end_date=request.args.get('end_date')) }}" class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">CSV</a>
+                <button id="exportPdfButton" class="px-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">PDF</button>
+            </div>
+        </div>
+
+        <!-- Hero Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Fear & Greed Gauge -->
+            <div class="md:col-span-2 bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col items-center justify-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 via-yellow-400 to-green-500"></div>
+                <h2 class="text-lg font-bold mb-4 self-start">Fear & Greed Index</h2>
+                <div class="relative w-full max-w-sm">
+                    <canvas id="fearGreedGauge" width="300" height="150" class="mx-auto"></canvas>
+                    <div id="fearGreedValueDisplay" class="absolute bottom-0 left-1/2 -translate-x-1/2 text-5xl font-black tracking-tighter">
+                        {{ fear_greed_value if fear_greed_value != 'N/A' else 50 }}
+                    </div>
+                </div>
+                <div class="flex justify-between w-full mt-6 text-[10px] uppercase tracking-widest font-bold text-gray-400">
+                    <span>Extreme Fear</span>
+                    <span>Fear</span>
+                    <span>Neutral</span>
+                    <span>Greed</span>
+                    <span>Extreme Greed</span>
+                </div>
+            </div>
+
+            <!-- VIX Card -->
+            <div class="bg-gradient-to-br from-indigo-600 to-blue-700 p-8 rounded-3xl shadow-xl text-white flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+                <div>
+                    <h2 class="text-indigo-100 font-medium uppercase tracking-wider text-sm mb-1">VIX Index</h2>
+                    <div class="text-6xl font-black tracking-tighter" id="vixValueDisplay">
+                        {{ vix_value if vix_value != 'N/A' else 'N/A' }}
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p class="text-indigo-100 text-sm opacity-80 leading-relaxed">The Volatility Index measures market expectation of near-term volatility based on S&P 500 index options.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Perspective -->
+        <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <div class="p-6 border-b border-gray-100 dark:border-gray-700 flex items-center gap-3">
+                <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center text-purple-600 dark:text-purple-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h2 class="text-xl font-bold">AI Market Perspective</h2>
+            </div>
+            <div class="p-8 prose dark:prose-invert max-w-none">
+                <div id="aiSummaryDisplay" class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ latest_summary or 'No AI summary currently available.' }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Historical Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 class="text-lg font-bold mb-4">F&G Historical Trend</h3>
+                <div class="h-64">
+                    <canvas id="fgHistoryChart"></canvas>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 class="text-lg font-bold mb-4">VIX Historical Trend</h3>
+                <div class="h-64">
+                    <canvas id="vixHistoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- History Table -->
+            <div class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="p-6 border-b border-gray-100 dark:border-gray-700">
+                    <h2 class="text-xl font-bold">Recent History</h2>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50 dark:bg-gray-900/50 text-xs uppercase text-gray-400 font-bold">
+                            <tr>
+                                <th class="px-6 py-4">Timestamp</th>
+                                <th class="px-6 py-4">Fear & Greed</th>
+                                <th class="px-6 py-4">VIX</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                            {% for record in history %}
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="px-6 py-4 text-sm">{{ record.timestamp_display or 'N/A' }}</td>
+                                <td class="px-6 py-4">
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold {{ 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' if record.fear_greed_display and record.fear_greed_display > 60 else 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' if record.fear_greed_display and record.fear_greed_display < 40 else 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300' }}">
+                                        {{ record.fear_greed_display or 'N/A' }}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 text-sm font-mono">{{ record.vix_display or 'N/A' }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- VIX Alert Form -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-xl font-bold mb-4">VIX Alerts</h2>
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="p-3 mb-4 text-sm rounded-lg {{ 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' if category == 'success' else 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300' }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Receive email notifications when market volatility spikes.</p>
+                
+                <form method="POST" action="{{ url_for('index') }}" class="space-y-4">
+                    {{ vix_alert_form.csrf_token }}
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Email Address</label>
+                        {{ vix_alert_form.email(class="w-full p-3 bg-gray-50 dark:bg-gray-900 border-none rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm") }}
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-gray-400 mb-1">VIX Threshold</label>
+                        {{ vix_alert_form.vix_threshold(class="w-full p-3 bg-gray-50 dark:bg-gray-900 border-none rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm", placeholder="e.g. 25.0") }}
+                    </div>
+                    {{ vix_alert_form.submit(class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 transition-all cursor-pointer") }}
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-gray-200 dark:border-gray-800 text-center text-gray-500 text-xs">
+        <p>Analysis Last Updated: {{ last_updated or 'N/A' }}</p>
+    </footer>
+
+    <script>
+        const fearGreedRawValue = '{{ fear_greed_value if fear_greed_value != "N/A" and fear_greed_value is not none else 50 }}';
+        const fearGreedData = parseFloat(fearGreedRawValue);
+        const historyTimestamps = {{ chart_timestamps | safe if chart_timestamps else "[]" }};
+        const historyFgValues = {{ chart_fg_values | safe if chart_fg_values else "[]" }};
+        const historyVixValues = {{ chart_vix_values | safe if chart_vix_values else "[]" }};
+
+        const runWebscrapeUrl = "{{ url_for('run_webscrape_route') }}";
+        const runAnalyzeNewsUrl = "{{ url_for('run_analyze_news_route') }}";
+        const runPipelineUrl = "{{ url_for('run_pipeline_route') }}";
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

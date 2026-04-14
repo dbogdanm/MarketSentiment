@@ -1,0 +1,25 @@
+# .dockerignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+include/
+lib/
+bin/
+pip-selfcheck.json
+.idea/
+.vscode/
+.git/
+.gitignore
+*.log
+website/data_files/*.json
+!website/data_files/ai_config.json
+node_modules/
+package-lock.json
+Dockerfile
+docker-compose.yml
+.env

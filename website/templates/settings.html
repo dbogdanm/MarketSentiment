@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Settings - Market Sentiment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        // Check for saved theme
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <div class="max-w-4xl mx-auto p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">AI Configuration</h1>
+            <div>
+                <a href="{{ url_for('index') }}" class="mr-4 text-blue-600 dark:text-blue-400 hover:underline">Dashboard</a>
+                <button id="themeToggle" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg shadow hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Toggle Theme</button>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="p-4 mb-4 text-sm rounded-lg {{ 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' if category == 'success' else 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('settings') }}" class="space-y-6 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            {{ form.csrf_token }}
+            
+            <div>
+                <label class="block text-sm font-semibold mb-2">Active AI Provider</label>
+                <select name="provider" id="provider" class="w-full p-3 border rounded-lg dark:bg-gray-700 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <option value="ollama" {% if form.provider.data == 'ollama' %}selected{% endif %}>Local Ollama</option>
+                    <option value="cloud" {% if form.provider.data == 'cloud' %}selected{% endif %}>Cloud API (Azure/OpenAI)</option>
+                </select>
+            </div>
+
+            <div id="ollama_settings" class="space-y-4 p-5 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl">
+                <h3 class="font-bold text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                    Ollama Settings
+                </h3>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Endpoint URL</label>
+                    <input type="text" name="ollama_endpoint" value="{{ form.ollama_endpoint.data }}" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Model Name</label>
+                    <input type="text" name="ollama_model" value="{{ form.ollama_model.data }}" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+            </div>
+
+            <div id="cloud_settings" class="space-y-4 p-5 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-xl">
+                <h3 class="font-bold text-lg flex items-center gap-2">
+                    <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    Cloud API Settings
+                </h3>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Provider Type (e.g. azure, openai)</label>
+                    <input type="text" name="cloud_provider_type" value="{{ form.cloud_provider_type.data }}" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Endpoint URL</label>
+                    <input type="text" name="cloud_endpoint" value="{{ form.cloud_endpoint.data }}" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">API Key (leave blank to keep existing)</label>
+                    <input type="password" name="cloud_api_key" placeholder="••••••••••••••••" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Model Name</label>
+                    <input type="text" name="cloud_model" value="{{ form.cloud_model.data }}" class="w-full p-2 border rounded dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-purple-500 outline-none">
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition-all transform hover:-translate-y-0.5">
+                Save AI Settings
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const providerSelect = document.getElementById('provider');
+        const ollamaSettings = document.getElementById('ollama_settings');
+        const cloudSettings = document.getElementById('cloud_settings');
+
+        function toggleSections() {
+            if (providerSelect.value === 'ollama') {
+                ollamaSettings.style.display = 'block';
+                cloudSettings.style.display = 'none';
+            } else {
+                ollamaSettings.style.display = 'none';
+                cloudSettings.style.display = 'block';
+            }
+        }
+
+        providerSelect.addEventListener('change', toggleSections);
+        toggleSections();
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>

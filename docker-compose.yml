@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: marketsentiment_db
+    restart: always
+    environment:
+      POSTGRES_DB: marketsentiment
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: marketsentiment_web
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=marketsentiment
+      - DB_USER=user
+      - DB_PASS=password
+      - FLASK_SECRET_KEY=dev_secret_key_change_me
+    depends_on:
+      - db
+    volumes:
+      - ./website/data_files:/app/website/data_files
+
+  scheduler:
+    build: .
+    container_name: marketsentiment_scheduler
+    restart: always
+    command: python scheduler_main.py
+    environment:
+      - DB_HOST=db
+      - DB_NAME=marketsentiment
+      - DB_USER=user
+      - DB_PASS=password
+    depends_on:
+      - db
+    volumes:
+      - ./website/data_files:/app/website/data_files
+      - ./scheduler_logs:/app/scheduler_logs
+
+volumes:
+  postgres_data:
