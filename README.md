@@ -26,7 +26,7 @@
 
 The architecture and user experience have been completely overhauled for stability, aesthetic appeal, and deployment ease.
 
-| Feature Area | Version 1.0 (Old) | Version 2.0 (New) |
+| Feature Area | Version 3.1 (Old) | Version 4.0 (New) |
 | :--- | :--- | :--- |
 | **VIX Data Retrieval** | Single point of failure (`yfinance`). Prone to silent failures during off-hours or API blocks. | **Multi-Source Fallback System:** `yfinance` -\> CNBC API -\> Stooq. Uses 5-day lookbacks and standard User-Agents to prevent 403 errors. |
 | **AI Output Formatting** | Raw, unformatted text blocks containing redundant system prompt data. | **Rich Markdown Rendering:** Uses `marked.js` for beautiful lists and bold text. Regex automatically strips redundant technical lines from the UI. |
