@@ -22,7 +22,7 @@
 ---
 -----
 
-## What's New: Version 1.0 vs. Version 2.0 (Latest Update)
+## What's New: Version 3.1 vs. Version 4.0 (Latest Update)
 
 The architecture and user experience have been completely overhauled for stability, aesthetic appeal, and deployment ease.
 
