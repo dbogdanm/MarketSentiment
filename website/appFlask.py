@@ -14,7 +14,7 @@ from wtforms import StringField, FloatField, SubmitField
 from wtforms.validators import DataRequired, Email, NumberRange
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'o_cheie_secreta_foarte_puternica_si_aleatorie_123!')
+app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'your_api_key')
 
 class VixAlertSubscriptionForm(FlaskForm):
     email = StringField('Email Address', validators=[DataRequired(message="Email is required."), Email(message="Invalid email address.")])
