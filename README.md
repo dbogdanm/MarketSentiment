@@ -1,245 +1,168 @@
-# Market Sentiment Dashboard & AI Analyzer
+# Market Sentiment Dashboard
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/Maintained-yes-brightgreen.svg?style=flat-square)
+![CI](https://github.com/dbogdanm/MarketSentiment/actions/workflows/ci.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-![Repo Size](https://img.shields.io/github/repo-size/dbogdanm/MarketSentiment?style=flat-square)
 ![Last Commit](https://img.shields.io/github/last-commit/dbogdanm/MarketSentiment?style=flat-square)
 
-<br/>
-
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
-![Stock Market](https://img.shields.io/badge/Market-Analysis-green?style=for-the-badge&logo=google-finance&logoColor=white)
-![AI](https://img.shields.io/badge/AI-Sentiment-blueviolet?style=for-the-badge)
+![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
 </div>
 
-**Uncover market sentiment by leveraging AI-driven insights from aggregated financial news.** This sophisticated web application provides a dynamic dashboard displaying key indicators like a custom Fear & Greed Index, the VIX, and historical trends, all powered by real-time data, intelligent analysis, and **proactive VIX alert notifications**.
+A self-hosted dashboard that gauges stock-market mood. It aggregates financial news from public RSS feeds and Yahoo Finance (no API keys required), asks an LLM — a local Ollama model or a cloud provider — to summarize sentiment and produce a custom **Fear & Greed Index** (0–100), tracks the **VIX** with a multi-source fallback chain, stores history in PostgreSQL, and sends **email alerts** when the VIX crosses a subscriber's threshold.
 
----
------
+## Features
 
-## What's New: Version 3.1 vs. Version 4.0 (Latest Update)
+- **News aggregation** from 10 RSS feeds (Google News, Yahoo Finance, Investing.com, MarketWatch, CNBC, …) plus Yahoo Finance ticker news — deduplicated, cleaned, capped at 300 articles per run.
+- **AI sentiment analysis** via a configurable provider:
+  - *Local:* Ollama (default, e.g. `deepseek-r1:1.5b`)
+  - *Cloud:* Azure AI Inference or any OpenAI-compatible endpoint
+  - Providers and keys are managed at runtime from the in-app **/settings** page.
+- **VIX retrieval with fallbacks:** yfinance history → yfinance fast_info → CNBC quote API → Stooq.
+- **Interactive dashboard:** Fear & Greed gauge, VIX card, historical charts (Chart.js), date-range filtering, recent-history table, dark/light mode, Markdown-rendered AI summary, CSV and PDF export.
+- **VIX email alerts:** per-user thresholds, HTML emails over SMTP, 6-hour cooldown per subscriber (configurable).
+- **Automation:** a scheduler container runs the scrape → analyze pipeline every 25 minutes and the alert check every 5 minutes (both configurable); the dashboard also has manual *Scraper / Analyzer / Refresh All* buttons.
+- **Operations-ready:** `/healthz` endpoint, container healthchecks, structured logging in every component, non-root Docker image, CI with lint + tests + Docker build.
 
-The architecture and user experience have been completely overhauled for stability, aesthetic appeal, and deployment ease.
+## Architecture
 
-| Feature Area | Version 3.1 (Old) | Version 4.0 (New) |
-| :--- | :--- | :--- |
-| **VIX Data Retrieval** | Single point of failure (`yfinance`). Prone to silent failures during off-hours or API blocks. | **Multi-Source Fallback System:** `yfinance` -\> CNBC API -\> Stooq. Uses 5-day lookbacks and standard User-Agents to prevent 403 errors. |
-| **AI Output Formatting** | Raw, unformatted text blocks containing redundant system prompt data. | **Rich Markdown Rendering:** Uses `marked.js` for beautiful lists and bold text. Regex automatically strips redundant technical lines from the UI. |
-| **Alert System** | Susceptible to broken imports; disconnected from real-time syncs. | **Fully Functional & Synced:** Fixed core import errors. Data flow seamlessly syncs between the scraper, JSON cache, and PostgreSQL. |
-| **User Interface** | Basic static theme; visual components required manual refreshes to sync. | **Modern & Persistent UI:** Dark/Light mode toggle with `localStorage` persistence. Gauges and charts dynamically update colors on theme switch. |
-| **Deployment** | Manual script execution in virtual environments. | **Enterprise Docker Architecture:** Single `docker-compose up` command orchestrates DB, Web (Gunicorn), and Scheduler containers. |
-
------
-
-## Introduction
-
-The Market Sentiment Dashboard is designed to offer a consolidated and intelligent view of the prevailing mood in the financial markets. It achieves this by:
-
-1.  **Aggregating:** Systematically collecting news articles from a diverse range of reputable financial sources.
-2.  **Analyzing:** Employing an advanced AI model (Azure DeepSeek deployed via Azure AI Services) to process the aggregated news, generating a unique Fear & Greed Index and a concise sentiment summary.
-3.  **Integrating:** Fetching the latest VIX (Volatility Index) data to complement the sentiment analysis.
-4.  **Persisting:** Storing historical sentiment data (Fear & Greed Index, VIX, AI summary, timestamps) within a robust PostgreSQL database for trend analysis.
-5.  **Visualizing:** Presenting these insights through an intuitive Flask-powered web dashboard, featuring an F&G gauge, VIX display, interactive historical charts, and a recent activity table.
-6.  **Notifying:** Proactively alerting subscribed users via email when the VIX crosses their predefined thresholds, keeping them informed of significant market volatility changes.
-
-This tool empowers users to quickly gauge market undercurrents, supported by data-driven AI and timely alerts.
-
----
-
-## Core Features
-
-*   **Comprehensive News Aggregation:** Gathers financial news from premier RSS feeds (e.g., Google News, Yahoo Finance, Investing.com, MarketWatch, CNBC) and Yahoo Finance ticker news — no API keys required.
-*   **AI-Driven Sentiment Intelligence:** Utilizes Azure AI Services (specifically a deployed DeepSeek model) to:
-    *   Distill a succinct **market sentiment summary** from complex news data.
-    *   Calculate a proprietary **Fear & Greed Index** (scaled 1-100).
-*   **Real-time VIX Monitoring:** Retrieves the most current VIX index values via `yfinance`.
-*   **Persistent Historical Data:** Archives all analysis results, enabling insightful trend observation and historical review.
-*   **Dynamic & Interactive Dashboard:** Offers a rich user experience with:
-    *   A clear visual **gauge** for the current Fear & Greed Index.
-    *   **Line charts** illustrating historical Fear & Greed and VIX trajectories.
-    *   A sortable **table** detailing recent analysis records.
-    *   **PDF Export:** Allows users to download a snapshot of the current dashboard view.
-    *   **Enhanced User Control:** Includes 'Run Scraper', 'Run Analyzer', and 'Refresh All Data' buttons directly within the interface for simplified manual operation and data management.
-*   **Proactive VIX Email Alerts:**
-    *   Users can subscribe to receive email notifications when the VIX surpasses a custom-defined threshold.
-    *   Alerts include current VIX value, user's threshold, and a timestamp.
-    *   Configurable minimum interval between alerts to prevent spam.
-*   **Modern Web Interface:** Developed with Flask, HTML5, CSS3, and JavaScript, incorporating Gauge.js and Chart.js for superior data visualization.
-*   **Automated Data Refresh & Alert Monitoring:** Includes a Python-based scheduler (`scheduler_main.py`) to automate the data collection, analysis pipeline, and VIX alert checks at configurable intervals.
-
----
-
-## System Architecture
-
-The application employs a layered architecture for modularity and maintainability:
-
-*   **Data Ingestion Layer (`webScrape.py`):** Responsible for fetching raw news data and VIX values from external sources.
-*   **AI Analysis & Processing Layer (`analyze_news.py`):** Handles communication with the Azure AI service, parses AI responses, and prepares data for storage.
-*   **Notification Layer (`alert_monitor.py`):** Monitors VIX values, checks user subscriptions, and dispatches email alerts via SMTP.
-*   **Persistence Layer:**
-    *   **PostgreSQL Database:**
-        *   `sentiment_history`: Stores historical sentiment records.
-        *   `vix_alerts_subscriptions`: Manages user subscriptions for VIX alerts (email, threshold, last alert timestamp).
-    *   **JSON Files:** Used for intermediate data storage (`financial_news_agg.json`) and caching the latest index values (`latest_indices.json`) for rapid dashboard loading.
-*   **Presentation Layer (`appFlask.py` & Frontend):** The Flask application serves the web dashboard, retrieving data from the database, managing VIX alert subscriptions, and presenting it through HTML templates enhanced with CSS and JavaScript.
-*   **Scheduling Layer (`scheduler_main.py`):** Orchestrates the periodic execution of the data ingestion, analysis, and VIX alert monitoring scripts.
-
----
-
-## Technology Ecosystem
-
-*   **Backend Framework:** Python 3.x, Flask
-*   **Frontend Technologies:** HTML5, CSS3, JavaScript (ES6+)
-*   **Frontend Visualization Libraries:** Gauge.js, Chart.js, html2canvas, jsPDF
-*   **Data Acquisition & Parsing:** `feedparser`, `yfinance`, `requests`, `beautifulsoup4`
-*   **Artificial Intelligence:** Azure AI Services (via `azure-ai-inference` SDK for custom deployed models like DeepSeek)
-*   **Database System:** PostgreSQL
-*   **Database Connector (Python):** `psycopg2-binary`
-*   **Email Notifications:** `smtplib` (Python's built-in SMTP library)
-*   **Task Scheduling (Python):** `schedule`
-*   **Environment Management:** `python-dotenv` (for managing API keys and secrets)
-*   **Version Control System:** Git & GitHub
-
----
-
-## Getting Started: Setup & Deployment
-
-Follow these steps to get the Market Sentiment Dashboard running.
-
-### Deploying with Docker (Recommended)
-
-The easiest way to run the application is using Docker. This ensures all databases, web servers, and background schedulers boot up perfectly synced.
-
-1.  **Clone the Repository:**
-    ```bash
-    git clone https://github.com/dbogdanm/MarketSentiment
-    cd MarketSentiment
-    ```
-2.  **Configure Environment Variables:**
-    Copy the sample environment file and fill in your API keys and SMTP credentials.
-    ```bash
-    cp .env.example .env
-    ```
-3.  **Launch the Application:**
-    ```bash
-    docker-compose up -d
-    ```
-    *The dashboard is now live at `http://localhost:5000`.*
-
-### Manual / Local Installation
-
-If you prefer running without Docker:
-
-1.  **Create and Activate a Python Virtual Environment:**
-    ```bash
-    python -m venv .venv
-    # Windows: .\.venv\Scripts\activate
-    # macOS/Linux: source .venv/bin/activate
-    ```
-2.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-3.  **Build the stylesheet (Tailwind CSS):**
-    ```bash
-    npm install
-    npm run build:css
-    ```
-4.  **Database Configuration:**
-    Ensure PostgreSQL is running locally and create the database. The schema in `db/init.sql` is applied automatically on first boot when using Docker; for a manual setup, run it once with `psql`, or simply start the web app — it creates any missing tables itself at startup.
-5.  **Set `.env` variables** (copy `.env.example` to `.env` and fill it in).
-
-
-## Running the Application
-
-If you are running the app locally (without Docker Compose), you need to start the components manually:
-
-**1. Launching the Web Dashboard:**
-
-```bash
-python website/appFlask.py
+```
+                ┌─────────────────────────── scheduler container ───────────────────────────┐
+                │  scheduler_main.py                                                         │
+                │   ├─ every 25 min: webScrape.py ──► financial_news_agg.json               │
+                │   │                 analyze_news.py ──► PostgreSQL + latest_indices.json  │
+                │   └─ every 5 min:  alert_monitor.py ──► SMTP email alerts                 │
+                └────────────────────────────────────────────────────────────────────────────┘
+                                  │                                   │
+                                  ▼                                   ▼
+                          ┌──────────────┐                   ┌──────────────────┐
+                          │  PostgreSQL  │ ◄──────────────── │  web container   │
+                          │  (db)        │                   │  Flask + gunicorn│──► Dashboard :5000
+                          └──────────────┘                   └──────────────────┘
 ```
 
-**2. Automated Scheduling (Data Pipeline & Alerts):**
-For continuous operation of the fallback APIs, AI analysis, and alert system:
+| Component | File | Role |
+| :-- | :-- | :-- |
+| Data ingestion | `website/crucialPys/webScrape.py` | Fetch news + VIX, write JSON aggregate |
+| AI analysis | `website/crucialPys/analyze_news.py` | LLM call, parse F&G score, persist results |
+| Alerting | `website/crucialPys/alert_monitor.py` | Compare VIX to subscriptions, send emails |
+| Web app | `website/appFlask.py` | Dashboard, settings, CSV export, healthcheck, manual pipeline triggers |
+| Scheduler | `scheduler_main.py` | Periodic orchestration of the three scripts |
+| DB schema | `db/init.sql` | Tables `sentiment_history`, `vix_alerts_subscriptions` (auto-applied) |
+
+## Quick Start (Docker — recommended)
+
+Requirements: Docker with the Compose plugin.
 
 ```bash
-python scheduler_main.py
+git clone https://github.com/dbogdanm/MarketSentiment
+cd MarketSentiment
+
+# 1. Configure secrets
+cp .env.example .env
+#    Edit .env — FLASK_SECRET_KEY is required; generate one with:
+#    python -c "import secrets; print(secrets.token_hex(32))"
+
+# 2. Launch (db + web + scheduler)
+docker compose up -d --build
 ```
 
-*(Note: If using Docker, `scheduler_main.py` is already running autonomously in its own container).*
+The dashboard is now at **http://localhost:5000**. The database schema is created automatically on first boot, and the scheduler immediately runs a first scrape so the dashboard has data within a minute or two.
 
-## Running the Tests
+> **Note:** the AI summary needs a model. Either run [Ollama](https://ollama.com) on the host (default endpoint `http://localhost:11434`) or open **Settings** in the app and point it at a cloud provider. Without a model, the pipeline still collects news and VIX data gracefully.
+
+## Manual Setup (without Docker)
+
+```bash
+# 1. Python environment
+python -m venv .venv
+# Windows: .\.venv\Scripts\activate   |   macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+
+# 2. Build the Tailwind stylesheet
+npm install
+npm run build:css
+
+# 3. Configuration
+cp .env.example .env        # set DB credentials, FLASK_SECRET_KEY, SMTP, ...
+                            # DB_HOST=localhost for a local PostgreSQL
+
+# 4. Database — start PostgreSQL and create the database; the schema is
+#    created automatically when the web app starts (or run db/init.sql once).
+
+# 5. Run
+python website/appFlask.py   # dashboard at http://127.0.0.1:5000
+python scheduler_main.py     # pipeline + alerts (separate terminal)
+```
+
+## Configuration
+
+All settings come from environment variables (`.env`, loaded automatically — see `.env.example`):
+
+| Variable | Default | Purpose |
+| :-- | :-- | :-- |
+| `FLASK_SECRET_KEY` | — (**required in production**) | Session/CSRF signing key |
+| `DB_HOST` / `DB_NAME` / `DB_USER` / `DB_PASS` | `db` / `marketsentiment` / `user` / `password` | PostgreSQL connection |
+| `PIPELINE_INTERVAL_MINUTES` | `25` | Scrape + analyze frequency |
+| `ALERT_INTERVAL_MINUTES` | `5` | VIX alert check frequency |
+| `ALERT_COOLDOWN_HOURS` | `6` | Minimum gap between emails per subscriber |
+| `SMTP_SERVER` / `SMTP_PORT` / `SMTP_USER` / `SMTP_PASS` | empty (alerts disabled) | Outgoing email |
+| `GUNICORN_WORKERS` / `GUNICORN_TIMEOUT` | `2` / `120` | Web server tuning |
+| `LOG_LEVEL` | `INFO` | Logging verbosity for all components |
+| `AUTO_INIT_DB` | `1` | Set `0` to skip schema init at startup |
+
+AI provider settings (Ollama endpoint/model, cloud endpoint/key/model) live in `website/data_files/ai_config.json` and are edited from the **/settings** page; the API key is write-only in the UI and never rendered back.
+
+## HTTP Endpoints
+
+| Route | Method | Description |
+| :-- | :-- | :-- |
+| `/` | GET/POST | Dashboard; POST subscribes/updates a VIX alert |
+| `/settings` | GET/POST | AI provider configuration |
+| `/export/csv` | GET | Download history (honors date filters) |
+| `/healthz` | GET | Liveness + DB status (used by container healthcheck) |
+| `/run_webscrape`, `/run_analyze_news`, `/run_pipeline` | POST | Manual pipeline triggers (serialized; concurrent calls get `409`) |
+
+> The manual trigger and settings endpoints are unauthenticated by design (single-user tool). If you expose the app publicly, put it behind a reverse proxy with authentication.
+
+## Development
 
 ```bash
 pip install -r requirements-dev.txt
-pytest
+
+pytest                                          # test suite
+ruff check website tests scheduler_main.py     # lint
 ```
 
-Linting uses [ruff](https://docs.astral.sh/ruff/):
+CI (`.github/workflows/ci.yml`) runs ruff + pytest on Python 3.11 and 3.13, builds the Docker image, and validates the compose file on every push and pull request.
 
-```bash
-ruff check website tests scheduler_main.py
+### Project Layout
+
 ```
-
-Both run automatically in GitHub Actions (`.github/workflows/ci.yml`) on every push and pull request, along with a Docker image build.
-
------
-
-## Key Configuration Points
-
-  * **API Keys & Credentials (`.env`):** Primary location for the Flask secret key, Postgres credentials, scheduler intervals, and SMTP settings (see `.env.example`). AI provider settings (Ollama/cloud endpoints and keys) are managed from the in-app `/settings` page.
-  * **VIX Fallback Logic (`webScrape.py`):** The logic prioritizing `yfinance` -\> `CNBC` -\> `Stooq` can be adjusted here, along with the 5-day lookback window.
-  * **AI Prompting (`analyze_news.py`):** Modify the system prompts to further tweak how the AI formats its Markdown response.
-  * **Scheduling Intervals (`scheduler_main.py`):** Modify `schedule.every(...).minutes` to change scraping and alerting frequencies.
-
------
-
-## Roadmap & Potential Enhancements
-
-  * **User Authentication:** Allow users to create accounts to save personal dashboard layouts and track specific assets beyond just VIX alerts.
-  * **Enhanced UI Data Visualization:** Introduce date range selectors for historical charts and detailed sector-sentiment heatmaps.
-  * **Asynchronous Data Fetching:** Utilize `asyncio` and `aiohttp` in `webScrape.py` to accelerate news aggregation.
-
----
-
-## Contribution Guidelines
-
-We welcome contributions! If you'd like to contribute, please follow these steps:
-
-1.  Fork the repository.
-2.  Create a new branch for your feature or bug fix (e.g., `git checkout -b feature/your-feature-name` or `fix/your-bug-fix`).
-3.  Make your changes and commit them with clear, descriptive messages.
-4.  Push your changes to your forked repository.
-5.  Submit a Pull Request to the main repository, detailing the changes you've made and their purpose.
-
----
-
----
+├── website/
+│   ├── appFlask.py          # Flask app
+│   ├── crucialPys/          # webScrape / analyze_news / alert_monitor
+│   ├── templates/           # Jinja2 (Tailwind CSS)
+│   ├── static/              # JS, images, built style.css (generated)
+│   └── data_files/          # runtime JSON cache + AI config (gitignored)
+├── scheduler_main.py        # periodic job runner
+├── db/init.sql              # database schema
+├── tests/                   # pytest suite
+├── Dockerfile               # multi-stage: Node (Tailwind) → Python
+└── docker-compose.yml       # db + web + scheduler
+```
 
 ## License
 
-**Copyright (c) 2026 DINU BOGDAN**
+MIT — Copyright (c) 2026 **Dinu Bogdan**. See [LICENSE](LICENSE).
 
-This project is licensed under the MIT License.
+## Contact
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Maintainer: **Dinu Bogdan-Marius** · `bogdandinu625@gmail.com` · GitHub [@dbogdanm](https://github.com/dbogdanm)
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
----
-
-## Contact & Support
-
-Project Maintainer: Dinu Bogdan-Marius
-Email: `bogdandinu625@gmail.com`
-GitHub: `dbogdanm`
-
-For issues, feature requests, or support, please open an issue on the GitHub repository.
+For issues or feature requests, please open a GitHub issue.
