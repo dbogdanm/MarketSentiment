@@ -53,7 +53,7 @@ This tool empowers users to quickly gauge market undercurrents, supported by dat
 
 ## Core Features
 
-*   **Comprehensive News Aggregation:** Gathers financial news from premier RSS feeds (e.g., Yahoo Finance, Investing.com) and the NewsAPI (sourcing from outlets like Bloomberg, Reuters, The Wall Street Journal).
+*   **Comprehensive News Aggregation:** Gathers financial news from premier RSS feeds (e.g., Google News, Yahoo Finance, Investing.com, MarketWatch, CNBC) and Yahoo Finance ticker news — no API keys required.
 *   **AI-Driven Sentiment Intelligence:** Utilizes Azure AI Services (specifically a deployed DeepSeek model) to:
     *   Distill a succinct **market sentiment summary** from complex news data.
     *   Calculate a proprietary **Fear & Greed Index** (scaled 1-100).
@@ -96,7 +96,7 @@ The application employs a layered architecture for modularity and maintainabilit
 *   **Backend Framework:** Python 3.x, Flask
 *   **Frontend Technologies:** HTML5, CSS3, JavaScript (ES6+)
 *   **Frontend Visualization Libraries:** Gauge.js, Chart.js, html2canvas, jsPDF
-*   **Data Acquisition & Parsing:** `feedparser`, `newsapi-python`, `yfinance`, `requests`, `beautifulsoup4`
+*   **Data Acquisition & Parsing:** `feedparser`, `yfinance`, `requests`, `beautifulsoup4`
 *   **Artificial Intelligence:** Azure AI Services (via `azure-ai-inference` SDK for custom deployed models like DeepSeek)
 *   **Database System:** PostgreSQL
 *   **Database Connector (Python):** `psycopg2-binary`
@@ -145,9 +145,14 @@ If you prefer running without Docker:
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Database Configuration:**
-    Ensure PostgreSQL is running locally, create a `market_sentiment_db` database, and execute the SQL table creations found in the `schema.sql` (or see the old instructions for table schema).
-4.  **Set `.env` variables** (same as Docker setup).
+3.  **Build the stylesheet (Tailwind CSS):**
+    ```bash
+    npm install
+    npm run build:css
+    ```
+4.  **Database Configuration:**
+    Ensure PostgreSQL is running locally and create the database. The schema in `db/init.sql` is applied automatically on first boot when using Docker; for a manual setup, run it once with `psql`, or simply start the web app — it creates any missing tables itself at startup.
+5.  **Set `.env` variables** (copy `.env.example` to `.env` and fill it in).
 
 
 ## Running the Application
@@ -169,11 +174,26 @@ python scheduler_main.py
 
 *(Note: If using Docker, `scheduler_main.py` is already running autonomously in its own container).*
 
+## Running the Tests
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
+
+Linting uses [ruff](https://docs.astral.sh/ruff/):
+
+```bash
+ruff check website tests scheduler_main.py
+```
+
+Both run automatically in GitHub Actions (`.github/workflows/ci.yml`) on every push and pull request, along with a Docker image build.
+
 -----
 
 ## Key Configuration Points
 
-  * **API Keys & Credentials (`.env`):** Primary location for NewsAPI, Azure AI/Ollama endpoints, Postgres credentials, and SMTP settings.
+  * **API Keys & Credentials (`.env`):** Primary location for the Flask secret key, Postgres credentials, scheduler intervals, and SMTP settings (see `.env.example`). AI provider settings (Ollama/cloud endpoints and keys) are managed from the in-app `/settings` page.
   * **VIX Fallback Logic (`webScrape.py`):** The logic prioritizing `yfinance` -\> `CNBC` -\> `Stooq` can be adjusted here, along with the 5-day lookback window.
   * **AI Prompting (`analyze_news.py`):** Modify the system prompts to further tweak how the AI formats its Markdown response.
   * **Scheduling Intervals (`scheduler_main.py`):** Modify `schedule.every(...).minutes` to change scraping and alerting frequencies.
@@ -182,25 +202,9 @@ python scheduler_main.py
 
 ## Roadmap & Potential Enhancements
 
-  * **Advanced Error Handling:** Implement comprehensive Python `logging` for deeper diagnostics across the Docker containers.
   * **User Authentication:** Allow users to create accounts to save personal dashboard layouts and track specific assets beyond just VIX alerts.
   * **Enhanced UI Data Visualization:** Introduce date range selectors for historical charts and detailed sector-sentiment heatmaps.
   * **Asynchronous Data Fetching:** Utilize `asyncio` and `aiohttp` in `webScrape.py` to accelerate news aggregation.
-
-
-
-### Launching the Web Dashboard
-
-1.  Ensure your virtual environment is activated.
-2.  Navigate to the project root directory.
-3.  Start the Flask development server:
-    ```bash
-    python website/appFlask.py
-    ```
-    *(If `appFlask.py` is in the root, use `python appFlask.py`)*
-4.  Open your web browser and navigate to `http://127.0.0.1:5000` (or the URL displayed in the terminal).
-    The dashboard will allow users to subscribe/unsubscribe to VIX alerts.
-
 
 ---
 

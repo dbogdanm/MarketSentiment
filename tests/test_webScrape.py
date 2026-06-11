@@ -1,4 +1,3 @@
-import pytest
 import requests
 import time
 from datetime import datetime, timezone
@@ -15,8 +14,6 @@ def test_clean_html_summary():
     assert webScrape.clean_html_summary("No HTML here.") == "No HTML here."
 
 def test_format_timestamp_from_parsed():
-    dt_obj = datetime(2023, 1, 1, 0, 0, 0, tzinfo=timezone.utc)
-    parsed_time_struct = dt_obj.timetuple()
     test_dt = datetime(2023, 5, 15, 12, 0, 0, tzinfo=timezone.utc)
     struct_time_utc = time.gmtime(test_dt.timestamp())
     expected_iso = "2023-05-15T12:00:00Z"
@@ -56,8 +53,44 @@ def test_fetch_url_with_retry_failure(mocker):
     mocker.patch('requests.get', side_effect=requests.exceptions.RequestException("Test error"))
     mocker.patch('time.sleep', return_value=None)
     webScrape.REQUESTS_AVAILABLE = True
-    
+
     content = webScrape.fetch_url_with_retry("http://example.com")
-    
+
     assert content is None
     assert requests.get.call_count == webScrape.MAX_RETRIES
+
+
+def test_normalize_yfinance_item_legacy_format():
+    item = {
+        "title": "Markets rally",
+        "link": "https://example.com/a",
+        "publisher": "Example News",
+        "providerPublishTime": 1672576200,
+    }
+    article = webScrape._normalize_yfinance_item(item)
+    assert article["title"] == "Markets rally"
+    assert article["url"] == "https://example.com/a"
+    assert article["summary"] == "Publisher: Example News"
+    assert article["timestamp"] == "2023-01-01T12:30:00Z"
+
+
+def test_normalize_yfinance_item_new_format():
+    item = {
+        "id": "abc",
+        "content": {
+            "title": "Stocks slide",
+            "pubDate": "2023-01-01T12:30:00Z",
+            "canonicalUrl": {"url": "https://example.com/b"},
+            "provider": {"displayName": "Example Wire"},
+        },
+    }
+    article = webScrape._normalize_yfinance_item(item)
+    assert article["title"] == "Stocks slide"
+    assert article["url"] == "https://example.com/b"
+    assert article["summary"] == "Publisher: Example Wire"
+    assert article["timestamp"] == "2023-01-01T12:30:00Z"
+
+
+def test_normalize_yfinance_item_missing_link_returns_none():
+    assert webScrape._normalize_yfinance_item({"title": "No link"}) is None
+    assert webScrape._normalize_yfinance_item({"content": {"title": "No link"}}) is None

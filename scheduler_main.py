@@ -1,113 +1,131 @@
-import schedule
-import time
-import subprocess
+"""Periodic job runner for the MarketSentiment data pipeline.
+
+Runs the scrape -> analyze pipeline and the VIX alert monitor on fixed
+intervals. Intervals are configurable through environment variables so the
+same code works locally and inside the Docker scheduler container.
+"""
+
+import logging
 import os
-from datetime import datetime
+import subprocess
+import sys
+import time
 
-PROJECT_MARKET_SENTIMENT_ROOT = os.path.dirname(os.path.abspath(__file__))
-DESKTOP_PATH = os.path.abspath(os.path.join(PROJECT_MARKET_SENTIMENT_ROOT, "..", ".."))
-PYTHON_PROJECT1_FOLDER_NAME = "PythonProject1"
-VENV_FOLDER_NAME = ".venv1"
-SCRIPTS_FOLDER_NAME = "Scripts"
-PYTHON_EXE_NAME = "python.exe"
+import schedule
+from dotenv import load_dotenv
 
-PYTHON_EXECUTABLE = os.path.join(
-    DESKTOP_PATH,
-    PYTHON_PROJECT1_FOLDER_NAME,
-    VENV_FOLDER_NAME,
-    SCRIPTS_FOLDER_NAME,
-    PYTHON_EXE_NAME
-)
+load_dotenv()
 
-WEBSCRAPE_SCRIPT_RELATIVE_PATH = os.path.join("website", "crucialPys", "webScrape.py")
-ANALYZE_NEWS_SCRIPT_RELATIVE_PATH = os.path.join("website", "crucialPys", "analyze_news.py")
-ALERT_MONITOR_SCRIPT_RELATIVE_PATH = os.path.join("website", "crucialPys", "alert_monitor.py")
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PYTHON_EXECUTABLE = sys.executable
 
-WEBSCRAPE_SCRIPT_PATH = os.path.join(PROJECT_MARKET_SENTIMENT_ROOT, WEBSCRAPE_SCRIPT_RELATIVE_PATH)
-ANALYZE_NEWS_SCRIPT_PATH = os.path.join(PROJECT_MARKET_SENTIMENT_ROOT, ANALYZE_NEWS_SCRIPT_RELATIVE_PATH)
-ALERT_MONITOR_SCRIPT_PATH = os.path.join(PROJECT_MARKET_SENTIMENT_ROOT, ALERT_MONITOR_SCRIPT_RELATIVE_PATH)
+WEBSCRAPE_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "website", "crucialPys", "webScrape.py")
+ANALYZE_NEWS_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "website", "crucialPys", "analyze_news.py")
+ALERT_MONITOR_SCRIPT_PATH = os.path.join(PROJECT_ROOT, "website", "crucialPys", "alert_monitor.py")
 
-LOG_DIR = os.path.join(PROJECT_MARKET_SENTIMENT_ROOT, "scheduler_logs")
+PIPELINE_INTERVAL_MINUTES = int(os.environ.get("PIPELINE_INTERVAL_MINUTES", "25"))
+ALERT_INTERVAL_MINUTES = int(os.environ.get("ALERT_INTERVAL_MINUTES", "5"))
+SCRIPT_TIMEOUT_SECONDS = int(os.environ.get("SCRIPT_TIMEOUT_SECONDS", "900"))
+
+LOG_DIR = os.path.join(PROJECT_ROOT, "scheduler_logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 
-def run_script(script_path, log_file_name):
-    current_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_path = os.path.join(LOG_DIR, log_file_name)
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO"),
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(os.path.join(LOG_DIR, "scheduler.log"), encoding="utf-8"),
+    ],
+)
+logger = logging.getLogger("scheduler")
+
+
+def run_script(script_path):
     script_basename = os.path.basename(script_path)
-    
+
+    if not os.path.exists(script_path):
+        logger.error("Script not found: %s", script_path)
+        return False
+
+    logger.info("Starting %s", script_basename)
     try:
-        if not os.path.exists(PYTHON_EXECUTABLE):
-            raise FileNotFoundError(f"Python executable not found at: {PYTHON_EXECUTABLE}")
-        if not os.path.exists(script_path):
-            raise FileNotFoundError(f"Script not found at: {script_path}")
-            
         result = subprocess.run(
-            [PYTHON_EXECUTABLE, script_path], check=True, capture_output=True, text=True,
-            cwd=PROJECT_MARKET_SENTIMENT_ROOT, encoding='utf-8', errors='replace'
+            [PYTHON_EXECUTABLE, script_path],
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            encoding="utf-8",
+            errors="replace",
+            timeout=SCRIPT_TIMEOUT_SECONDS,
         )
-        
-        with open(log_path, "a", encoding="utf-8") as f:
-            f.write(f"--- Log at {current_time_str} for {script_basename} ---\nOutput:\n{result.stdout if result.stdout else 'N/A (No stdout)'}\n--- End Log ---\n\n")
-        return True
-
-    except subprocess.CalledProcessError as e:
-        error_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(log_path, "a", encoding="utf-8") as f:
-            f.write(f"--- ERROR at {error_time_str} for {script_basename} ---\n")
-            f.write(f"Return code: {e.returncode}\n")
-            f.write("Stdout:\n")
-            f.write(e.stdout if e.stdout else "N/A (No stdout)\n")
-            f.write("\nStderr:\n")
-            f.write(e.stderr if e.stderr else "N/A (No stderr)\n")
-            f.write("\n--- End Error Log ---\n\n")
+    except subprocess.TimeoutExpired:
+        logger.error("%s timed out after %s seconds", script_basename, SCRIPT_TIMEOUT_SECONDS)
+        return False
+    except Exception:
+        logger.exception("Unexpected error while running %s", script_basename)
         return False
 
-    except FileNotFoundError as e:
-        error_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(log_path, "a", encoding="utf-8") as f:
-            f.write(f"--- FATAL ERROR at {error_time_str} for {script_basename} ---\n")
-            f.write(f"{e}\n")
-            f.write(f"Check PYTHON_EXECUTABLE and script_path paths.\n")
-            f.write(f"PYTHON_EXECUTABLE: {PYTHON_EXECUTABLE}\n")
-            f.write(f"Script Path: {script_path}\n")
-            f.write("\n--- End Error Log ---\n\n")
+    if result.returncode != 0:
+        logger.error(
+            "%s failed (exit code %s)\nstdout:\n%s\nstderr:\n%s",
+            script_basename,
+            result.returncode,
+            result.stdout or "N/A",
+            result.stderr or "N/A",
+        )
         return False
 
-    except Exception as e:
-        error_time_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        with open(log_path, "a", encoding="utf-8") as f:
-            f.write(f"--- UNEXPECTED ERROR at {error_time_str} for {script_basename} ---\n")
-            f.write(f"Error: {e}\n")
-            f.write(f"Error Type: {type(e)}\n")
-            f.write("\n--- End Error Log ---\n\n")
-        return False
+    logger.info("%s finished successfully", script_basename)
+    if result.stdout:
+        logger.debug("%s output:\n%s", script_basename, result.stdout)
+    return True
+
 
 def job_run_webscrape():
-    return run_script(WEBSCRAPE_SCRIPT_PATH, "webscrape_runs.log")
+    return run_script(WEBSCRAPE_SCRIPT_PATH)
+
 
 def job_run_analyze_news():
-    return run_script(ANALYZE_NEWS_SCRIPT_PATH, "analyze_news_runs.log")
+    return run_script(ANALYZE_NEWS_SCRIPT_PATH)
+
 
 def job_run_alert_monitor():
-    return run_script(ALERT_MONITOR_SCRIPT_PATH, "alert_monitor_runs.log")
+    return run_script(ALERT_MONITOR_SCRIPT_PATH)
+
 
 def combined_pipeline_job():
-    success_webscrape = job_run_webscrape()
-    if success_webscrape:
+    if job_run_webscrape():
         job_run_analyze_news()
+    else:
+        logger.warning("Web scrape failed; skipping news analysis for this run.")
 
-schedule.every(25).minutes.do(combined_pipeline_job)
-schedule.every(5).minutes.do(job_run_alert_monitor)
 
-if __name__ == "__main__":
+def main():
+    logger.info(
+        "Scheduler starting (pipeline every %s min, alerts every %s min)",
+        PIPELINE_INTERVAL_MINUTES,
+        ALERT_INTERVAL_MINUTES,
+    )
+
+    schedule.every(PIPELINE_INTERVAL_MINUTES).minutes.do(combined_pipeline_job)
+    schedule.every(ALERT_INTERVAL_MINUTES).minutes.do(job_run_alert_monitor)
+
+    # Run both jobs once at startup so the dashboard has fresh data
+    # immediately after deployment instead of waiting a full interval.
     combined_pipeline_job()
     job_run_alert_monitor()
 
-    try:
-        while True:
+    while True:
+        try:
             schedule.run_pending()
-            time.sleep(1)
+        except Exception:
+            logger.exception("Scheduled job raised an unexpected error")
+        time.sleep(1)
+
+
+if __name__ == "__main__":
+    try:
+        main()
     except KeyboardInterrupt:
-        pass
-    except Exception:
-        pass
+        logger.info("Scheduler stopped by user.")

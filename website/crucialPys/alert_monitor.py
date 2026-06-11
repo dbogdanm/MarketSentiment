@@ -1,13 +1,26 @@
+"""Checks the current VIX value against subscriber thresholds and sends
+HTML email alerts, respecting a per-subscriber cooldown interval."""
+
+import logging
 import os
-import sys
-import time
-from datetime import datetime, timezone, timedelta
-import psycopg2
-from psycopg2.extras import RealDictCursor
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import sys
+from datetime import datetime, timedelta, timezone
 from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+import psycopg2
+from dotenv import load_dotenv
+from psycopg2.extras import RealDictCursor
+
+load_dotenv()
+
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO"),
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+)
+logger = logging.getLogger("alert_monitor")
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 WEBSITE_DIR = os.path.dirname(SCRIPT_DIR)
@@ -17,47 +30,57 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 try:
-    from website.crucialPys.webScrape import get_vix_value as get_vix_value_yfinance, YFINANCE_AVAILABLE
-except (ImportError, Exception):
+    from website.crucialPys.webScrape import get_vix_value as get_vix_value_yfinance
+except ImportError:
+    logger.error("Could not import VIX helper from webScrape; alerts disabled.")
+
     def get_vix_value_yfinance():
         return None
-    YFINANCE_AVAILABLE = False
 
-MIN_ALERT_INTERVAL = timedelta(hours=6)
+MIN_ALERT_INTERVAL = timedelta(hours=int(os.environ.get("ALERT_COOLDOWN_HOURS", "6")))
+DB_CONNECT_TIMEOUT = int(os.environ.get("DB_CONNECT_TIMEOUT", "5"))
 IMAGE_FOOTER_PATH = os.path.join(PROJECT_ROOT, "website", "static", "images", "mail-footer-logo-removed.png")
 IMAGE_FOOTER_CID = 'mailfooterlogo'
 
+
 def get_db_conn_for_alerts():
-    db_name_local = os.environ.get("DB_NAME")
-    db_user_local = os.environ.get("DB_USER")
-    db_pass_local = os.environ.get("DB_PASS")
-    db_host_local = os.environ.get("DB_HOST", "localhost")
-    
-    if not all([db_name_local, db_user_local, db_pass_local]):
+    db_name = os.environ.get("DB_NAME")
+    db_user = os.environ.get("DB_USER")
+    db_pass = os.environ.get("DB_PASS")
+    db_host = os.environ.get("DB_HOST", "localhost")
+
+    if not all([db_name, db_user, db_pass]):
+        logger.warning("Database credentials not configured; cannot check alerts.")
         return None
-        
+
     try:
-        conn = psycopg2.connect(host=db_host_local, database=db_name_local, user=db_user_local, password=db_pass_local)
-        return conn
-    except Exception:
+        return psycopg2.connect(
+            host=db_host, database=db_name, user=db_user, password=db_pass,
+            connect_timeout=DB_CONNECT_TIMEOUT,
+        )
+    except psycopg2.Error as error:
+        logger.error("Database connection failed: %s", error)
         return None
+
 
 def send_actual_vix_alert(receiver_email, current_vix, user_specific_threshold):
-    smtp_server_local = os.environ.get("SMTP_SERVER")
-    smtp_port_str_local = os.environ.get("SMTP_PORT")
-    smtp_user_local = os.environ.get("SMTP_USER")
-    smtp_pass_local = os.environ.get("SMTP_PASS")
+    smtp_server = os.environ.get("SMTP_SERVER")
+    smtp_port_str = os.environ.get("SMTP_PORT")
+    smtp_user = os.environ.get("SMTP_USER")
+    smtp_pass = os.environ.get("SMTP_PASS")
 
-    if not all([receiver_email, smtp_server_local, smtp_port_str_local, smtp_user_local, smtp_pass_local]):
+    if not all([receiver_email, smtp_server, smtp_port_str, smtp_user, smtp_pass]):
+        logger.warning("SMTP settings incomplete; cannot send alert to %s.", receiver_email)
         return False
-        
+
     try:
-        smtp_port_int = int(smtp_port_str_local)
+        smtp_port = int(smtp_port_str)
     except ValueError:
+        logger.error("Invalid SMTP_PORT value: %r", smtp_port_str)
         return False
 
     msg = MIMEMultipart('related')
-    msg['From'] = smtp_user_local
+    msg['From'] = smtp_user
     msg['To'] = receiver_email
 
     current_year = datetime.now(timezone.utc).year
@@ -147,26 +170,27 @@ def send_actual_vix_alert(receiver_email, current_vix, user_specific_threshold):
             img.add_header('Content-ID', f'<{IMAGE_FOOTER_CID}>')
             img.add_header('Content-Disposition', 'inline', filename=os.path.basename(IMAGE_FOOTER_PATH))
             msg.attach(img)
-    except Exception:
-        pass
+    except OSError as error:
+        logger.warning("Could not attach footer image: %s", error)
 
     try:
-        with smtplib.SMTP(smtp_server_local, smtp_port_int) as server:
+        with smtplib.SMTP(smtp_server, smtp_port, timeout=30) as server:
             server.ehlo()
             server.starttls()
             server.ehlo()
-            server.login(smtp_user_local, smtp_pass_local)
-            server.sendmail(smtp_user_local, receiver_email, msg.as_string())
+            server.login(smtp_user, smtp_pass)
+            server.sendmail(smtp_user, receiver_email, msg.as_string())
+        logger.info("VIX alert sent to %s (VIX %.2f > threshold %.2f).", receiver_email, current_vix, user_specific_threshold)
         return True
-    except (smtplib.SMTPAuthenticationError, Exception):
+    except (smtplib.SMTPException, OSError) as error:
+        logger.error("Failed to send VIX alert to %s: %s", receiver_email, error)
         return False
 
-def check_vix_and_send_alerts():
-    if not YFINANCE_AVAILABLE:
-        return
 
+def check_vix_and_send_alerts():
     current_vix = get_vix_value_yfinance()
     if current_vix is None:
+        logger.warning("Could not retrieve current VIX value; skipping alert check.")
         return
 
     conn = get_db_conn_for_alerts()
@@ -176,33 +200,35 @@ def check_vix_and_send_alerts():
     try:
         with conn.cursor(cursor_factory=RealDictCursor) as cur:
             cur.execute("""
-                SELECT id, email, vix_threshold, last_alert_sent_at 
-                FROM vix_alerts_subscriptions 
-                WHERE is_active = TRUE AND %s > vix_threshold 
+                SELECT id, email, vix_threshold, last_alert_sent_at
+                FROM vix_alerts_subscriptions
+                WHERE is_active = TRUE AND %s > vix_threshold
                 AND (last_alert_sent_at IS NULL OR last_alert_sent_at < %s)
             """, (current_vix, datetime.now(timezone.utc) - MIN_ALERT_INTERVAL))
 
             subscriptions_to_alert = cur.fetchall()
 
             if not subscriptions_to_alert:
+                logger.info("VIX %.2f: no subscribers to alert.", current_vix)
                 return
 
             for sub in subscriptions_to_alert:
                 if send_actual_vix_alert(sub['email'], current_vix, sub['vix_threshold']):
                     try:
                         cur.execute("""
-                            UPDATE vix_alerts_subscriptions 
-                            SET last_alert_sent_at = %s 
+                            UPDATE vix_alerts_subscriptions
+                            SET last_alert_sent_at = %s
                             WHERE id = %s
                         """, (datetime.now(timezone.utc), sub['id']))
                         conn.commit()
-                    except Exception:
+                    except psycopg2.Error as error:
+                        logger.error("Failed to record alert timestamp for %s: %s", sub['email'], error)
                         conn.rollback()
-    except Exception:
-        pass
+    except psycopg2.Error as error:
+        logger.error("Alert check query failed: %s", error)
     finally:
-        if conn:
-            conn.close()
+        conn.close()
+
 
 if __name__ == "__main__":
     check_vix_and_send_alerts()

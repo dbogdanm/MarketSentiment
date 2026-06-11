@@ -14,12 +14,18 @@ pip-selfcheck.json
 .idea/
 .vscode/
 .git/
+.github/
 .gitignore
 *.log
-website/data_files/*.json
-!website/data_files/ai_config.json
+scheduler_logs/
+# Runtime data (mounted as a volume; ai_config.json may hold API keys)
+website/data_files/
 node_modules/
 package-lock.json
 Dockerfile
 docker-compose.yml
 .env
+tests/
+pytest.ini
+requirements-dev.txt
+*.pdf

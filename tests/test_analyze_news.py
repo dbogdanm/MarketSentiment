@@ -2,7 +2,6 @@ import pytest
 import os
 import json
 from datetime import datetime, timezone
-from unittest.mock import MagicMock
 from website.crucialPys import analyze_news
 
 def test_parse_analysis_results_with_fg():

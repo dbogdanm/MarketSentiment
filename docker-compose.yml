@@ -1,51 +1,71 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15-alpine
     container_name: marketsentiment_db
-    restart: always
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: marketsentiment
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
+      POSTGRES_DB: ${DB_NAME:-marketsentiment}
+      POSTGRES_USER: ${DB_USER:-user}
+      POSTGRES_PASSWORD: ${DB_PASS:-password}
+    # The database is intentionally not published on the host; containers
+    # reach it through the compose network. For local inspection, uncomment:
+    # ports:
+    #   - "127.0.0.1:54320:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-user} -d ${DB_NAME:-marketsentiment}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   web:
     build: .
     container_name: marketsentiment_web
-    restart: always
+    restart: unless-stopped
     ports:
       - "5000:5000"
     environment:
       - DB_HOST=db
-      - DB_NAME=marketsentiment
-      - DB_USER=user
-      - DB_PASS=password
-      - FLASK_SECRET_KEY=dev_secret_key_change_me
+      - DB_NAME=${DB_NAME:-marketsentiment}
+      - DB_USER=${DB_USER:-user}
+      - DB_PASS=${DB_PASS:-password}
+      - FLASK_SECRET_KEY=${FLASK_SECRET_KEY:?Set FLASK_SECRET_KEY in your .env file}
+      - GUNICORN_WORKERS=${GUNICORN_WORKERS:-2}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - ./website/data_files:/app/website/data_files
 
   scheduler:
     build: .
     container_name: marketsentiment_scheduler
-    restart: always
+    restart: unless-stopped
     command: python scheduler_main.py
     environment:
       - DB_HOST=db
-      - DB_NAME=marketsentiment
-      - DB_USER=user
-      - DB_PASS=password
+      - DB_NAME=${DB_NAME:-marketsentiment}
+      - DB_USER=${DB_USER:-user}
+      - DB_PASS=${DB_PASS:-password}
+      - PIPELINE_INTERVAL_MINUTES=${PIPELINE_INTERVAL_MINUTES:-25}
+      - ALERT_INTERVAL_MINUTES=${ALERT_INTERVAL_MINUTES:-5}
+      - SMTP_SERVER=${SMTP_SERVER:-}
+      - SMTP_PORT=${SMTP_PORT:-}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     volumes:
       - ./website/data_files:/app/website/data_files
       - ./scheduler_logs:/app/scheduler_logs
+    healthcheck:
+      disable: true
 
 volumes:
   postgres_data:

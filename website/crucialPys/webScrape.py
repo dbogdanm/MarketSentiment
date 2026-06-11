@@ -1,10 +1,20 @@
-import json
-import time
-import os
+"""Aggregates financial news from RSS feeds and Yahoo Finance and fetches
+the current VIX value, writing the combined result to a JSON file consumed
+by the analysis step of the pipeline."""
+
 import html
+import json
+import logging
+import os
 import re
-import sys
-from datetime import datetime, timezone, timedelta
+import time
+from datetime import datetime, timezone
+
+logging.basicConfig(
+    level=os.environ.get("LOG_LEVEL", "INFO"),
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+)
+logger = logging.getLogger("webScrape")
 
 try:
     import feedparser
@@ -30,7 +40,7 @@ try:
 except ImportError:
     REQUESTS_AVAILABLE = False
 
-# EXPANDED RSS FEEDS (NO API KEY REQUIRED)
+# RSS feeds that work without API keys.
 ALL_RSS_FEEDS = [
     ('Google News Finance', 'https://news.google.com/rss/search?q=finance+stock+market+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen'),
     ('Yahoo Finance Market News', 'https://finance.yahoo.com/news/rssindex'),
@@ -58,6 +68,29 @@ MAX_RETRIES = 3
 RETRY_DELAY = 2
 REQUEST_TIMEOUT = 15
 
+BROWSER_USER_AGENT = (
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+    '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+)
+
+
+def fetch_url_with_retry(url, headers=None):
+    """Fetch a URL, retrying up to MAX_RETRIES times. Returns the raw
+    response body, or None when every attempt failed."""
+    if not REQUESTS_AVAILABLE:
+        return None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            response = requests.get(url, headers=headers, timeout=REQUEST_TIMEOUT)
+            response.raise_for_status()
+            return response.content
+        except requests.exceptions.RequestException as error:
+            logger.warning("Attempt %s/%s failed for %s: %s", attempt, MAX_RETRIES, url, error)
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_DELAY)
+    return None
+
+
 def clean_html_summary(summary_html):
     if not summary_html or not isinstance(summary_html, str):
         return "N/A"
@@ -74,37 +107,64 @@ def clean_html_summary(summary_html):
         summary_text = ' '.join(summary_text.split())
     return html.unescape(summary_text).strip()
 
+
 def format_timestamp(date_input):
-    if not date_input: return None
+    """Normalize a timestamp (epoch seconds/millis, common string formats,
+    or struct_time) to an ISO-8601 UTC string like 2023-01-01T12:30:00Z."""
+    if not date_input:
+        return None
     dt_utc = None
     if isinstance(date_input, (int, float)):
         try:
             ts = float(date_input)
-            if ts > 1e11: ts /= 1000.0
+            if ts > 1e11:
+                ts /= 1000.0
             dt_utc = datetime.fromtimestamp(ts, tz=timezone.utc)
-        except Exception: return None
+        except (ValueError, OverflowError, OSError):
+            return None
     elif isinstance(date_input, str):
         formats = ['%Y-%m-%dT%H:%M:%S%z', '%Y-%m-%dT%H:%M:%SZ', '%a, %d %b %Y %H:%M:%S %z', '%Y-%m-%d %H:%M:%S']
         for fmt in formats:
             try:
-                dt_utc = datetime.strptime(date_input, fmt).astimezone(timezone.utc)
+                parsed = datetime.strptime(date_input, fmt)
+                # Naive timestamps from feeds are documented as UTC; converting
+                # via astimezone() would wrongly apply the local timezone.
+                if parsed.tzinfo is None:
+                    dt_utc = parsed.replace(tzinfo=timezone.utc)
+                else:
+                    dt_utc = parsed.astimezone(timezone.utc)
                 break
-            except Exception: continue
+            except ValueError:
+                continue
     elif isinstance(date_input, time.struct_time):
         dt_utc = datetime(*date_input[:6], tzinfo=timezone.utc)
-    
+
     return dt_utc.isoformat(timespec='seconds').replace('+00:00', 'Z') if dt_utc else None
 
+
+def format_timestamp_from_parsed(parsed_struct_time):
+    """Convert a feedparser struct_time (already UTC) to an ISO-8601 string."""
+    if not parsed_struct_time:
+        return None
+    return format_timestamp(parsed_struct_time)
+
+
 def get_rss_news():
-    if not FEEDPARSER_AVAILABLE or not REQUESTS_AVAILABLE: return []
+    if not FEEDPARSER_AVAILABLE or not REQUESTS_AVAILABLE:
+        logger.warning("feedparser/requests not available; skipping RSS news.")
+        return []
     all_news, processed_links = [], set()
     for source_name, url in ALL_RSS_FEEDS:
+        content = fetch_url_with_retry(url, headers={'User-Agent': BROWSER_USER_AGENT})
+        if content is None:
+            logger.warning("Could not fetch RSS feed %s (%s)", source_name, url)
+            continue
         try:
-            response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=REQUEST_TIMEOUT)
-            feed = feedparser.parse(response.content)
+            feed = feedparser.parse(content)
             count = 0
             for entry in feed.entries:
-                if count >= MAX_ARTICLES_PER_FEED: break
+                if count >= MAX_ARTICLES_PER_FEED:
+                    break
                 link = entry.get('link')
                 if link and link not in processed_links:
                     processed_links.add(link)
@@ -116,32 +176,61 @@ def get_rss_news():
                         'source_name': f"RSS ({source_name})"
                     })
                     count += 1
-        except Exception: continue
+            logger.info("Fetched %s articles from %s", count, source_name)
+        except Exception:
+            logger.exception("Failed to parse RSS feed %s", source_name)
     return all_news
 
+
+def _normalize_yfinance_item(news_item):
+    """Map a yfinance news item to our article schema. Handles both the
+    legacy flat format (link/providerPublishTime) and the newer nested
+    'content' format (canonicalUrl/pubDate)."""
+    content = news_item.get('content')
+    if isinstance(content, dict):
+        link = (content.get('canonicalUrl') or {}).get('url') or (content.get('clickThroughUrl') or {}).get('url')
+        title = content.get('title', 'N/A')
+        publisher = (content.get('provider') or {}).get('displayName', 'N/A')
+        published = content.get('pubDate')
+    else:
+        link = news_item.get('link')
+        title = news_item.get('title', 'N/A')
+        publisher = news_item.get('publisher', 'N/A')
+        published = news_item.get('providerPublishTime')
+
+    if not link:
+        return None
+    return {
+        'title': clean_html_summary(title),
+        'url': link,
+        'summary': f"Publisher: {publisher}",
+        'timestamp': format_timestamp(published),
+        'source_name': 'Yahoo Finance'
+    }
+
+
 def get_yfinance_news(tickers):
-    if not YFINANCE_AVAILABLE: return []
+    if not YFINANCE_AVAILABLE:
+        logger.warning("yfinance not available; skipping Yahoo Finance news.")
+        return []
     all_news, processed_links = [], set()
     for ticker_symbol in tickers:
         try:
             ticker = yf.Ticker(ticker_symbol)
-            news_list = ticker.news
+            news_list = ticker.news or []
             count = 0
             for news_item in news_list:
-                if count >= MAX_ARTICLES_PER_TICKER: break
-                link = news_item.get('link')
-                if link and link not in processed_links:
-                    processed_links.add(link)
-                    all_news.append({
-                        'title': clean_html_summary(news_item.get('title', 'N/A')),
-                        'url': link,
-                        'summary': f"Publisher: {news_item.get('publisher', 'N/A')}",
-                        'timestamp': format_timestamp(news_item.get('providerPublishTime')),
-                        'source_name': 'Yahoo Finance'
-                    })
+                if count >= MAX_ARTICLES_PER_TICKER:
+                    break
+                article = _normalize_yfinance_item(news_item)
+                if article and article['url'] not in processed_links:
+                    processed_links.add(article['url'])
+                    all_news.append(article)
                     count += 1
-        except Exception: continue
+        except Exception as error:
+            logger.warning("Failed to fetch Yahoo Finance news for %s: %s", ticker_symbol, error)
     return all_news
+
 
 def get_vix_value():
     # 1. Try yfinance primary method
@@ -151,23 +240,24 @@ def get_vix_value():
             hist = ticker.history(period="5d", timeout=5)
             if not hist.empty:
                 return float(hist['Close'].iloc[-1])
-        except Exception: pass
-        
+        except Exception as error:
+            logger.warning("yfinance history lookup for VIX failed: %s", error)
+
         # 2. Try yfinance fast_info
         try:
             ticker = yf.Ticker("^VIX")
             if hasattr(ticker, 'fast_info'):
                 val = ticker.fast_info.get('last_price')
-                if val: return float(val)
-        except Exception: pass
+                if val:
+                    return float(val)
+        except Exception as error:
+            logger.warning("yfinance fast_info lookup for VIX failed: %s", error)
 
-    # 3. Final Fallback: Try CNBC public quote API (very reliable for indices)
+    # 3. Fallback: CNBC public quote API
     if REQUESTS_AVAILABLE:
         try:
-            # CNBC public API endpoint for indices
             url = "https://quote.cnbc.com/quote-html-webservice/quote.htm?symbols=.VIX&output=json&noform=1&partnerId=2"
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers={'User-Agent': BROWSER_USER_AGENT}, timeout=10)
             if response.status_code == 200:
                 data = response.json()
                 root = data.get('QuickQuoteResult') or data.get('ExtendedQuoteResult')
@@ -183,32 +273,35 @@ def get_vix_value():
                             price = quickquote[0].get('last')
                         elif isinstance(quickquote, dict):
                             price = quickquote.get('last')
-                    
+
                     if price:
                         return float(price)
-        except Exception: pass
+        except Exception as error:
+            logger.warning("CNBC VIX fallback failed: %s", error)
 
-    # 4. Emergency Fallback: Stooq
+    # 4. Emergency fallback: Stooq
     if REQUESTS_AVAILABLE:
         try:
             url = "https://stooq.com/q/l/?s=%5evix&f=sd2t2ohlcv&h&e=csv"
-            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers={'User-Agent': BROWSER_USER_AGENT}, timeout=10)
             if response.status_code == 200:
                 lines = response.text.strip().split('\n')
                 if len(lines) > 1:
                     data = lines[1].split(',')
                     if len(data) >= 7 and data[6] != 'N/D':
                         return float(data[6])
-        except Exception: pass
-        
+        except Exception as error:
+            logger.warning("Stooq VIX fallback failed: %s", error)
+
+    logger.error("All VIX data sources failed; VIX will be reported as unavailable.")
     return None
 
-if __name__ == "__main__":
-    print("Scraping live news (no API keys required)...")
+
+def main():
+    logger.info("Scraping live news (no API keys required)...")
     master_news_list = get_rss_news() + get_yfinance_news(YAHOO_TICKERS)
     vix = get_vix_value()
-    
+
     unique_news = []
     seen_urls = set()
     for item in master_news_list:
@@ -216,16 +309,26 @@ if __name__ == "__main__":
         if url and url not in seen_urls:
             unique_news.append(item)
             seen_urls.add(url)
-    
+
     unique_news.sort(key=lambda x: x['timestamp'] or '', reverse=True)
-    if len(unique_news) > MAX_TOTAL_ARTICLES: unique_news = unique_news[:MAX_TOTAL_ARTICLES]
+    if len(unique_news) > MAX_TOTAL_ARTICLES:
+        unique_news = unique_news[:MAX_TOTAL_ARTICLES]
 
     output_data = {
-        "vix_data": { "vix": vix, "timestamp_utc": datetime.now(timezone.utc).isoformat() + 'Z' },
+        "vix_data": {
+            "vix": vix,
+            "timestamp_utc": datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z'),
+        },
         "articles": unique_news
     }
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with open(os.path.join(OUTPUT_DIR, OUTPUT_FILENAME), 'w', encoding='utf-8') as f:
+    output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILENAME)
+    with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
-    print(f"Success! {len(unique_news)} articles scraped.")
+    logger.info("Saved %s articles (VIX=%s) to %s", len(unique_news), vix, output_path)
+    return len(unique_news)
+
+
+if __name__ == "__main__":
+    main()
